@@ -46,6 +46,21 @@ html body{
     height: 6rem;     
 }
 
+p.text-center.fp-logo{
+    font-size: 3rem;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+.bg-1{    
+    color: #FEB03C;
+}
+
+.bg-2{
+    color: #9E6E28;
+}
+
 /* ESTILO PARA MEDIDAS DE LOGO AUXILIAR */
 .logo-auxiliar{
     width: 100%;
