@@ -1,0 +1,124 @@
+<!-- Link hacia estilos css -->
+<!-- <link rel="stylesheet" href="./Assets/css/BarraNavegacion.min.css"> -->
+<link rel="stylesheet" href="./Assets/css/Principal_cliente.css">
+
+<!-- Link hacia MDBOOTSTRAP -->
+<link rel="stylesheet" href="./Plugins/css/MdBootstrap/mdb.min.css">
+
+
+<!-- CONTENEDOR DE LOS PASOS A REALIZAR PARA HACER UN PEDIDO -->
+<div class="container-fluid">
+    <!-- Vertical Steppers -->
+    <div class="row">
+
+        <div class="col-md-12 pr-0 pl-0">
+
+            <!-- CONTENEDOR DE LOS PASOS PARA REALIZAR PARA UN PEDIDO -->
+            <ul class="stepper p-0 stepper-vertical">
+
+                <!-- CONTENEDOR DEL PRIMER PASO -->
+                <li id='paso_uno' class="step active overflow-auto">
+
+                    <a id="paso_uno_link" class="pt-0">
+                        <span class="circle">1</span>
+                        <span class="label">Selecciona en donde comprarás</span>
+                    </a>
+
+                    <!-- CONTENEDOR DE LAS TARJETAS CON LOS LOCALES -->
+                    <div id='tarjetas-locales' class="step-content lighten-3 p-0 pb-3">
+                        
+                        <!-- ... -->
+
+                    </div>
+                    <!--FIN DEL CONTENEDOR DE LAS TARJETAS CON LOS LOCALES -->
+
+                </li>
+                <!-- CONTENEDOR DEL PRIMER PASO -->
+
+                <!-- CONTENEDOR DEL SEGUNDO PASO -->
+                <li id='paso_dos' class="step done overflow-auto">
+
+                    <!--Section Title -->
+                    <a href="#!">
+                        <span class="circle">2</span>
+                        <span class="label">Selecciona el platillo de tu preferencia.</span>
+                    </a>
+
+                    <!-- CONTENEDOR DE LAS TARJETAS DE COMIDAS -->
+                    <div id='tarjetas-comidas' class="step-content lighten-3 d-none p-0 pb-3 ml-2">                       
+                        
+                        <!-- ... -->
+
+                    </div>
+                    <!-- CONTENEDOR DE LAS TARJETAS DE COMIDAS -->
+
+                </li>
+                <!-- CONTENEDOR DEL SEGUNDO PASO -->
+
+                <!-- CONTENEDOR DEL TERCER PASO -->
+                <li class="step">
+
+                    <a href="#!">
+                        <span class="circle"><i class="fas fa-exclamation"></i></span>
+                        <span class="label">Third step</span>
+                    </a>
+
+                    <!-- Section Description -->
+                    <div style="height: 0px; overflow: hidden; padding:0px;" class="step-content grey lighten-3">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse cupiditate voluptate
+                            facere
+                            iusto
+                            quaerat
+                            vitae excepturi, accusantium ut aliquam repellat atque nesciunt nostrum similique.
+                            Inventore
+                            nostrum
+                            ut,
+                            nobis porro sapiente.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore error excepturi veniam
+                            nemo
+                            repellendus, distinctio soluta vitae at sit saepe. Optio eaque quia excepturi adipisci
+                            pariatur
+                            totam,
+                            atque odit fugiat.</p>
+                        <p>Deserunt voluptatem illum quae nisi soluta eum perferendis nesciunt asperiores tempore
+                            saepe
+                            reiciendis,
+                            vero quod a dolor corporis natus qui magni quas fuga rem excepturi laboriosam. Quisquam
+                            expedita ab
+                            fugiat.</p>
+                    </div>
+
+                </li>
+                <!-- CONTENEDOR DEL TERCER PASO -->
+
+            </ul>
+            <!-- CONTENEDOR DE LOS PASOS PARA REALIZAR PARA UN PEDIDO -->
+
+        </div>
+    </div>
+
+</div>
+<!-- CONTENEDOR DE LOS PASOS A REALIZAR PARA HACER UN PEDIDO -->
+
+<!-- <button id="boton"> hola</button>
+
+<div id="parrafo" style="border:1px solid; width:300px;height:250px; overflow:auto">
+	Este es el texto del párrafo palabras unidas ParaGenerarScrollHorizontalYVerticalParaEstaDemoDeEjemplo. Este es el texto del párrafo palabras unidas ParaGenerarScrollHorizontalYVerticalParaEstaDemoDeEjemplo. Este es el texto del párrafo palabras unidas ParaGenerarScrollHorizontalYVerticalParaEstaDemoDeEjemplo. Este es el texto del párrafo palabras unidas ParaGenerarScrollHorizontalYVerticalParaEstaDemoDeEjemplo. Este es el texto del párrafo palabras unidas ParaGenerarScrollHorizontalYVerticalParaEstaDemoDeEjemplo. Este es el texto del párrafo palabras unidas ParaGenerarScrollHorizontalYVerticalParaEstaDemoDeEjemplo. 
+</div>
+
+<script>
+$("#boton").click(function(){
+    $("#parrafo").scrollTop(50)
+}); -->
+</script>
+
+<!-- SCRIPTS DE FUNCIONALIDADES (BOOTSTRAP 4) -->
+<script src="./Plugins/js/Bootstrap/popper.min.js"></script>
+<script src="./Plugins/js/Bootstrap/bootstrap.min.js"></script>
+
+
+<!-- SCRIPT DE FUNCIONALIDADES DE MDBOOTSTRAP -->
+<script src="./Plugins/js/MdBootstrap/mdb.min.js"></script>
+
+<!-- <script src="./Assets/js/efectos_principalCliente.js"></script> -->
+<script src="./Controladores/c_comidas.js"></script>

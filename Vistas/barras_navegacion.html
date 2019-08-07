@@ -1,0 +1,93 @@
+<link rel="stylesheet" href="Assets/css/BarraNavegacion.min.css">
+
+<!-- BARRA DE NAVEGACION LATERAL -->
+<nav id="sidebar">
+
+        <!-- CABECERA DEL SIDEBAR -->
+        <div class="sidebar-header">
+    
+            <img class="mr-2 pt-2" src="./Assets/img/logos/Logo ya.png" alt="FP">
+            <!-- <span>Food Pedidos</span> -->
+    
+            <button id="cerrar_sidebar" class="btn btn-link btn-sm">
+                <i class="far fa-arrow-left"></i>
+            </button>
+    
+        </div>
+        <!-- FIN DE LA CABECERA DEL SIDEBAR -->
+    
+        <!-- CONTENEDOR PRINCIPAL DEL SIDEBAR -->
+        <div class="contenedor-principal-sidebar pb-5">
+    
+            <!-- CONTENEDOR DE LOS DATOS PERSONALES DEL USUARIO -->
+            <div class="sidebar-user">
+    
+                <!-- NOMBRE -->
+                <h5 id="nombre_usuario" class="text-center">
+                    <div class="btn-group">
+                        <button id="perfil" type="button" class="btn btn-warning btn-sm"> </button>
+                        <button type="button" class="btn btn-warning btn-sm dropdown-toggle dropdown-toggle-split"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="sr-only">Usuario</span>
+                        </button>
+                        <div class="dropdown-menu">                            
+                                <a id="pedidos" class="dropdown-item clearfix pl-3 pr-3 pt-1">
+                                    <font class="float-left">Pedidos</font>
+                                    <i class="fal fa-ballot float-right font-food"></i>
+                                </a>                            
+                                <hr id="hr-pedidos">
+                                <a id="comidas" class="dropdown-item clearfix pl-3 pr-3">
+                                    <font class="float-left">Comida</font>
+                                    <i class="fal fa-burrito float-right font-food"></i>
+                                </a>                            
+                                <hr id="hr-comidas">
+                                <a id="favoritos" class="dropdown-item clearfix pl-3 pr-3">
+                                    <font class="float-left">Favoritos</font>
+                                    <i class="fal fa-book-heart float-right font-food"></i>
+                                </a>      
+                                <hr id="hr-favoritos">
+                                <a id="signout" class="dropdown-item clearfix pl-3 pr-3" title="Cerrar sesión">
+                                    <font class="float-left">Salir</font>
+                                    <i class="fas fa-sign-out-alt float-right font-food"></i>
+                                </a>                                    
+                        </div>
+                    </div>
+                </h5>
+    
+                <!-- NOMBRE DE LA EMPRESA -->
+                <p id="correo_usuario" class="text-center"></p>
+    
+                <!-- FOTO DE PERFIL DEL USUARIO -->
+                <div class="container-fluid d-flex justify-content-center">
+    
+                    <img class="img-thumbnail" id="foto_usuario" src="./Assets/img/sin_foto_perfil.png"
+                        alt="Foto de perfil del usuario">
+    
+                </div>
+                <!-- FIN DE LA FOTO DE PERFIL DEL USUARIO -->
+
+                <!-- CONTENEDOR INFERIOR DE LA BARRA DE NAVEGACION -->                
+                <div class="bg-dark">
+                    <div class="row">
+                        <div class="col-6 d-flex justify-content-center">
+                            <button>Mis Ingredientes</button>
+                        </div>
+                        <div class="col-6 d-flex justify-content-center">
+                            <button>Mis platillos</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- FIN DE CONTENEDOR INFERIOR DE LA BARRA DE NAVEGACION -->
+    
+            </div>
+            <!-- FIN DEL CONTENEDOR DE LOS DATOS PERSONALES DEL USUARIO -->
+    
+        </div>
+        <!-- FIN DEL CONTENEDOR PRINCIPAL DEL SIDEBAR -->
+    
+    </nav>
+    <!-- BARRA DE NAVEGACION LATERAL -->
+
+    <script rel="script" src="./Controladores/barras_navegacion.js"></script>
+
+    

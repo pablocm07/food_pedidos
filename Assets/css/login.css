@@ -1,0 +1,114 @@
+                                    /*------------------------------------ 
+                                        ESTILOS PARA EL INDEX O LOGIN
+                                    ------------------------------------*/
+
+/* ----------------------------- 
+    ESTILOS GENERALES                                                                
+ -----------------------------*/
+:root {
+    --primary-bg-color: #142735;    
+    --secondary-bg-color: #6D8091;
+    --third-bg-color: #122533;
+}
+
+html body{    
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;        
+}
+
+.contenedor-principal{        
+    width: 90%;
+    height: auto;
+    margin: auto;    
+    padding: 0.9rem;
+    background-color: #ffffff;
+    border-radius: 8px; 
+    -webkit-box-shadow: 9px 12px 37px 5px rgba(0,0,0,0.47);
+    -moz-box-shadow: 9px 12px 37px 5px rgba(0,0,0,0.47);
+    box-shadow: 9px 12px 37px 5px rgba(0,0,0,0.47);
+}
+/* ----------------------------- 
+    ESTILOS GENERALES                                                                
+ -----------------------------*/
+
+
+/* ------------------------------------------------
+            ESTILOS DEL FORMULARIO DE LOGIN                                                                
+ --------------------------------------------------*/
+
+/* ESTILO PARA LAS MEDIDAS DEL LOGOTIPO DEL SISTEMA */
+.header img.logo{
+    display: block;    
+    margin: auto;
+    width: 9rem;
+    height: 6rem;     
+}
+
+/* ESTILO PARA MEDIDAS DE LOGO AUXILIAR */
+.logo-auxiliar{
+    width: 100%;
+}
+
+a#contrasenia_olvidada{
+    font-size: 12.8px;
+    color: #6c757d;
+    text-decoration: none;
+}
+a#contrasenia_olvidada:hover{
+    cursor: hand;
+    color: #FB0900;
+}
+
+/* ------------------------------------------------ 
+    FIN DE LOS ESTILOS DEL FORMULARIO DE LOGIN                                                                
+ --------------------------------------------------*/
+
+
+                                                    /* ------------------------------------------------                                                     
+                                                                    ESTILOS PARA EL CAROUSEL
+                                                    --------------------------------------------------*/
+img.img-slider-login{    
+    width: 100%;
+    height: 400px;
+}
+
+#carousel-login{
+    width: 100%;
+    height: 100%;
+}
+
+ol.carousel-indicators li{
+    background: #000000;
+}
+
+ol.carousel-indicators li.active{
+    background: #adb5bb;
+}
+
+/* ESTILO PARA LOS CONTROLES DE ANTERIOR */
+span.carousel-control-prev-icon{
+    background-color: black;
+    border-radius: 5px;
+    height: 5%;
+}
+
+/* ESTILO PARA LOS CONTROLES DE SIGUIENTE */
+span.carousel-control-next-icon{
+    background-color: black;
+    border-radius: 5px;
+    height: 5%;
+}
+
+.carousel-caption{
+    background-color: #91959734;
+}
+
+.carousel-inner{
+    height: 100%;
+}
+
+                                                    /* ------------------------------------------------ 
+                                                        FIN DE LOS ESTILOS PARA EL CAROUSEL DE LOGIN                                                                
+                                                    --------------------------------------------------*/

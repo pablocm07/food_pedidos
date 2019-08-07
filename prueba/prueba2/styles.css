@@ -1,0 +1,156 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body { height: 100%; overflow: hidden;}
+
+#fondo{
+    z-index:-1;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    background: black;
+    top: -125px;
+    left: 0px;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.lados{
+    flex: 0 0 8.333333%;
+    max-width: 8.333333%;
+}
+
+.centro{
+    flex: 0 0 83.333333%;
+    max-width: 83.333333%;
+}
+
+.title{
+    font-family: monospace;
+    font-size: 15px;
+}
+
+#techo-top{
+    z-index:1; position: relative; display: flex;    
+}
+
+#techo-bottom{
+    z-index:1;    
+    position: relative;
+    top: -35px;
+    display: flex;
+    background-color: rgba(255, 0, 0, 0);
+}
+
+.tt-col{
+    flex: 0 0 9.085%;    
+}
+
+.tt-col-w{
+    height: 70px;
+    flex: 0 0 9.085%;
+}
+
+.tb-col{    
+    flex: 0 0 9.085%;
+    border-bottom: 4px solid #FACC2E;
+    color: #FACC2E;
+}
+
+.tb-col-w{
+    height: 50px;
+    flex: 0 0 9.085%;
+    border-bottom: 4px solid #FACC2E;
+    color: #ffffff;
+}
+
+.columnas{
+    width: 9.085%;
+    background: #FACC2E;    
+}
+
+.columnas2{    
+    background: #FACC2E;
+    border-radius: 50%!important;
+    display: flex!important;
+    justify-content: center!important;
+    align-items: flex-end!important;
+}
+
+.lados{
+    flex: 0 0 6%;
+    max-width: 6%;
+}
+
+.centro{
+    flex: 0 0 88%;
+    max-width: 88%;
+}
+.lados, .centro{
+    height: 100%;
+}
+
+
+/* Clases  */
+.bg-food{
+    background: #FACC2E;
+}
+
+.barra-nav{    
+    z-index: 5;
+    position: absolute;
+    height: 150px;
+    width: 100%;
+    /* background: rgba(81, 170, 197, 0.212);             */
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 52%;
+}
+
+.boton-menu, .logo {
+    float: left;
+    margin: auto;
+    width: 33.33%;    
+    padding: 5px;
+}
+
+.logo{
+    margin: auto;
+}
+
+/* Tablet Styles */
+@media only screen and (min-width: 541px) {
+    .tb-col-w{
+        height: 75px;
+    }
+    .tt-col-w{
+        height: 90px;
+    }  
+    .title{
+        font-size: 20px;
+    }  
+}
+
+  /* Desktop Styles */
+@media only screen and (min-width: 961px) {
+    .tb-col-w{
+        height: 120px;
+    }
+    .tt-col-w{
+        height: 140px;
+    }  
+    .title{
+        font-size: 25px;
+    }  
+    #techo-bottom{
+        top: -55px;
+    }
+}

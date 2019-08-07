@@ -1,0 +1,53 @@
+<div class="modal fade bd-example-modal-lg" id="modal-form" tabindex="-1" role="dialog" aria-hidden="true">    
+
+    <div class="modal-dialog  modal-dialog-centered" role="document">
+      
+        <div class="modal-content">
+            
+            <div class="modal-header bg-warning">
+                <h5 class="modal-title" id="modal-titulo"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+      
+            <div id="modal-cuerpo" class="modal-body">
+              
+            </div>            
+            
+            <div class="modal-footer">
+
+                <div id="div-btn-cancelar" class="col-4 d-flex flex-row d-none">                    
+                    <div class="p-1">
+                        <button id="btn-cancelar" type="button" class="btn btn-outline-danger btn-lg" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </div>
+
+                <div id="div-btn-anterior" class="d-none">
+                    <div class="p-1">
+                        <button id="btn-anterior" type="button" class="btn btn-outline-warning btn-lg">Anterior</button>
+                    </div>
+                </div>
+
+                <div class="col-4 d-flex flex-row">
+                    <div class="p-1">
+                        <button type="button" class="btn btn-outline-primary">
+                            Paso <span id="ventana-pos" class="badge badge-light">1</span> de 
+                                <span id="ventana-total" class="badge badge-light">2</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="div-btn-siguiente" class="col-4 d-flex flex-row-reverse d-none">                    
+                    <div class="p-1">
+                        <button id="btn-siguiente" type="button" class="btn btn-outline-warning btn-lg">Siguiente</button>
+                    </div>
+                </div>                      
+                
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
