@@ -66,7 +66,8 @@
         <!-- HEADER CON CONTENIDO DEL FORMULARIO -->
     
         <form id="form-login" class="form-row mt-3 pt-2">
-    
+            
+            <!-- CONTENEDOR DEL  -->
             <div class="form-group col-12 mb-0">
     
                 <label htmlFor="correo">Correo electrónico</label>
@@ -90,19 +91,23 @@
                 </div>
     
             </div>
+            
+            <!-- <div class="form-group"> -->
+                
+                <div class="form-group col-12 custom-control custom-checkbox mt-3 ml-4">
+                    <input type="checkbox" class="custom-control-input" id="no_cerrar_sesion">
+                    <label class="custom-control-label" for="no_cerrar_sesion ">No cerrar sesión</label>
+                </div>
+                
+            <!-- </div> -->
+
+            <div class="d-flex justify-content-around w-100 p-3">
     
-            <div class="custom-control custom-checkbox mt-3 ml-2">
-                <input type="checkbox" class="custom-control-input" id="no_cerrar_sesion">
-                <label class="custom-control-label" for="no_cerrar_sesion ">No cerrar sesión</label>
-            </div>
-    
-            <div class="row form-group col-12">
-    
-                <button id="iniciar" type="button" class="btn btn-md btn-outline-primary mt-3 col-5">
+                <button id="iniciar" type="button" class="btn btn-md btn-outline-warning col-5">
                     Iniciar Sesión <i class="far fa-sign-in-alt"></i>
                 </button>
     
-                <button id="registrar" type="button" class="btn btn-md btn-outline-secondary mt-3 col-5" id="registrarse">
+                <button id="registrar" type="button" class="btn btn-md btn-outline-info col-5" id="registrarse">
                     Registrarse <i class="far fa-user-check"></i>
                 </button>
     

@@ -22,15 +22,15 @@ class Querys{
 
     /** () según el total de parametros, retornar signos de interrogacion concatenados y separados por una ','
      * 
-     * >> t_parametros: El valor total de los parametros - [Int]
+     * >> total_parametros: El valor total de los parametros - [Int]
      * @@ signos: signos de interrogación concatenados, ejemplo: ?,?,?,... - [String]
     */
-    public function calcularNumSignos($t_parametros){
+    public function calcularNumSignos($total_parametros){
         $signos = "";
         /** {} Para recorrer el total de parametros. 
          * Por cada parametro, sera concatenado un ? en la variable $signos
         */
-        for ($num=0; $num < $t_parametros; $num++) { 
+        for ($num=0; $num < $total_parametros; $num++) { 
             $signos .= '?,';
         }
 

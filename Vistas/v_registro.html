@@ -1,88 +1,130 @@
+<link rel="stylesheet" href="./Plugins/css/MdBootstrap/mdb.min.css">
+
+<!-- CONTENEDOR DE LOS PASOS A REALIZAR -->
+<div class="row">
+    <div class="col-md-12">
+
+        <!-- CONTENEDOR DE LOS PASOS A REALIZAR -->
+        <ul class="pl-0 m-0 stepper stepper-horizontal">
+            
+            <li class="completed">
+                <a href="#!">
+                    <span class="circle">1</span>
+                    <span class="label">Datos Personales</span>
+                </a>
+            </li>
+
+            <!-- Second Step -->
+            <li class="">
+                <a id="btn-siguiente" href="#!">
+                    <span class="circle">2</span>
+                    <span class="label">Datos de Sesión</span>
+                </a>
+            </li>
+
+        </ul> 
+        <!-- CONTENEDOR DE LOS PASOS A REALIZAR -->
+
+    </div>
+</div>
+<!-- /.CONTENEDOR DE LOS PASOS A REALIZAR -->
+
 <form id="form-registro">
 
-<h6 id="subtitulo" class="text-center">Datos personales</h6>
-<hr class="bg-warning">
+    <div id="parte-1" class="row pr-3 pl-3">
 
-<div id="parte-1" class="row pr-3 pl-3">
+        <!-- NOMBRE -->
+        <div class="form-group col-12 col-sm-12 col-md-6 col-lg-6">
 
-    <div class="form-group col-12 col-sm-12 col-md-6 col-lg-6">
+            <label for="nombre" class="col-form-label">Nombre</label>
+            <input class="form-control" type="text" id="nombre" placeholder="Ej. Juan" auotofocus required>
 
-        <label for="nombre" class="col-form-label">Nombre:</label>
-        <input class="form-control" type="text" id="nombre" placeholder="Jacinto Gil" auotofocus required>
+            <div class="invalid-feedback">
+                Se requiere un nombre
+            </div>
 
-        <div class="invalid-feedback">
-            * El nombre es obligatorio *
         </div>
+        <!-- NOMBRE -->
 
-    </div>  
+        <!-- APELLIDO -->
+        <div class="form-group col-12 col-sm-12 col-md-6 col-lg-6">
 
-    <div class="form-group col-12 col-sm-12 col-md-6 col-lg-6">
+            <label for="apellido" class="col-form-label">Apellido</label>
+            <input class="form-control" type="text" id="apellido" placeholder="Ej. Perez" required>
 
-        <label for="apellido" class="col-form-label">Apellido:</label>
-        <input class="form-control" type="text" id="apellido" placeholder="Cruz Perez" required>
+            <div class="invalid-feedback">
+                Se requiere un apellido
+            </div>
 
-        <div class="invalid-feedback">
-            * El apellido es obligatorio *
         </div>
+        <!-- APELLIDO -->
 
-    </div>  
+        <!-- CORREO ELECTRONICO -->
+        <div class="form-group col-12 col-sm-12 col-md-7 col-lg-7">
 
-    <div class="form-group col-12 col-sm-12 col-md-7 col-lg-7">
+            <label for="email" class="col-form-label">Correo Electrónico</label>
+            <input class="form-control" type="email" id="email" placeholder="Ej. juan.perez@gmail.com" required>
 
-        <label for="email" class="col-form-label">Correo electrónico:</label>
-        <input class="form-control" type="email" id="email" placeholder="jacinto.perez19@gmail.com" required>
+            <div class="invalid-feedback">
+                Correo electrónico inválido
+            </div>
 
-        <div class="invalid-feedback">
-            * Debe ser un correo electrónico válido *
         </div>
+        <!-- CORREO ELECTRONICO -->
 
-    </div>  
+        <!-- NUMERO TELEFONICO -->
+        <div class="form-group col-12 col-sm-12 col-md-5 col-lg-5">
 
-    <div class="form-group col-12 col-sm-12 col-md-5 col-lg-5">
+            <label for="numero-telefono" class="col-form-label">No. Telefónico</label>
+            <input class="form-control" type="tel" id="numero-telefono" placeholder="Ej. 7753451237">
 
-        <label for="numero-telefono" class="col-form-label">No. Telefono:</label>
-        <input class="form-control" type="tel" id="numero-telefono" placeholder="7753451237">
+        </div>
+        <!-- NUMERO TELEFONICO -->
 
     </div>
 
-</div>
+    <div id='parte-2' class="d-none row pr-3 pl-3">
 
-<div id='parte-2' class="d-none row pr-3 pl-3">
-    
-    <div class="form-group col-12">
+        <!-- TIPO DE USUARIO -->
+        <div class="form-group col-12">
 
-        <label for="tipo-usuario" class="col-form-label">Tipo de usuario:</label>
-        <select class="form-control" id="tipo-usuario">
-            <option value="3">Consumidor</option>
-            <option value="2">Locatario</option>
-        </select>
+            <label for="tipo-usuario" class="col-form-label">Tipo de usuario</label>
+            <select class="form-control" id="tipo-usuario">
+                <option value="3">Consumidor</option>
+                <option value="2">Locatario</option>
+            </select>
 
-    </div>
-
-
-    <div class="form-group col-12 col-sm-6 col-md-6 col-lg-6">
-
-        <label for="contrasena-registro" class="col-form-label">Contraseña:</label>
-        <input type="password" class="form-control" id="contrasena-registro" required>
-
-        <div class="invalid-feedback">
-            * La contraseña es obligatoria *
         </div>
+        <!-- TIPO DE USUARIO -->
 
-    </div>
+        <!-- CONTRASEÑA 1 -->
+        <div class="form-group col-12 col-sm-6 col-md-6 col-lg-6">
 
-    <div class="form-group col-12 col-sm-6 col-md-6 col-lg-6">
+            <label for="contrasena-registro" class="col-form-label">Contraseña:</label>
+            <input type="password" class="form-control" id="contrasena-registro" required>
 
-        <label for="confirmar-contrasena" class="col-form-label">Confirmar ontraseña:</label>
-        <input type="password" class="form-control" id="confirmar-contrasena" required>
+            <div class="invalid-feedback">
+                * La contraseña es obligatoria *
+            </div>
 
-        <div class="invalid-feedback">
-            * Las contraseñas no son iguales *
         </div>
+        <!-- CONTRASEÑA 1 -->
+
+        <!-- CONTRASEÑA 2 -->
+        <div class="form-group col-12 col-sm-6 col-md-6 col-lg-6">
+
+            <label for="confirmar-contrasena" class="col-form-label">Confirmar ontraseña:</label>
+            <input type="password" class="form-control" id="confirmar-contrasena" required>
+
+            <div class="invalid-feedback">
+                * Las contraseñas no son iguales *
+            </div>
+
+        </div>
+        <!-- CONTRASEÑA 2 -->
 
     </div>
-
-</div>
 
 </form>
+
 <script rel="script" src="./Controladores/c_registro.js"></script>

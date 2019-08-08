@@ -21,8 +21,8 @@
      * @@ Boleano: Es verdadero si no esta vacio - [Boolean]
      * 
      */     
-    function validar(elemento) {
-        if ( elemento === "" ) {                    
+    function validar(texto_tecleado) {
+        if ( texto_tecleado === "" ) {                    
             return false;  // Esta vacio
         }else{            
             return true; // No esta vacio
@@ -31,14 +31,14 @@
 
     /** () para permitir unicamente numeros y letras cuando escriben en un input
      * 
-     * >> total: numero totsl de caracteres - 1 - [Int]
+     * >> total_caracteres: numero total de caracteres - 1 - [Int]
      * >> tecla: codigo ASCII de la tecla que fue presionada - [Int]
-     * >> max: numero maximo permitido de caracteres
+     * >> caracteres_permitidos: numero maximo permitido de caracteres
      * @@ Boleano: Retorna el valor Verdadero en caso de cumplir con las condiciones - [Boolean]
      * 
      * */    
-    function validarChar(total, tecla, max){     
-        if (total + 1 > max)   {
+    function validarChar(total_caracteres, tecla, caracteres_permitidos){     
+        if (total_caracteres + 1 > caracteres_permitidos)   {
             // console.log(total);
             return true;
         }
@@ -76,8 +76,9 @@
 
                 }else{
                     
-                    $('#correo').val('');
+                    // $('#correo').val('');
                     $('#contrasena').val('');
+                    $('#contrasena').focus();
                     
                     Swal.fire({
                         type: 'error',
@@ -100,7 +101,7 @@
      * 
      */                 
         $('#correo').keypress(function(tecla) {                   
-            if(validarChar(this.value.length, tecla, 70)) return false;
+            if (validarChar(this.value.length, tecla, 70)) return false;                        
         });
 
         $('#contrasena').keypress(function(tecla) {        
