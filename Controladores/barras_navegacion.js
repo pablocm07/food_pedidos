@@ -45,8 +45,7 @@
             confirmButtonText: 'Cerrar sesión!'
           }).then((result) => {
             if (result.value) {
-                var dominio = "http://localhost/food_pedidos/";
-                // SE MODIFICÓ EL DOMINIO CUANDO CIERRA SESIÓN
+                var dominio = "http://localhost/food_pedidos/";                                
                 let url_cerrar = './Modelos/m_login.php';                
                 cerrarSesion(url_cerrar);
                 setTimeout(() => {                
