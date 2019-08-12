@@ -45,7 +45,9 @@
             confirmButtonText: 'Cerrar sesión!'
           }).then((result) => {
             if (result.value) {
-                var dominio = "http://localhost/food_pedidos/";                                
+                // Aqui se obtiene el url actual, para recargar la pagina
+                var pathname = window.location.pathname;
+                var dominio = pathname;                                
                 let url_cerrar = './Modelos/m_login.php';                
                 cerrarSesion(url_cerrar);
                 setTimeout(() => {                

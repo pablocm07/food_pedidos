@@ -1,40 +1,123 @@
-<main role="main">
+<link rel="stylesheet" href="./Plugins/css/MdBootstrap/mdb.min.css">
 
-<!-- Main jumbotron for a primary marketing message or call to action -->
-<div class="jumbotron">
-  <div class="container">
-    <h1 class="display-3">Perfil</h1>
-    <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-    <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+<!-- Contenedor de la vista Perfil -->
+<div class="pl-5 pr-5" style="height: 550px;">
+  
+  <!-- Contenedor de imagen, link local, link terjeta -->
+  <div class="d-flex justify-content-between">
+
+    <div class="p-2">
+      <a title="Editar información del local">
+        <i class="fas fa-store" style="color: #FACC2E; font-size: 80px;"></i>        
+        <p>Mi Local</p>
+      </a>      
+    </div>        
+  
+    <!-- FOTO DE PERFIL DEL USUARIO -->
+    <div class="container-fluid d-flex justify-content-center">
+
+        <img class="img-thumbnail" id="foto-usuario-perfil" src="./Assets/img/sin_foto_perfil.png"
+            alt="Foto de perfil del usuario" style="height: 150px;">
+
+    </div>
+    <!-- FIN DE LA FOTO DE PERFIL DEL USUARIO -->
+
+    <div class="p-2">
+      <a>        
+        <i class="fas fa-credit-card" style="color: #FACC2E; font-size: 80px;"></i>
+        <p>Mi Tarjeta</p>
+      </a>
+    </div>
+
+  </div>  
+
+  <!-- FIn de contenedor de imagen, link local, link terjeta -->
+
+  <!-- Contenedor de la informacion del usuario -->
+  <form id="form-perfil-usuario">
+    
+    <div class="row">
+
+      <!-- NOMBRE -->
+      <div class="form-group col-12 col-sm-12 col-md-6 col-lg-6">
+
+          <label for="nombre-pefil" class="col-form-label">Nombre</label>
+          <input class="form-control" type="text" id="nombre-perfil" placeholder="Ingrese su nombre" auotofocus required>
+
+          <div class="invalid-feedback">
+              Se requiere un nombre
+          </div>
+
+      </div>
+      <!-- NOMBRE -->
+
+      <!-- APELLIDO -->
+      <div class="form-group col-12 col-sm-12 col-md-6 col-lg-6">
+
+          <label for="apellido-pefil" class="col-form-label">Apellido</label>
+          <input class="form-control" type="text" id="apellido-perfil" placeholder="Ej. Perez" required>
+
+          <div class="invalid-feedback">
+              Se requiere un apellido
+          </div>
+
+      </div>
+      <!-- APELLIDO -->
+
+      <!-- CORREO ELECTRONICO -->
+      <div class="form-group col-12 col-sm-12 col-md-7 col-lg-7">
+
+          <label for="email-pefil" class="col-form-label">Correo Electrónico</label>
+          <input class="form-control" type="email" id="email-perfil" placeholder="juan.perez@gmail.com" required>
+
+          <div class="invalid-feedback">
+              Correo electrónico inválido
+          </div>
+
+      </div>
+      <!-- CORREO ELECTRONICO -->
+
+      <!-- NUMERO TELEFONICO -->
+      <div class="form-group col-12 col-sm-12 col-md-5 col-lg-5">
+
+          <label for="numero-telefono-pefil" class="col-form-label">No. Telefónico</label>
+          <input class="form-control" type="text" id="numero-telefono-perfil" placeholder="7753451237">
+
+      </div>
+      <!-- NUMERO TELEFONICO -->
+
+      <!-- CONTRASEÑA -->
+      <div class="form-group col-12 col-sm-6 col-md-6 col-lg-6">
+        
+        <label for="contrasena-perfil" class="col-form-label">Contraseña:</label>
+        <div class="input-group mb-3">
+
+          <input type="password" class="form-control" id="contrasena-perfil" required readonly>
+          <div class="input-group-append">
+            <button class="btn btn-outline-info btn-md" id ="cambiar-contrasena" type="button" title="Cambiar la contraseña">
+              Cambiar
+              <i class="fas fa-lock-alt"></i>
+            </button>
+          </div>
+
+        </div>        
+
+        <div class="invalid-feedback">
+            * La contraseña es obligatoria *
+        </div>      
+
+      </div>
+      <!-- CONTRASEÑA -->
+
   </div>
+
+  </form>
+  <!-- Fin de contenedor de la informacion del usuario -->
+  <button type="button" id="guardar-datos-perfil" class="btn btn-success btn-lg btn-block" disabled>Guardar</button>
+  
 </div>
+<!-- Fin de contenedor de la vista Perfil -->
 
-<div class="container">
-  <!-- Example row of columns -->
-  <div class="row">
-    <div class="col-md-4">
-      <h2>Heading</h2>
-      <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-      <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-      <h2>Heading</h2>
-      <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-      <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-      <h2>Heading</h2>
-      <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-      <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-    </div>
-  </div>
+<input type="hidden" id="id-usuario">
 
-  <hr>
-
-</div> <!-- /container -->
-
-</main>
-
-<footer class="container">
-  <p>&copy; Company 2017-2018</p>
-</footer>
+<script rel="script" src="./Controladores/c_perfil.js"></script>

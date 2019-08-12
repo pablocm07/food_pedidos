@@ -5,13 +5,14 @@ $precio = (isset($_POST['precio'])) ? $_POST['precio'] : '';
 $tiempo_preparacion = (isset($_POST['tiempo_preparacion'])) ? $_POST['tiempo_preparacion'] : '';
 $cantidad = (isset($_POST['cantidad'])) ? $_POST['cantidad'] : '';
 $descripcion = (isset($_POST['descripcion'])) ? $_POST['descripcion'] : '';
+$ubicacion_imagen = (isset($_POST['ubicacion_imagen'])) ? $_POST['ubicacion_imagen'] : '';
 
 ?>
 
 <!-- CONTENEDOR DE LA IMAGEN PARA EL PLATILLO NUMERO 1 -->
-<div class="view view-cascade overlay">
-    <img id='imagen_platillo_1' class="card-img-top" src="./Assets/img/comida_4.jpg"
-        alt="La imagen puede contener un platillo, una figura o un logotipo.">
+<div class="view view-cascade">
+    <img id='imagen_platillo_1' class="card-img-top" src="<?php echo $ubicacion_imagen;?>" 
+        alt="La imagen puede contener un platillo, una figura o un logotipo." style="height:180px;">
 </div>
 <!-- CONTENEDOR DE LA IMAGEN PARA EL PLATILLO NUMERO 1 -->
 

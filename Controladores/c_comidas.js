@@ -52,7 +52,8 @@
                             precio: platillo.precio,
                             tiempo_preparacion: platillo.tiempo_preparacion,
                             cantidad: platillo.cantidad,
-                            descripcion: platillo.descripcion
+                            descripcion: platillo.descripcion,
+                            ubicacion_imagen: platillo.ubicacion_imagen
                         }                
                         let div = $("<div>");
                         div.addClass('card card-cascade narrower contenedor-comida m-2 mt-4');

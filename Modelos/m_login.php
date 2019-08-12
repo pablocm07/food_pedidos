@@ -14,34 +14,6 @@
 
     // ejecutara el código segun el parametro que reciba
     switch ($funcion) {
-        case 'registrar_usuario':
-            // Parametros recibidos
-            $usuario = $_POST['usuario'];
-
-            /** Pasar todos los parametros recibidos en un arreglo
-             * ESTO -> $datos = array() , ES IGUAL A ESTO -> $datos = []   
-             */
-            $datos = [$usuario[0], $usuario[1], $usuario[2], $usuario[3], $usuario[4], $usuario[5]];
-
-            // Si existen registros
-            if ($datos = $querys->ejecutarProcedure('registrar_usuario', $datos)) {
-                // Valores obtenidos del procedimiento
-
-                if (isset($datos[0]['id_usuario'])) { // Se registro correctamente
-                    // $mensaje['respuesta'] = $datos[0]['respuesta'];
-                    $mensaje['respuesta'] = 1;
-                    $datos_usuario = $datos[0];
-                }
-            } else {
-                $mensaje['respuesta'] = 0;
-            }
-
-            // Si los datos son correctos, se debe guardar la informacion del usuario en variables de $_SESSION[]                                
-            // $_SESSION['id_usuario'] = $usuario[];
-            $_SESSION['usuario'] = $datos_usuario;
-
-            break;
-            // En este caso es para validar los datos del usuario para logearlo
         case 'logeo':
             // Parametros recibidos
             $correo = $_POST['correo'];
