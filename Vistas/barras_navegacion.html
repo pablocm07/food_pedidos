@@ -1,93 +1,223 @@
-<link rel="stylesheet" href="Assets/css/BarraNavegacion.min.css">
+<link rel="stylesheet" href="./Assets/css/BarraNavegacion.min.css?v0.0.1">
+<link rel="stylesheet" href="./Assets/css/lista_pedidos.css?v1.0.1">
 
 <!-- BARRA DE NAVEGACION LATERAL -->
 <nav id="sidebar">
 
-        <!-- CABECERA DEL SIDEBAR -->
-        <div class="sidebar-header">
-    
-            <img class="mr-2 pt-2" src="./Assets/img/logos/Logo ya.png" alt="FP">
-            <!-- <span>Food Pedidos</span> -->
-    
-            <button id="cerrar_sidebar" class="btn btn-link btn-sm">
-                <i class="far fa-arrow-left"></i>
-            </button>
-    
-        </div>
-        <!-- FIN DE LA CABECERA DEL SIDEBAR -->
-    
-        <!-- CONTENEDOR PRINCIPAL DEL SIDEBAR -->
-        <div class="contenedor-principal-sidebar pb-5">
-    
-            <!-- CONTENEDOR DE LOS DATOS PERSONALES DEL USUARIO -->
-            <div class="sidebar-user">
-    
-                <!-- NOMBRE -->
-                <h5 id="nombre_usuario" class="text-center">
-                    <div class="btn-group">
-                        <button id="perfil" type="button" class="btn btn-warning btn-sm"> </button>
-                        <button type="button" class="btn btn-warning btn-sm dropdown-toggle dropdown-toggle-split"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="sr-only">Usuario</span>
-                        </button>
-                        <div class="dropdown-menu">                            
-                                <a id="pedidos" class="dropdown-item clearfix pl-3 pr-3 pt-1">
-                                    <font class="float-left">Pedidos</font>
-                                    <i class="fal fa-ballot float-right font-food"></i>
-                                </a>                            
-                                <hr id="hr-pedidos">
-                                <a id="comidas" class="dropdown-item clearfix pl-3 pr-3">
-                                    <font class="float-left">Comida</font>
-                                    <i class="fal fa-burrito float-right font-food"></i>
-                                </a>                            
-                                <hr id="hr-comidas">
-                                <a id="favoritos" class="dropdown-item clearfix pl-3 pr-3">
-                                    <font class="float-left">Favoritos</font>
-                                    <i class="fal fa-book-heart float-right font-food"></i>
-                                </a>      
-                                <hr id="hr-favoritos">
-                                <a id="signout" class="dropdown-item clearfix pl-3 pr-3" title="Cerrar sesión">
-                                    <font class="float-left">Salir</font>
-                                    <i class="fas fa-sign-out-alt float-right font-food"></i>
-                                </a>                                    
-                        </div>
-                    </div>
-                </h5>
-    
-                <!-- NOMBRE DE LA EMPRESA -->
-                <p id="correo_usuario" class="text-center"></p>
-    
-                <!-- FOTO DE PERFIL DEL USUARIO -->
-                <div class="container-fluid d-flex justify-content-center">
-    
-                    <img class="img-thumbnail" id="foto_usuario" src="./Assets/img/sin_foto_perfil.png"
-                        alt="Foto de perfil del usuario">
-    
-                </div>
-                <!-- FIN DE LA FOTO DE PERFIL DEL USUARIO -->
+    <!-- CABECERA DEL SIDEBAR -->
+    <div class="sidebar-header">
 
-                <!-- CONTENEDOR INFERIOR DE LA BARRA DE NAVEGACION -->                
-                <div class="bg-dark">
-                    <div class="row">
-                        <div class="col-6 d-flex justify-content-center">
-                            <button>Mis Ingredientes</button>
-                        </div>
-                        <div class="col-6 d-flex justify-content-center">
-                            <button>Mis platillos</button>
-                        </div>
+        <img class="mr-2 pt-2" src="./Assets/img/logos/Logo ya.png" alt="FP">
+        <!-- <span>Food Pedidos</span> -->
+
+        <button id="cerrar_sidebar" class="btn btn-link btn-sm">
+            <i class="far fa-arrow-left"></i>
+        </button>
+
+    </div>
+    <!-- FIN DE LA CABECERA DEL SIDEBAR -->
+
+    <!-- CONTENEDOR PRINCIPAL DEL SIDEBAR -->
+    <div class="contenedor-principal-sidebar pb-5">
+
+        <!-- CONTENEDOR DE LOS DATOS PERSONALES DEL USUARIO -->
+        <div class="sidebar-user">
+
+            <!-- NOMBRE -->
+            <h5 id="nombre_usuario" class="text-center">
+                <div class="btn-group">
+                    <button id="perfil" type="button" class="btn btn-warning btn-sm"> </button>
+                    <button type="button" class="btn btn-warning btn-sm dropdown-toggle dropdown-toggle-split"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="sr-only">Usuario</span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a id="pedidos" class="dropdown-item clearfix pl-3 pr-3 pt-1">
+                            <font class="float-left">Pedidos</font>
+                            <i class="fal fa-ballot float-right font-food"></i>
+                        </a>
+                        <hr id="hr-pedidos">
+                        <a id="comidas" class="dropdown-item clearfix pl-3 pr-3">
+                            <font class="float-left">Comida</font>
+                            <i class="fal fa-burrito float-right font-food"></i>
+                        </a>
+                        <hr id="hr-comidas">
+                        <a id="favoritos" class="dropdown-item clearfix pl-3 pr-3">
+                            <font class="float-left">Favoritos</font>
+                            <i class="fal fa-book-heart float-right font-food"></i>
+                        </a>
+                        <hr id="hr-favoritos">
+                        <a id="signout" class="dropdown-item clearfix pl-3 pr-3" title="Cerrar sesión">
+                            <font class="float-left">Salir</font>
+                            <i class="fas fa-sign-out-alt float-right font-food"></i>
+                        </a>
                     </div>
                 </div>
-                <!-- FIN DE CONTENEDOR INFERIOR DE LA BARRA DE NAVEGACION -->
-    
+            </h5>
+
+            <!-- NOMBRE DE LA EMPRESA -->
+            <p id="correo_usuario" class="text-center"></p>
+
+            <!-- FOTO DE PERFIL DEL USUARIO -->
+            <div class="container-fluid d-flex justify-content-center">
+
+                <img class="img-thumbnail" id="foto_usuario" src="./Assets/img/sin_foto_perfil.png"
+                    alt="Foto de perfil del usuario">
+
             </div>
-            <!-- FIN DEL CONTENEDOR DE LOS DATOS PERSONALES DEL USUARIO -->
-    
+            <!-- FIN DE LA FOTO DE PERFIL DEL USUARIO -->
+
         </div>
-        <!-- FIN DEL CONTENEDOR PRINCIPAL DEL SIDEBAR -->
-    
-    </nav>
-    <!-- BARRA DE NAVEGACION LATERAL -->
+        <!-- FIN DEL CONTENEDOR DE LOS DATOS PERSONALES DEL USUARIO -->
 
-    <script rel="script" src="./Controladores/barras_navegacion.js"></script>
+        <!-- CONTENEDOR DE PEDIDOS, DETALLE Y TOTAL -->
+        <div class="bg-danger container-fluid mt-3 pt-5">
 
-    
+            <!-- LISTA DE PEDIDOS -->
+            <ul id="lista_mis_pedidos" class="lista_mis_pedidos list-group mt-2">
+
+                <h4 class="text-center text-white m-0 font-weight-bold">
+                    Mis Pedidos
+                </h4>
+
+                <!-- <h5 class="text-center text-white">
+                    Por ahora no tienes ningún pedido.
+                </h5> -->
+
+                <li class="item_pedido text-white list-group-item d-flex">
+                    Doña Queta
+                    <span title="Tiempo estimado" class="ml-auto badge badge-primary badge-pill">
+                        <i class="fas fa-clock"></i> 14 min.</span>
+                    <span title="Estado del pedido" class="ml-2 badge badge-danger badge-pill">
+                        <i class="fas fa-stop-circle"></i> En espera
+                    </span>
+                </li>
+
+
+                <!-- <li class="item_pedido text-white list-group-item d-flex justify-content-between align-items-center">
+                    Cafetería UTEC
+                    <span title="Tiempo estimado" class="ml-auto badge badge-primary badge-pill"><i
+                            class="fas fa-clock"></i> 5
+                        min.</span>
+                    <span title="Precio Total" class="ml-2 badge badge-success badge-pill"><i
+                            class="fas fa-dollar-sign"></i>
+                        37.00</span>
+                </li> -->
+
+
+                <!--
+                <li class="item_pedido text-white list-group-item d-flex justify-content-between align-items-center">
+                    Don Andre
+                    <span title="Tiempo estimado" class="ml-auto badge badge-primary badge-pill"><i class="fas fa-clock"></i> 20
+                        min.</span>
+                    <span title="Precio Total" class="ml-2 badge badge-success badge-pill"><i class="fas fa-dollar-sign"></i>
+                        37.00</span>
+                </li>                
+                <li class="item_pedido text-white list-group-item d-flex justify-content-between align-items-center">
+                    Don Andre
+                    <span title="Tiempo estimado" class="ml-auto badge badge-primary badge-pill"><i class="fas fa-clock"></i> 20
+                        min.</span>
+                    <span title="Precio Total" class="ml-2 badge badge-success badge-pill"><i class="fas fa-dollar-sign"></i>
+                        37.00</span>
+                </li> -->
+            </ul>
+            <!-- LISTA DE PEDIDOS -->
+
+            <!-- CONTENEDOR PRINCIPAL DE LOS DETALLES DEL PEDIDO -->
+            <div class="contenedor-detalle-pedido text-white mt-3">
+
+                <h4 class="text-center text-white mt-2 mb-1 font-weight-bold">
+                    Detalle del pedido
+                </h4>
+
+                <!-- CONTENEDOR DE LOS ITEMS DETALLE PEDIDO-->
+                <div class="contenedor-items-detalle-pedido">
+                    
+                    <!-- <h5 class="text-center text-white">
+                        Por ahora no tienes ningún pedido.
+                    </h5> -->
+                    <!-- <a class="btn btn-sm btn-warning">Hacer un pedido</a> -->
+
+
+
+
+                    <!-- ITEM DE PEDIDO -->
+
+                    <div class="item-detalle-pedido"> 
+            
+                        <div class="p-2 img-detalle-pedido">
+                            <img width="50px" height="50px" src="./Assets/img/comida_5.jpg" alt="">
+                        </div>
+            
+                        <span class="cantidad-detalle-pedido p-2 text-center">
+                            X2
+                        </span>
+            
+                        <p class="producto-detalle-pedido m-0 p-2 text-center">
+                            <span>Guajolote</span>
+                            <br>
+                            c/n
+                            <span>
+                                Milanesa
+                            </span>
+                        </p>
+                        <span class="font-weight-bold precio-detalle-pedido p-2 text-center">
+                            $ 45.00
+                        </span>
+                    </div>
+
+                    <!-- ITEM DE PEDIDO -->
+
+
+
+
+                    <!-- ITEM DE PEDIDO -->
+                    <!-- <div class="item-detalle-pedido">
+            
+                        <div class="p-2 img-detalle-pedido">
+                            <img src="./Assets/img/comida_4.jpg" alt="">
+                        </div>
+            
+                        <span class="cantidad-detalle-pedido p-2 text-center">
+                            X1
+                        </span>
+            
+                        <p class="producto-detalle-pedido m-0 p-2 text-center">
+                            <span>Orden Tacos Dorados</span>
+                        </p>
+            
+                        <span class="font-weight-bold precio-detalle-pedido p-2 text-center">
+                            $ 35.00
+                        </span>
+            
+                    </div> -->
+                    <!-- ITEM DE PEDIDO -->
+                </div>
+                <!-- CONTENEDOR DE LOS ITEMS DETALLE PEDIDO-->
+
+            </div>
+            <!-- CONTENEDOR PRINCIPAL DE LOS DETALLES DEL PEDIDO -->
+
+            <!-- CONTENEDOR DEL TOTAL DE LOS PEDIDOS -->
+            <div class="mt-3 mb-3 d-flex">
+                <span class="precio-total-pedidos text-white mr-1">Total</span>
+                <span class="precio-total-pedidos text-white font-weight-bold ml-auto mr-2">$65.00</span>
+                <hr>
+            </div>
+
+            <button type="button" id="boton_pagar_pedido"
+                class="button-pagar btn btn-lg btn-warning btn-block text-white">
+                Pagar Ahora <i class="fa fa-credit-card-front"></i>
+            </button>
+            <!-- CONTENEDOR DEL TOTAL DE LOS PEDIDOS -->
+
+        </div>
+        <!-- CONTENEDOR DE PEDIDOS, DETALLE Y TOTAL -->
+
+    </div>
+    <!-- FIN DEL CONTENEDOR PRINCIPAL DEL SIDEBAR -->
+
+</nav>
+<!-- BARRA DE NAVEGACION LATERAL -->
+
+<script rel="script" src="./Controladores/barras_navegacion.js"></script>

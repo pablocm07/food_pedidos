@@ -60,8 +60,8 @@
     function realizarRegistro(datos){            
         // Peticion por medio de POST
         $.post("./Modelos/m_registro.php", datos ,function(data, status){  
+            console.log(data);            
             data = JSON.parse(data);
-            
             if(status == 'success'){ // Si la peticion es exitosa                                    
                 if (data.respuesta == 1){ // Si se registro correctamente                   
                     
@@ -129,10 +129,10 @@
                 if (data.usuario_registrado == 1){
                     Swal.fire({
                         type: 'warning',
-                        title: '¡Ese correo ya se encuentra registrado!',
+                        title: '¡Este correo ya se encuentra registrado!',
                         showCloseButton: true,
                         buttonsStyling: false,
-                        confirmButtonText: 'Elige otro',
+                        confirmButtonText: 'Por favor, elija uno nuevo',
                         confirmButtonClass: 'btn btn-lg btn-outline-info'
                     });
                     $('#email').val('');
@@ -205,21 +205,17 @@
 
     let modificarClases = function (parametro) { 
         if (parametro == 1) {
-            $('#div-btn-anterior').addClass('col-4 d-flex flex-row');
-            $('#div-btn-cancelar').removeClass('col-4 d-flex flex-row');
             $('#btn-siguiente').removeClass('btn-outline-warning');
             $('#btn-siguiente').addClass('btn-outline-success');
-            $('#btn-siguiente').text('Terminar');
-            $('#subtitulo').text('Datos de sesión');
+            $('#btn-siguiente').text('Terminar');            
+            $('#btn-anterior').removeClass('d-none');
             $('#parte-1').addClass('d-none');
             $('#parte-2').removeClass('d-none');
-        } else if (parametro == 2){
-            $('#div-btn-cancelar').addClass('col-4 d-flex flex-row');
-            $('#div-btn-anterior').removeClass('col-4 d-flex flex-row');
+        } else if (parametro == 2){            
             $('#btn-siguiente').removeClass('btn-outline-success');
             $('#btn-siguiente').addClass('btn-outline-warning');
-            $('#btn-siguiente').text('Siguiente');
-            $('#subtitulo').text('Datos personales');
+            $('#btn-anterior').addClass('d-none');
+            $('#btn-siguiente').text('Siguiente');            
             $('#parte-2').addClass('d-none');
             $('#parte-1').removeClass('d-none');
         }
