@@ -6,6 +6,27 @@
 
 html, body {height: 100%; background: #FACC2E;}
 
+/* CONFIGURACION DEL SCROLLBAR PARA FIREFOX Y CHROME */
+#contenedor-todas-vistas{
+    overflow-x: hidden;
+    overflow-y: scroll;
+    scrollbar-color: rgba(136, 130, 130, 0.452) transparent;
+    scrollbar-width: thin;
+}
+
+#contenedor-todas-vistas::-webkit-scrollbar{
+    background-color:transparent;
+    width:8px;
+}
+
+#contenedor-todas-vistas::-webkit-scrollbar-thumb{
+    background-color:rgba(136, 130, 130, 0.452);
+    border-radius:12px;
+    height:40px
+}
+
+
+
 .contenido-encabezado-superior{
     z-index: 2;
     position: fixed;
