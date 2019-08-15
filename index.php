@@ -60,7 +60,7 @@ $estado_sesion = (isset($_SESSION['usuario'])) ? 1 : 0;
 
 
     <!-- Modal para agregar un nuevo ingrediente -->
-    <div class="modal fade" id="agregarNuevoIngrediente" tabindex="-1" role="dialog" aria-labelledby="Agregar nuevo ingrediente" aria-hidden="true">
+    <div class="modal fade" id="agregarNuevoIngrediente" tabindex="-1" role="dialog" aria-hidden="true">
 
         <div class="modal-dialog modal-notify modal-warning" role="document">
 
@@ -93,7 +93,7 @@ $estado_sesion = (isset($_SESSION['usuario'])) ? 1 : 0;
     <!-- Modal para agregar un nuevo ingrediente-->
 
     <!-- Modal para agregar un nuevo platillo -->
-    <div class="modal fade" id="agregarNuevoPlatillo" tabindex="-1" role="dialog" aria-labelledby="Agregar nuevo platillo" aria-hidden="true">
+    <div class="modal fade" id="agregarNuevoPlatillo" tabindex="-1" role="dialog" aria-hidden="true">
 
         <div class="modal-dialog modal-notify modal-warning" role="document">
 

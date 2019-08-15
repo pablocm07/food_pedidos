@@ -59,7 +59,7 @@
      * >> precio: variable global 'precio' que se van a insertar     
      */
     function enviarPeticion(nombre_ingrediente, nombre_ingrediente) {
-        // Peticion por medio de POST
+        Peticion por medio de POST
         $.ajax({
             method: 'post',
             url: "./Modelos/m_comidas.php",
@@ -88,7 +88,6 @@
                 });
             }
         });
-
     }
 
     /** ()FUNCION QUE MOSTRARÁ MENSAJE DE ERROR CUANDO EL FORMULARIO NO SE VALIDE CORRECTAMENTE

@@ -67,10 +67,10 @@
                 nombre_ingrediente: nombre_ingrediente,
                 precio_ingrediente: precio_ingrediente
             }
-        }).done(function (respuesa_servidor) {
-            console.log(respuesa_servidor);
-            let respuesa_servidor = JSON.parse(respuesa_servidor);
-            if (respuesa_servidor.respuesta == 'Registrado') {
+        }).done(function (respuesta_servidor) {
+            console.log(respuesta_servidor);
+            let respuesta = JSON.parse(respuesta_servidor);
+            if (respuesta.respuesta == 'Registrado') {
                 Swal.fire({
                     type: 'success',
                     title: '¡Correcto!',
