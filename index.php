@@ -19,7 +19,7 @@ $estado_sesion = (isset($_SESSION['usuario'])) ? 1 : 0;
     <title>Food Pedidos</title>
 
     <!-- LINK PARA JQUERY -->
-    <script src="Plugins/js/jquery-3.4.1.min.js"></script>
+    <script src="Plugins/js/jquery-3.4.1.min.js"></script>    
 
     <!-- Link hacia estilos css (BOOTSTRAP) Y (FA) -->
     <link rel="stylesheet" href="./Plugins/css/Bootstrap/bootstrap.min.css">

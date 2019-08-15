@@ -119,6 +119,32 @@ class Querys{
         return $respuesta_bd;
     }    
 
+    /** () para ejecutar una consulta normal
+     */
+
+    function ejecutarQuery($sentencia, $parametros){
+
+        try { // Uso de try{} y catch{} para capturar los posibles errores que ocurran
+
+            $resultado = $this->conexion->prepare($sentencia);
+            
+            $resultado->execute($parametros);
+
+            $respuesta_bd = $resultado->rowCount();
+        
+        } catch (PDOException $e) {     // En caso  de algun error con la BD
+            // Registrar errores en la BD     
+            //  echo $e->getMessage();
+            // echo '<br>';
+            // echo $e->getFile();
+            // echo '<br>';
+            // echo $e->getLine(); 
+            return false;               
+        }
+
+        return $respuesta_bd;
+    }    
+
     function __destruct() {
         $this->conexion = null; // Cerrar la conexion cundo ya no haya referencias al objeto
     }
