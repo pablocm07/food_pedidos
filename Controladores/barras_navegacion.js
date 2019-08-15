@@ -85,7 +85,7 @@
         $('#cerrar_sidebar').on('click', function () {
             $('#sidebar').toggleClass('active');
         });    
-    }, 1000);    
+    }, 500);    
 
     obtenerDatosSesion();
 

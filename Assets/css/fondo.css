@@ -76,7 +76,10 @@ html, body {height: 100%; background: #FACC2E;}
     border-radius: 50%!important;
     display: flex!important;
     justify-content: center!important;
-    align-items: flex-end!important;
+    align-items: flex-end!important;    
+    -webkit-box-shadow: 0 10px 5px rgba(0,0,0,.18)!important;
+    -moz-box-shadow: 0 10px 5px rgba(0,0,0,.18)!important;
+    box-shadow: 0 10px 5px rgba(0,0,0,.18)!important;
 }
 
 .estilo-letra-titulo{

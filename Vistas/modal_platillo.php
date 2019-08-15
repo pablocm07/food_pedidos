@@ -1,3 +1,22 @@
+<?php 
+    $id_platillo = (isset($_POST['platillo_elegido'][0]['id_platillo'])) ? $_POST['platillo_elegido'][0]['id_platillo'] : '';
+    $nombre_platillo = (isset($_POST['platillo_elegido'][0]['nombre_platillo'])) ? $_POST['platillo_elegido'][0]['nombre_platillo'] : '';
+    $precio = (isset($_POST['platillo_elegido'][0]['precio'])) ? $_POST['platillo_elegido'][0]['precio'] : '';
+    $tiempo_preparacion = (isset($_POST['platillo_elegido'][0]['tiempo_preparacion'])) ? $_POST['platillo_elegido'][0]['tiempo_preparacion'] : '';
+    $cantidad = (isset($_POST['platillo_elegido'][0]['cantidad'])) ? $_POST['platillo_elegido'][0]['cantidad'] : '';
+    $descripcion = (isset($_POST['platillo_elegido'][0]['descripcion'])) ? $_POST['platillo_elegido'][0]['descripcion'] : '';
+    $ubicacion_imagen = (isset($_POST['platillo_elegido'][0]['ubicacion_imagen'])) ? $_POST['platillo_elegido'][0]['ubicacion_imagen'] : '';
+?>
+
+<script type="text/javascript" src="./Plugins/js/bootstrap-multiselect.js"></script>
+<link rel="stylesheet" href="./Plugins/css/bootstrap-multiselect.css">    
+
+<style>
+    .multiselect-selected-text{
+        text: Ingredientes
+    }
+</style>
+
 <!-- MODAL QUE MUESTRA LA INFORMACIÓN DEL PRODUCTO A PEDIR -->
 <div class="modal fade" id="ordenar_comida" tabindex="-1" role="dialog" aria-labelledby="ordenar_comida"
     aria-hidden="false" data-backdrop="true">
@@ -70,31 +89,53 @@
                         </div>
                         <!-- CAROUSEL CON IMAGENES DE LA COMIDA -->
 
+                        <!-- COMENTARIO DEL PLATILLO -->
+                        <div class="text-center pt-5">
+
+                            <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+                                <button class="btn-floating btn-lg btn-amber material-tooltip-smaller" data-toggle="tooltip"
+                                    data-placement="left" title="MD example">
+                                    <i class="fas fa-concierge-bell" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            
+                            <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="left" title="Tooltip on left">
+                                Tooltip on left
+                            </button>
+                            <button id="boton-agregar-platillo" class="btn btn-outline-warning" >Agregar al pedido
+                                <i class="fas fa-concierge-bell ml-2" aria-hidden="true"></i>
+                            </button>
+                            
+                        </div>
+                        <!-- FIN DE COMENTARIO DEL PLATILLO -->
+
                     </div>
-                    <!-- CONTENEDOR DEL MINI CAROUSEL -->
+                    <!-- CONTENEDOR DEL MINI CAROUSEL -->            
 
                     <!-- CONTENEDOR DE LA INFORMACION DEL PEDIDO -->
                     <div class="col-lg-7">
 
                         <!-- NOMBRE DEL PLATILLO -->
                         <h2 class="h2-responsive product-name cyan-lighter-hover">
-                            <strong id='nombre_platillo'>Chilaquiles</strong>
+                            <strong id='nombre_platillo'><?php echo $nombre_platillo;?></strong>
                         </h2>
                         <!-- NOMBRE DEL PLATILLO -->
 
                         <!-- CONTENEDOR DEL PRECIO DEL PLATILLO -->
-                        <h4 class="h4-responsive">
-                            <span class="green-text">
-                                <strong id='precio-platillo'>$ 25.00 <span id='unidad_platillo'>C/U </span></strong>
+                        <h4 class="h4-responsive clearfix">                        
+                                                
+                            <span class="green-text float-left">
+                                <strong id='precio-platillo'>$ <?php echo $precio;?><span id='unidad_platillo'> </span></strong>
                             </span>
 
-                            <!-- PARA CUANDO HAYA DESCUENTOS -->
-                            <!-- <span class="grey-text">
+                            <!-- TIEMPO -->
+                            <span class="grey-text float-right">
                                 <small>
-                                    <s>$89</s>
+                                    <i class="far fa-clock pr-1"></i>
+                                    <?php echo $tiempo_preparacion;?> min
                                 </small>
-                            </span> -->
-                            <!-- PARA CUANDO HAYA DESCUENTOS -->
+                            </span>
+                            <!-- FIN TIEMPO -->
                         </h4>
                         <!-- CONTENEDOR DEL PRECIO DEL PLATILLO -->
 
@@ -104,103 +145,39 @@
                             <!-- INPUT CON BOTONES PARA AGREGAR O ELIMINAR SELECTS PARA DETALLES DEL PEDIDDO -->
                             <div class="input-group mb-3">
 
-                                <div class="input-group-prepend">
-                                    <button
-                                        class="btn btn-md btn-outline-danger m-0 px-3 py-2 z-depth-0 waves-effect"
-                                        type="button" id="agregar_cantidad_platillo"><i
-                                            class="fas fa-minus"></i></button>
-                                </div>
-
-                                <input type="number" class="text-center font-weight-bold form-control" value='1'>
-
-                                <div class="input-group-prepend">
-                                    <button
-                                        class="btn btn-md btn-outline-success m-0 px-3 py-2 z-depth-0 waves-effect"
-                                        type="button" id="eliminar_cantidad_platillo"><i
-                                            class="fas fa-plus"></i></button>
-                                </div>
+                                <h6 class="h6-responsive"><?php echo $descripcion;?></h6>
 
                             </div>
 
                             <hr>
                             <!-- INPUT CON BOTONES PARA AGREGAR O ELIMINAR SELECTS PARA DETALLES DEL PEDIDDO -->
-
-                            <div class="table-responsive">
-
-                                <table id="tabla-detalle-pedido" class="tabla-detalle-pedido table table-hover">
-
-                                    <thead>
-                                        <tr class="text-center">
-                                            <th scope="col">Ingrediente</th>
-                                            <th scope="col">Agregar Ingrediente</th>
-                                        </tr>
-                                    </thead>
-
-                                    <tbody>
-
-                                        <tr class="text-center">
-                                            <td>
-                                                <select class="browser-default custom-select">
-                                                    <option selected>Escoge un ingrediente</option>
-                                                    <option value="1">Milanesa</option>
-                                                    <option value="2">Pierna</option>
-                                                    <option value="3">Salchicha</option>
-                                                </select>
-                                            </td>
-                                            <td>
-                                                <button class="btn btn-outline-primary btn-sm">
-                                                    Agregar
-                                                </button>
-                                            </td>
-                                        </tr>
-
-                                        <tr class="text-center">
-                                            <td>
-                                                <select class="browser-default custom-select">
-                                                    <option selected>Escoge un ingrediente</option>
-                                                    <option value="1">Milanesa</option>
-                                                    <option value="2">Pierna</option>
-                                                    <option value="3">Salchicha</option>
-                                                </select>
-                                            </td>
-                                            <td>
-                                                <button class="btn btn-outline-primary btn-sm">
-                                                    Agregar
-                                                </button>
-                                            </td>
-                                        </tr>
-
-                                        <tr class="text-center">
-                                            <td>
-                                                <select class="browser-default custom-select">
-                                                    <option selected>Escoge un ingrediente</option>
-                                                    <option value="1">Milanesa</option>
-                                                    <option value="2">Pierna</option>
-                                                    <option value="3">Salchicha</option>
-                                                </select>
-                                            </td>
-                                            <td>
-                                                <button class="btn btn-outline-primary btn-sm">
-                                                    Agregar
-                                                </button>
-                                            </td>
-                                        </tr>
-
-                                    </tbody>
-
-                                </table>
-
-                            </div>
-
+                            
+                            
                             <!-- CONTENEDOR DEL BOTON PARA AGREGAR AL PEDIDO -->
-                            <div class="text-center">
+                            <div class="text-center">                                
 
-                                <button class="btn btn-outline-warning">Agregar al pedido
-                                    <i class="fas fa-concierge-bell ml-2" aria-hidden="true"></i>
-                                </button>
+                                <label for="select-multiple-ingredientes">Ingredientes:</label>
+                                <select id="select-multiple-ingredientes" class="custom-select" multiple="multiple">                                    
+                                    <option value="3">Salchicha</option>
+                                    <option value="7">Queso</option>
+                                    <option value="9">Chorizo</option>
+                                </select> 
 
                             </div>
                             <!-- CONTENEDOR DEL BOTON PARA AGREGAR AL PEDIDO -->
+                            <div class="md-form">          
+                                <!-- Aqui puedes describir como quieres tu platillo, con mas salsa, sin lechuga, con poca aceita, etc... -->
+                                <textarea type="text" id="comentario-platillo" class="md-textarea form-control" rows="4" style="max-height: 100px; min-height: 80px; overflow:auto;"
+                                ></textarea>
+                                <label data-error="wrong" data-success="right" for="comentario-platillo">Comentarios</label>
+                            </div>
+                            <!-- <div class="md-form">                                
+                                <textarea class="md-textarea form-control" id="comentario-platillo" 
+                                    style="max-height: 100px; min-height: 80px; overflow:auto;"
+                                    
+                                ></textarea>
+                                <label for="comentario-platillo pb-2">Comentario</label>
+                            </div> -->
 
                         </div>
                         <!-- FORMULARIO PARA AGREGAR DETALLES DEL PEDIDO -->
@@ -220,3 +197,5 @@
 
 </div>
 <!-- MODAL QUE MUESTRA LA INFORMACIÓN DEL PRODUCTO A PEDIR -->
+
+<script src="./Controladores/c_modal_platillo.js"></script>

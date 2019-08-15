@@ -1,5 +1,5 @@
 (function () {
-
+    let global_platillos;
     function cargarLocales(){
         $.post("./Modelos/m_comidas.php", {funcion: 'consultar_locales'}, function (data, status) {
             data = JSON.parse(data);
@@ -13,6 +13,7 @@
                         let contenedor_tarjetas = $('#tarjetas-locales');
                         let local = data.info[index]; // Informacion de cada registro
                         let datos = {
+                            id_local: local.id_local,
                             nombre_local: local.nombre_local,
                             tipo_local: local.tipo_local,
                             foto_logo: local.foto_logo,
@@ -22,8 +23,7 @@
                             id_estado: local.id_estado
                         }                
                         let div = $("<div>");
-                        div.addClass('col-sm contenedor-local');
-                        div.attr('id', local.id_local);
+                        div.addClass('col-sm contenedor-local');                        
                         div.load('./Vistas/tarjeta_local.php', datos);
                         contenedor_tarjetas.append(div);
                     }                
@@ -41,6 +41,7 @@
                 if (data.estado == 'Existen registros'){
 
                     let total_platillos = data.info.length; // Total de registros
+                    global_platillos = data.info;
 
                     // console.log(data);
 
@@ -48,6 +49,7 @@
                         let contenedor_tarjetas = $('#tarjetas-comidas');
                         let platillo = data.info[index]; // Informacion de cada registro
                         let datos = {
+                            id_platillo: platillo.id_platillo,
                             nombre_platillo: platillo.nombre_platillo,
                             precio: platillo.precio,
                             tiempo_preparacion: platillo.tiempo_preparacion,
@@ -56,13 +58,9 @@
                             ubicacion_imagen: platillo.ubicacion_imagen
                         }                
                         let div = $("<div>");
-                        div.addClass('card card-cascade narrower contenedor-comida m-2 mt-4');
-                        div.attr('id', platillo.id_platillo);                        
+                        div.addClass('card card-cascade narrower contenedor-comida m-2 mt-4');                        
                         div.load('./Vistas/tarjetas_platillo.php', datos);
-                        setTimeout(() => {
-                            div.fadeIn(2000);
-                            contenedor_tarjetas.append(div);
-                        }, 100);
+                        contenedor_tarjetas.append(div);                        
                     }                
                     
                 }else{
@@ -72,12 +70,35 @@
         });
     }
 
+    function activarFuncionesPlatillos(){        
+        $("div.clik-mostrar-platillo").click(function () {
+            // e.preventDefault();
+        
+            // Funcion filter para buscar un registro en un Array con un campo en especifico
+            let platillo_elegido = global_platillos.filter(
+                (platillo) => {return platillo.id_platillo == $(this).attr('id')}                        
+            );
+                        
+            $('#modal-global').load('./Vistas/modal_platillo.php', {platillo_elegido});
+            setTimeout(() => {
+                $('#ordenar_comida').modal('show');                
+            }, 300);
+        
+        });     
+                           
+    }
+
+    // Para aplicar la funcion click despues de que cargue los elementos 
     setTimeout(() => {
-        $("div.contenedor-local").click(function (e) {
+        $("div.clik-mostrar-local").click(function (e) {
             e.preventDefault();
-    
-            // console.log($(this).attr('id'));
+            
             cargarPlatillos($(this).attr('id'));
+
+            // Para aplicar la funcion click despues de que cargue los elementos 
+            setTimeout(() => {
+                activarFuncionesPlatillos();
+            }, 350);
     
             $("li#paso_uno").removeClass('active');
             $("li#paso_uno").addClass('done');

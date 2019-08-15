@@ -74,12 +74,14 @@
         // Peticion por medio de POST
         $.post("./Modelos/m_perfil.php", datos ,function(data, status){  
             data = JSON.parse(data);
-            
+            let usuario_info = data.usuario;
             if(status == 'success'){ // Si la peticion es exitosa                                    
                 if (data.respuesta == 1){ // Si se registro correctamente                   
                     
                     // Deshabilitar el boton de guardar
                     $('#guardar-datos-perfil').prop('disabled', true);
+                    $('#perfil').text(usuario_info[1]+" "+usuario_info[2]); // Elemento de la vista barras de navegación
+                    $('#correo_usuario').text(usuario_info[4]); // Elemento de la vista barras de navegación                    
                     
                     Swal.fire({
                         position: 'top-end',
@@ -105,6 +107,7 @@
         // Peticion por medio de POST
         $.post("./Modelos/m_perfil.php", datos ,function(data, status){  
             data = JSON.parse(data);
+            console.log(data);
             if(status == 'success'){ // Si la peticion es exitosa                                    
                 if (data.respuesta == 1){ // Si se registro correctamente      
                     Swal.fire({
@@ -115,6 +118,7 @@
                         timer: 1500
                     }); 
                 }
+                console.log(data);
             }else{
                 Swal.fire({
                     type: 'error',
@@ -181,7 +185,7 @@
     });
 
     $('#cambiar-contrasena').click(function () { 
-        let id_usuario = $('#id_usuario');
+        let id_usuario = $('#id-usuario').val();
         Swal.mixin({
             input: 'password',
             confirmButtonText: 'Next &rarr;',
@@ -197,12 +201,15 @@
             if (result.value) {
                 let contrasena = result.value[0],
                     contrasena2 = result.value[1];
-                if (contrasena != contrasena2){
+                    // console.log(contrasena2);
+                    // console.log(contrasena);
+                if (contrasena == contrasena2){
                     let datos = {
                         id_usuario: id_usuario,
                         contrasena: contrasena,
                         funcion: 'cambiar_contraseña'
                     };
+                    // console.log(datos);
                     cambiarContraseñaUsuario(datos);                
                 }else{
                     Swal.fire({
@@ -238,7 +245,7 @@
                 funcion: "cambiar_datos_usuario"
             };
 
-            console.log(datos);
+            // console.log(datos);
             
             guardarDatosUsuario(datos);
         }else{

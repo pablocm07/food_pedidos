@@ -22,13 +22,14 @@ switch ($funcion) {
          * ESTO -> $datos = array() , ES IGUAL A ESTO -> $datos = []   
          */
         $datos = [$usuario[0], $usuario[1], $usuario[2], $usuario[3], $usuario[4]];
+
+        $mensaje['usuario'] = $datos;
         
         // Si existen registros
         if ($datos = $querys->ejecutarProcedure('modificar_usuario',$datos) ) {
             // Valores obtenidos del procedimiento
 
-            if( isset($datos[0]['respuesta']) ){ // Se registro correctamente
-                // $mensaje['respuesta'] = $datos[0]['respuesta'];
+            if( isset($datos[0]['respuesta']) ){ // Se registro correctamente                
                 $mensaje['respuesta'] = 1;
             }
         }else{
@@ -72,10 +73,10 @@ switch ($funcion) {
 
         $consulta = "UPDATE usuarios SET contrasena = $contrasena WHERE id_usuario = ?;";
         
-        if ($datos = $querys->ejecutarConsulta($consulta,$datos) ) {
+        if ($datos = $querys->ejecutarQuery($consulta,$datos) ) {
             $mensaje['respuesta'] = 1; // Se modificó correctamente
         }else{
-            $mensaje["respuesta"] = 2; // No se pudo actualizar
+            $mensaje["respuesta"] = 0; // No se pudo actualizar
         }
         
     default:

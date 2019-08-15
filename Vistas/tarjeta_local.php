@@ -1,4 +1,5 @@
     <?php
+$id_local = ( isset($_POST['id_local']) ) ? $_POST['id_local'] : '';
 $nombre_local = ( isset($_POST['nombre_local']) ) ? $_POST['nombre_local'] : '';
 $tipo_local = ( isset($_POST['tipo_local']) ) ? $_POST['tipo_local'] : '';
 $foto_logo = ( isset($_POST['foto_logo']) ) ? $_POST['foto_logo'] : '';
@@ -22,7 +23,7 @@ $id_estado = ( isset($_POST['id_estado']) ) ? $_POST['id_estado'] : '';
 
 
     <!-- CONTENIDO DE LA TARJETA -->
-    <div class="card-body card-body-cascade">
+    <div id="<?php echo$id_local; ?>" class="card-body card-body-cascade clik-mostrar-local">
 
         <!-- NOMBRE DEL LOCAL -->
         <h4 id="nombre-local_1" class="card-title font-weight-bold"><?php echo $nombre_local; ?></h4>

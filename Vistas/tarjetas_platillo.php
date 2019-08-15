@@ -1,5 +1,6 @@
 <?php
 
+$id_platillo = (isset($_POST['id_platillo'])) ? $_POST['id_platillo'] : '';
 $nombre_platillo = (isset($_POST['nombre_platillo'])) ? $_POST['nombre_platillo'] : '';
 $precio = (isset($_POST['precio'])) ? $_POST['precio'] : '';
 $tiempo_preparacion = (isset($_POST['tiempo_preparacion'])) ? $_POST['tiempo_preparacion'] : '';
@@ -17,7 +18,7 @@ $ubicacion_imagen = (isset($_POST['ubicacion_imagen'])) ? $_POST['ubicacion_imag
 <!-- CONTENEDOR DE LA IMAGEN PARA EL PLATILLO NUMERO 1 -->
 
 <!-- Card content -->
-<div class="card-body card-body-cascade">
+<div id="<?php echo $id_platillo;?>" class="card-body card-body-cascade clik-mostrar-platillo">
 
     <!-- Label -->
     <h5 class="blue-grey-text pb-2 pt-1"><i class="fas fa-utensils"></i> Comida rápida
@@ -31,9 +32,9 @@ $ubicacion_imagen = (isset($_POST['ubicacion_imagen'])) ? $_POST['ubicacion_imag
 
     <div class="container mt-3">
 
-        <a id='ordenar_platillo_1' data-toggle="modal" data-target="#ordenar_comida"
-            class="m-auto btn-floating btn-action mdb-color lighten-3 p-0"><i
-                class="fas fa-concierge-bell"></i></a>
+        <a class="m-auto btn-floating btn-action mdb-color lighten-3 p-0">
+        <i class="fas fa-concierge-bell"></i></a>
+        
         <h5 class="mt-3 text-muted text-center">
             Pedir Ahora
         </h5>
