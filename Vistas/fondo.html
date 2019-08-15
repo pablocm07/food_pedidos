@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="./Assets/css/fondo.css">
+<link rel="stylesheet" href="./Assets/css/fondo.css?v0.0.3">
 
 <div id="modal-global">
     <!-- ... -->
@@ -11,8 +11,8 @@
     <div class="contenido-fondo-oculto">
 
         <div class="fondo-boton-menu">
-            <a class="button-collapse mr-2" id="sidebarCollapse">
-                <i class="fas fa-bars"></i>
+            <a class="button-collapse btn btn-outline-dark" id="sidebarCollapse">
+                <i class="barras-menu fas fa-bars"></i>
             </a>
         </div>
 
@@ -87,8 +87,9 @@
         let flag = 1;
 
         function mostrarInformacion(usuario){              
-            if (usuario.tipo_usuario == 2){
+            if (usuario.tipo_usuario == 2){//SI EL USUARIO ES DE TIPO ADMINISTRADOR
                 $('#contenedor-todas-vistas').load('./Vistas/v_pedidos.html');            
+                $('#contenido-barra-navegacion').load('./Vistas/v_funciones_vendedor.html');                
             }else if(usuario.tipo_usuario == 3){
                 $('#contenedor-todas-vistas').load('./Vistas/v_comidas.html');
                 // $('#modal-global').load('./Vistas/modal_platillo.php');

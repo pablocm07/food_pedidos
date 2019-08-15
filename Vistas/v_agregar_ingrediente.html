@@ -1,0 +1,49 @@
+<!-- CONTENIDO DEL MODAL -->
+<div class="modal-body">
+
+    <!-- FORMULARIO DE REGISTRO -->
+    <form id="form-agregar-nuevo-ingrediente" class="form-group">
+
+        <!-- INPUT DEL NOMBRE DEL INGREDIENTE -->
+        <div class="form-group mb-3">
+            <label for="nombre_ingrediente_nuevo">Nombre del ingrediente</label>
+            <input type="text" class="form-control" id="nombre_ingrediente_nuevo" placeholder="Ej. Queso" required>
+
+            <div class="invalid-feedback">
+                Se requiere un nombre para el ingrediente
+            </div>
+
+        </div>
+
+        <!-- INPUT DEL PRECIO DEL INGREDIENTE -->
+        <div class="form-group">
+
+            <label for="precio_ingrediente_nuevo">Precio del ingrediente</label>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">$</span>
+                </div>
+                <input type="number" class="form-control" id="precio_ingrediente_nuevo" required>
+                
+                <div class="invalid-feedback">
+                    Necesita establecer un precio al nuevo ingrediente.
+                </div>
+            </div>
+
+        </div>
+
+    </form>
+    <!-- FORMULARIO DE REGISTRO -->
+
+</div>
+<!-- CONTENIDO DEL MODAL -->
+
+<!-- FOOTER DEL CONTENIDO DEL MODAL -->
+<div id="contenido-footer-ingrediente" class="modal-footer justify-content-center">
+    <a id="insertar_nuevo_ingrediente" type="button" class="btn btn-outline-warning">Agregar <i
+            class="far fa-drumstick-bite ml-1"></i></a>
+</div>
+<!-- FOOTER DEL CONTENIDO DEL MODAL -->
+
+<!-- SCRIPT DE LAS FUNCIONALIDADES DEL FORMULARIO PARA AGREGAR UN NUEVO INGREDIENTE -->
+<script rel="script" src="./Controladores/c_agregar_ingrediente.js"></script>

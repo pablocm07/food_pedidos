@@ -1,0 +1,28 @@
+<div class="container mt-3 p-3">
+
+    <button id="agregar-nuevo-ingrediente" class="btn btn-md btn-outline-danger mb-3" data-toggle="modal" data-target="#agregarNuevoIngrediente">
+        Agregar Ingrediente
+    </button>
+
+    <button id="agregar-nuevo-platillo" class="btn btn-md btn-outline-info" data-toggle="modal" data-target="#agregarNuevoPlatillo">
+        Agregar Platillo
+    </button>
+
+</div>
+
+
+<script>
+
+    $("#agregar-nuevo-ingrediente").click(function (e) { 
+        e.preventDefault();
+        $("#contenido-modal-ingrediente").load("./Vistas/v_agregar_ingrediente.html");        
+    });
+    
+    $("#agregar-nuevo-platillo").click(function (e) { 
+        e.preventDefault();
+        $("#contenido-modal-platillo").load("./Vistas/v_agregar_platillo.html");        
+    });
+
+
+
+</script>
