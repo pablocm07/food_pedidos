@@ -11,20 +11,20 @@
     <div class="contenido-fondo-oculto">
 
         <div class="fondo-boton-menu">
-            <a class="button-collapse btn btn-outline-dark" id="sidebarCollapse">
-                <i class="barras-menu fas fa-bars"></i>
+            <a class="button-collapse btn-food" id="sidebarCollapse">
+                <i class="barras-menu fas fa-bars color-food-fontBrown"></i>
             </a>
         </div>
 
         <div class="fondo-logo">
-            <img class="imagen-logo"src="./Assets/img/logos/Logo ya.png" alt="Logo de la aplicacion">
-        </div>            
+            <img class="imagen-logo" src="./Assets/img/logos/Logo ya.png" alt="Logo de la aplicacion">
+        </div>
 
     </div>
     <!-- Aqui termina el contenido con fondo transparente para mostrar el logo y el boton de menu -->
 
     <!-- Aqui inicia el encabezado parte superior -->
-    <div class="encabezado-parte-superior bg-food">
+    <div class="encabezado-parte-superior bg-food-orange">
 
         <div class="columnas-superior bg-white"> </div>
         <div class="columnas-superior"></div>
@@ -43,18 +43,40 @@
 
     <!-- Aqui inicia el encabezado parte inferior -->
     <div class="encabezado-parte-inferior">
-        
-        <div class="columnas-inferior-blancas border-columnas"><h6 class="estilo-letra-titulo">F</h6></div>
-        <div class="columnas-inferior border-columnas"><h6 class="estilo-letra-titulo">O</h6></div>
-        <div class="columnas-inferior-blancas border-columnas"><h6 class="estilo-letra-titulo">O</h6></div>
-        <div class="columnas-inferior border-columnas"><h6 class="estilo-letra-titulo">D</h6></div>
-        <div class="columnas-inferior-blancas border-columnas"><h6 class="estilo-letra-titulo">P</h6></div>
-        <div class="columnas-inferior border-columnas"><h6 class="estilo-letra-titulo">E</h6></div>
-        <div class="columnas-inferior-blancas border-columnas"><h6 class="estilo-letra-titulo">D</h6></div>
-        <div class="columnas-inferior border-columnas"><h6 class="estilo-letra-titulo">I</h6></div>
-        <div class="columnas-inferior-blancas border-columnas"><h6 class="estilo-letra-titulo">D</h6></div>
-        <div class="columnas-inferior border-columnas"><h6 class="estilo-letra-titulo">O</h6></div>
-        <div class="columnas-inferior-blancas border-columnas"><h6 class="estilo-letra-titulo">S</h6></div>
+
+        <div class="columnas-inferior-blancas border-columnas">
+            <h6 class="estilo-letra-titulo">F</h6>
+        </div>
+        <div class="columnas-inferior border-columnas">
+            <h6 class="estilo-letra-titulo">O</h6>
+        </div>
+        <div class="columnas-inferior-blancas border-columnas">
+            <h6 class="estilo-letra-titulo">O</h6>
+        </div>
+        <div class="columnas-inferior border-columnas">
+            <h6 class="estilo-letra-titulo">D</h6>
+        </div>
+        <div class="columnas-inferior-blancas border-columnas">
+            <h6 class="estilo-letra-titulo">P</h6>
+        </div>
+        <div class="columnas-inferior border-columnas">
+            <h6 class="estilo-letra-titulo">E</h6>
+        </div>
+        <div class="columnas-inferior-blancas border-columnas">
+            <h6 class="estilo-letra-titulo">D</h6>
+        </div>
+        <div class="columnas-inferior border-columnas">
+            <h6 class="estilo-letra-titulo">I</h6>
+        </div>
+        <div class="columnas-inferior-blancas border-columnas">
+            <h6 class="estilo-letra-titulo">D</h6>
+        </div>
+        <div class="columnas-inferior border-columnas">
+            <h6 class="estilo-letra-titulo">O</h6>
+        </div>
+        <div class="columnas-inferior-blancas border-columnas">
+            <h6 class="estilo-letra-titulo">S</h6>
+        </div>
 
     </div>
     <!-- Aqui termina el encabezado parte inferior -->
@@ -65,47 +87,56 @@
 <!-- Aqui inicia el fondo de toda la pantalla 
     Debe ir debajo del encabezado-->
 <div class="fondo-pantalla-completa">
-        <div class="lados-laterales-fondo"> 
-            <div class="boton-levantar-menu">                
-                <a id="boton-toggle-menu" title="Ocultar el menú">
-                    <i id="fa-arrow-up" class="far fa-arrow-alt-from-bottom icono-levantar-menu"></i>
-                    <i id="fa-arrow-down" class="far fa-arrow-alt-from-top icono-levantar-menu d-none"></i>
-                </a>
-            </div>
-        </div>
-        <div id="contenedor-todas-vistas" class="centro-fondo ancho-inicio-slide">
 
+    <div class="lados-laterales-fondo">
+        <div class="boton-levantar-menu">
+            <a id="boton-toggle-menu" title="Ocultar el menú">
+                <i id="fa-arrow-up" class="far fa-arrow-alt-from-bottom icono-levantar-menu"></i>
+                <i id="fa-arrow-down" class="far fa-arrow-alt-from-top icono-levantar-menu d-none"></i>
+            </a>
         </div>
-        <div class="lados-laterales-fondo"></div>
     </div>
+
+    <div id="contenedor-todas-vistas" class="centro-fondo ancho-inicio-slide"></div>
+
+    <footer class="container text-center">
+        <p>&copy; FoodPedidos 2019-2020</p>
+    </footer>
+
+    <div class="lados-laterales-fondo"></div>
+
+</div>
 
 </div>
 <!-- Aqui termina el fondo de toda la pantalla -->
 
 <script>
-    $(document).ready(function($){
+    $(document).ready(function($) {
         let flag = 1;
 
-        function mostrarInformacion(usuario){              
-            if (usuario.tipo_usuario == 2){//SI EL USUARIO ES DE TIPO ADMINISTRADOR
-                $('#contenedor-todas-vistas').load('./Vistas/v_pedidos.html');            
-                $('#contenido-barra-navegacion').load('./Vistas/v_funciones_vendedor.html');                
-            }else if(usuario.tipo_usuario == 3){
+        function mostrarInformacion(usuario) {
+            if (usuario.tipo_usuario == 2) { //SI EL USUARIO ES DE TIPO ADMINISTRADOR
+                $('#contenedor-todas-vistas').load('./Vistas/v_pedidos.html');
+                $('#contenido-barra-navegacion').load('./Vistas/v_funciones_vendedor.html');
+            } else if (usuario.tipo_usuario == 3) {
                 $('#contenedor-todas-vistas').load('./Vistas/v_comidas.html');
+                $('#contenido-barra-navegacion').load('./Vistas/contenedor_detalles_pedido.html');
                 // $('#modal-global').load('./Vistas/modal_platillo.php');
             }
-        }  
+        }
 
-        function obtenerDatosSesion(){        
-            let url = './Modelos/m_login.php';        
-            $.post(url, {funcion:'datos_sesion'}, function (data, status) {
+        function obtenerDatosSesion() {
+            let url = './Modelos/m_login.php';
+            $.post(url, {
+                funcion: 'datos_sesion'
+            }, function(data, status) {
                 data = JSON.parse(data);
-                mostrarInformacion(data.usuario);                
-            });                             
-        }              
+                mostrarInformacion(data.usuario);
+            });
+        }
 
-        $('#boton-toggle-menu').click(function (e) { 
-            e.preventDefault();            
+        $('#boton-toggle-menu').click(function(e) {
+            e.preventDefault();
             // $("#imagen-logo").toggle('hide');
             $(".imagen-logo").animate({
                 height: 'toggle'
@@ -117,24 +148,24 @@
             });
             $(".encabezado-parte-superior").slideToggle();
 
-            if (flag == 1){
+            if (flag == 1) {
                 $("#fa-arrow-up").addClass('d-none');
                 $("#fa-arrow-down").removeClass('d-none');
                 $("#boton-toggle-menu").attr('title', 'Mostrar el menú');
                 flag = 0;
-            }else{
+            } else {
                 $("#fa-arrow-up").removeClass('d-none');
                 $("#fa-arrow-down").addClass('d-none');
                 $("#boton-toggle-menu").attr('title', 'Ocultar el menú');
                 flag = 1;
             }
-        }); 
+        });
 
         let ancho = $(window).width();
         let alto = $(window).height();
-        
-        let tamaño_pantalla_text = $('<p>').text('W: '+ancho+', H:'+alto);
-        $('.fondo-pantalla-completa').append(tamaño_pantalla_text);
+
+        let tamaño_pantalla_text = $('<p>').text('W: ' + ancho + ', H:' + alto);
+        // $('.fondo-pantalla-completa').append(tamaño_pantalla_text);
 
         obtenerDatosSesion();
 

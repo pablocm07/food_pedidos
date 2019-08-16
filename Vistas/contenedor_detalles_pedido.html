@@ -1,0 +1,83 @@
+<!-- CONTENEDOR DE PEDIDOS, DETALLE Y TOTAL -->
+
+<!-- LISTA DE PEDIDOS -->
+<ul id="lista_mis_pedidos" class="lista_mis_pedidos list-group mt-2">
+
+    <h4 class="text-center text-white m-0 font-weight-bold">
+        Mis Pedidos
+    </h4>
+
+    <div id="contenedor-ningun-pedido">
+        <h5 class="text-center text-white">
+            Por ahora no tienes ningún pedido.
+        </h5>
+    </div>
+
+    <div id="contenedor-mis-pedidos">
+        <!-- ...         -->
+    </div>
+
+
+</ul>
+<!-- LISTA DE PEDIDOS -->
+
+<!-- CONTENEDOR PRINCIPAL DE LOS DETALLES DEL PEDIDO -->
+<div id="lista-detalle-pedido" class="contenedor-detalle-pedido text-white mt-3">
+
+    <h4 class="text-center text-white mt-2 mb-1 font-weight-bold">
+        Detalle del pedido
+    </h4>
+
+    <!-- CONTENEDOR DE LOS ITEMS DETALLE PEDIDO-->
+    <!-- <div id="contenedor-detalle-pedido" class="contenedor-items-detalle-pedido"></div> -->
+
+    <div id="contenedor-detalle-pedido" class="contenedor-items-detalle-pedido">
+        <!-- ITEM DE PEDIDO -->
+        <div class="item-detalle-pedido">
+
+            <div class="p-2 img-detalle-pedido">
+                <img width="70px" height="70px" src="./Assets/img/comida_5.jpg" alt="">
+            </div>
+
+            <p class="producto-detalle-pedido m-0 p-2 text-center">
+                <span>Guajolote</span>
+                <br> c/n
+                <span>
+                        Milanesa
+                    </span>
+            </p>
+            <span class="font-weight-bold precio-detalle-pedido p-2 text-center">
+                    $ 45.00
+                </span>
+        </div>
+        <!-- ITEM DE PEDIDO -->
+
+    </div>
+    <!-- CONTENEDOR DE LOS ITEMS DETALLE PEDIDO-->
+
+</div>
+<!-- CONTENEDOR PRINCIPAL DE LOS DETALLES DEL PEDIDO -->
+
+<!-- CONTENEDOR DEL TOTAL DE LOS PEDIDOS -->
+<div id="contenedor-total-pedido">
+    <div class="mt-3 mb-3 d-flex">
+        <span class="precio-total-pedidos text-white mr-1">Total</span>
+        <span class="precio-total-pedidos text-white font-weight-bold ml-auto mr-2">$65.00</span>
+        <hr>
+    </div>
+</div>
+
+<button type="button" id="boton-pagar-pedido" class="button-pagar btn btn-lg btn-warning btn-block text-white">
+    Pagar Ahora <i class="fa fa-credit-card-front"></i>
+</button>
+<button type="button" id="boton-cancelar-pedido" class="button-pagar btn btn-lg btn-danger btn-block text-white">
+    Cancelar <i class="fa fa-credit-card-front"></i>
+</button>
+<button type="button" id="boton-hacer-pedido" class="button-pagar btn btn-lg btn-warning btn-block text-white">
+    Hacer un pedido <i class="fas fa-concierge-bell"></i>
+</button>
+<!-- CONTENEDOR DEL TOTAL DE LOS PEDIDOS -->
+
+<!-- CONTENEDOR DE PEDIDOS, DETALLE Y TOTAL -->
+
+<script src="./Controladores/c_contenedor_detalles_pedido.js"></script>

@@ -1,19 +1,18 @@
-.item_pedido{    
+.item_pedido {
     background-color: transparent;
     border: 0px;
-    cursor: pointer;        
+    cursor: pointer;
 }
 
-.item_pedido:hover{
+.item_pedido:hover {
     background-image: linear-gradient(to right bottom, #facc2e, #fbbc27, #faac24, #f89b24, #f58b26);
 }
 
-.lista_mis_pedidos{       
-    -webkit-box-shadow: -1px 1px 88px 22px rgba(0,0,0,.16);
-    -moz-box-shadow: -1px 1px 88px 22px rgba(0,0,0,.16);
-    box-shadow: -1px 1px 88px 22px rgba(0,0,0,.16);
-    border-radius: 0.75rem;    
-
+.lista_mis_pedidos {
+    -webkit-box-shadow: -1px 1px 88px 22px rgba(0, 0, 0, .16);
+    -moz-box-shadow: -1px 1px 88px 22px rgba(0, 0, 0, .16);
+    box-shadow: -1px 1px 88px 22px rgba(0, 0, 0, .16);
+    border-radius: 0.75rem;
     max-height: 96px;
     overflow-x: hidden;
     overflow-y: scroll;
@@ -21,24 +20,22 @@
     scrollbar-width: thin;
 }
 
-.lista_mis_pedidos::-webkit-scrollbar{
-    background-color:transparent;
-    width:8px;
+.lista_mis_pedidos::-webkit-scrollbar {
+    background-color: transparent;
+    width: 8px;
 }
 
-.lista_mis_pedidos::-webkit-scrollbar-thumb{
-    background-color:rgba(136, 130, 130, 0.452);
-    border-radius:12px;
-    height:40px
+.lista_mis_pedidos::-webkit-scrollbar-thumb {
+    background-color: rgba(136, 130, 130, 0.452);
+    border-radius: 12px;
+    height: 40px
 }
 
-
-.contenedor-detalle-pedido{    
-    -webkit-box-shadow: -1px 1px 88px 22px rgba(0,0,0,.16);
-    -moz-box-shadow: -1px 1px 88px 22px rgba(0,0,0,.16);
-    box-shadow: -1px 1px 88px 22px rgba(0,0,0,.16);
+.contenedor-detalle-pedido {
+    -webkit-box-shadow: -1px 1px 88px 22px rgba(0, 0, 0, .16);
+    -moz-box-shadow: -1px 1px 88px 22px rgba(0, 0, 0, .16);
+    box-shadow: -1px 1px 88px 22px rgba(0, 0, 0, .16);
     border-radius: 0.75rem;
-
     max-height: 9.375rem;
     overflow-x: hidden;
     overflow-y: scroll;
@@ -46,57 +43,56 @@
     scrollbar-width: thin;
 }
 
-.contenedor-detalle-pedido::-webkit-scrollbar{
-    background-color:transparent;
-    width:8px;
+.contenedor-detalle-pedido::-webkit-scrollbar {
+    background-color: transparent;
+    width: 8px;
 }
 
-.contenedor-detalle-pedido::-webkit-scrollbar-thumb{
-    background-color:rgba(136, 130, 130, 0.452);
-    border-radius:12px;
-    height:40px
+.contenedor-detalle-pedido::-webkit-scrollbar-thumb {
+    background-color: rgba(136, 130, 130, 0.452);
+    border-radius: 12px;
+    height: 40px
 }
 
-.item-detalle-pedido{
+.item-detalle-pedido {
     display: flex;
     align-items: stretch;
-    cursor: pointer;    
+    cursor: pointer;
 }
 
-.item-detalle-pedido:hover{
+.item-detalle-pedido:hover {
     background-image: linear-gradient(to right bottom, #facc2e, #fbbc27, #faac24, #f89b24, #f58b26);
 }
 
-div.img-detalle-pedido{
+div.img-detalle-pedido {
     display: flex;
     align-items: center;
 }
 
-div.img-detalle-pedido img{
-    width: 3.125rem;
+div.img-detalle-pedido img {
+    width: 90px;
     height: 3.125rem;
     border-radius: 0.1875rem;
 }
 
-.cantidad-detalle-pedido{
+.cantidad-detalle-pedido {
     display: flex;
     align-items: center;
     font-size: 1.5rem;
 }
 
-.producto-detalle-pedido{        
+.producto-detalle-pedido {
     font-size: 0.8rem;
 }
 
-.precio-detalle-pedido{
+.precio-detalle-pedido {
     font-size: 1.4rem;
 }
 
-.precio-total-pedidos{
+.precio-total-pedidos {
     font-size: 3rem;
 }
 
-
-.button-pagar{
+.button-pagar {
     margin-bottom: 5rem;
 }

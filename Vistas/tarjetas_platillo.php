@@ -24,18 +24,18 @@ $ubicacion_imagen = (isset($_POST['ubicacion_imagen'])) ? $_POST['ubicacion_imag
     <h5 class="blue-grey-text pb-2 pt-1"><i class="fas fa-utensils"></i> Comida rápida
     </h5>
     <!-- Title -->
-    <h4 class="font-weight-bold card-title"><?php echo $nombre_platillo."   ";?> x <?php echo $cantidad;?></h4>
+    <h4 class="font-weight-bold card-title color-food-fontBrown"><?php echo $nombre_platillo."   ";?> x <?php echo $cantidad;?></h4>
     <!-- Text -->
-    <p class="card-text"><?php echo $descripcion;?>
+    <p class="card-text heigh-30"><?php echo $descripcion;?>
     </p>
     <!-- Button -->
 
     <div class="container mt-3">
 
-        <a class="m-auto btn-floating btn-action mdb-color lighten-3 p-0">
+        <a class="m-auto btn-floating btn-action bg-food-brown p-0">
         <i class="fas fa-concierge-bell"></i></a>
         
-        <h5 class="mt-3 text-muted text-center">
+        <h5 class="mt-3 text-center color-food-fontBrown">
             Pedir Ahora
         </h5>
 
@@ -43,7 +43,7 @@ $ubicacion_imagen = (isset($_POST['ubicacion_imagen'])) ? $_POST['ubicacion_imag
 </div>
 
 <!-- Card footer -->
-<div class="card-footer text-muted text-center mdb-color lighten-3">
+<div class="card-footer text-muted text-center btn-brown">
     <ul class="list-unstyled font-small ">
         <li class="list-inline-item d-inline-block white-text">
             <i class="far fa-clock pr-1"></i>
