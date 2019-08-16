@@ -16,7 +16,7 @@
              * ESTO -> $datos = array() , ES IGUAL A ESTO -> $datos = []   
              */
             $datos = [$usuario[0], $usuario[1], $usuario[2], $usuario[3], $usuario[4], $usuario[5]];
-            $_SESSION['usuario'] = [$usuario[0], $usuario[1], $usuario[2], $usuario[3], $usuario[4], $usuario[5]];
+            // $_SESSION['usuario'] = [$usuario[0], $usuario[1], $usuario[2], $usuario[3], $usuario[4], $usuario[5]];
             // Si existen registros
             if ($datos = $querys->ejecutarProcedure('registrar_usuario', $datos)) {
                 // Valores obtenidos del procedimiento
@@ -31,7 +31,7 @@
             }
             // Si los datos son correctos, se debe guardar la informacion del usuario en variables de $_SESSION[]                                
             // $_SESSION['id_usuario'] = $usuario[];
-            // $_SESSION['usuario'] = $datos_usuario;
+            $_SESSION['usuario'] = $datos_usuario;
             // print_r($_SESSION['usuario']);
             // print_r($datos);
             break;

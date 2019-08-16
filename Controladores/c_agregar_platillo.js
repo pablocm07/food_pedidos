@@ -1,25 +1,44 @@
 (function () {
 
-    // let nombre_ingrediente, precio_ingrediente; VARIABLES GLOBALES A ENVIAR PARA UN POSIBLE NUEVO INGREDIENTE
+    let datos = new Object();
 
+    
     /**
-     * () EVENTO QUE SE ACTIVA CUANDO CAMBIA EL VALOR DEL INPUT
      * 
-     * ESTE EVENTO SE ENCARGA DE PONER PRIMERA LETRA EN MAYUSCULA Y SETEAR EL VALOR DE LA VARIABLE
-     * NOMBRE
+     * 
+     * 
+     * 
+     * 
+     * () EVENTOS QUE SE ACTIVAN CUANDO CAMBIA EL VALOR DEL INPUT
+     * 
+     * ESTOS EVENTOS SE ENCARGAN DE SETEAR EL CONTENIDO DE LOS INPUT A LAS VARIABLES DEFINIDAS
      */
-    $("#nombre_ingrediente_nuevo").on('change', function () {
-        nombre_ingrediente = capitalizeFirstLetter($("#nombre_ingrediente_nuevo").val());
+    $("#nombre_platillo_nuevo").on('change', function () {
+        datos.nombre_platillo = capitalizeFirstLetter($("#nombre_platillo_nuevo").val());
     });
-
+    
+    $("#precio_platillo_nuevo").on('change', function () {
+        datos.precio_platillo = $("#precio_platillo_nuevo").val();
+    });
+    
+    $("#tiempo_platillo_nuevo").on('change', function () {
+        datos.tiempo_preparacion = $("#tiempo_platillo_nuevo").val();        
+    });
+    
+    $("#cantidad_platillo_nuevo").on('change', function () {
+        datos.cantidad = $("#cantidad_platillo_nuevo").val();
+    });
+    
+    $("#descripcion_platillo_nuevo").on('change', function () {
+        datos.descripcion = $("#descripcion_platillo_nuevo").val();
+    });
     /**
-     * () EVENTO QUE SE ACTIVA CUANDO CAMBIA EL VALOR DEL INPUT
      * 
-     * ESTE EVENTO SE ENCARGA DE SETEAR EL VALOR DE LA VARIABLE PRECIO
+     * 
+     * 
+     * 
+     * 
      */
-    $("#precio_ingrediente_nuevo").on('change', function () {
-        precio = $("#precio_ingrediente_nuevo").val();
-    });
 
     /**
      * () FUNCION CON CONVIERTE LA PRIMERA LETRA A MAYUSCULA DE CUALQUIER STRING
@@ -30,25 +49,40 @@
         return string.charAt(0).toUpperCase() + string.slice(1);
     }
 
+
+
     /**
      * () EVENTO QUE SE ENCARGA DE LLAMAR LA FUNCION QUE VALIDA EL FORMULARIO   
      */
     $("#insertar_nuevo_platillo").click(function (e) {
         e.preventDefault();
-        // validarFormulario();
-        mostrarError();
+        if (
+            validar(datos.nombre_platillo) & validar(datos.precio_platillo) &            
+            validar(datos.tiempo_preparacion) & validar(datos.cantidad)        
+        ) {                 
+            if (datos.descripcion == null || datos.descripcion === '' ) {
+                datos.descripcion = 'No se agregó ninguna descripción';
+            }
+            enviarPeticion(datos);            
+        } else {        
+            mostrarError();
+        }
     });
 
-    /**
-     * () FUNCION QUE VALIDA LOS DATOS DEL FORMULARIO Y LLAMA 
-     *  LA FUNCION QUE ENVIA LA PETICION AL SERVIDOR
-     */
-    let validarFormulario = function () {
 
-        if (nombre_ingrediente === undefined || nombre_ingrediente === undefined || nombre_ingrediente === '' || precio_ingrediente === '') { //NO HAY DATOS QUE ENVIAR 
-            mostrarError();
-        } else { //SI EXISTEN DATOS A ENVIAR                  
-            enviarPeticion(nombre_ingrediente, nombre_ingrediente);
+
+
+    /** () para validar que un campo no este vacio
+     * 
+     * >> elemento: recibe el valor de un elemento - [String]
+     * @@ Boleano: Devuelve verdadero si no esta vacio - [Boolean]
+     * 
+    */     
+    function validar(elemento) {
+        if ( elemento === "" || elemento == null ) {                    
+            return false;  // Esta vacio
+        }else{            
+            return true; // No esta vacio
         }
     }
 
@@ -58,24 +92,30 @@
      * >> nombre: variable global 'nombre' que se van a insertar
      * >> precio: variable global 'precio' que se van a insertar     
      */
-    function enviarPeticion(nombre_ingrediente, nombre_ingrediente) {
-        Peticion por medio de POST
+    function enviarPeticion(datos_a_enviar) {
+
+        // Peticion por medio de POST
         $.ajax({
             method: 'post',
-            url: "./Modelos/m_comidas.php",
+            url: "./Modelos/m_platillos.php",
             data: {
-                nombre_ingrediente: nombre_ingrediente,
-                precio_ingrediente: precio_ingrediente
+                funcion: 'insertar_nuevo_platillo',
+                nombre_platillo: datos_a_enviar.nombre_platillo,
+                precio_platillo: datos_a_enviar.precio_platillo,
+                tiempo_preparacion: datos_a_enviar.tiempo_preparacion,
+                cantidad: datos_a_enviar.cantidad,
+                descripcion: datos_a_enviar.descripcion
             }
-        }).done(function (respuesa_servidor) {
-            console.log(respuesa_servidor);
-            let respuesa_servidor = JSON.parse(respuesa_servidor);
-            if (respuesa_servidor.respuesta == 'Registrado') {
+        }).done(function (respuesta_servidor) {
+            console.log(respuesta_servidor);
+            let respuesta = JSON.parse(respuesta_servidor);
+            if (respuesta.respuesta == '1') {
+                $("#agregarNuevoPlatillo").modal('hide');
                 Swal.fire({
                     type: 'success',
                     title: '¡Correcto!',
                     buttonsStyling: false,
-                    confirmButtonText: 'Se agregó el ingrediente correctamente.',
+                    confirmButtonText: 'El platillo fue agregado correctamente.',
                     confirmButtonClass: 'btn btn-lg btn-outline-success'
                 });
             } else {
@@ -87,17 +127,14 @@
                     confirmButtonClass: 'btn btn-lg btn-outline-info'
                 });
             }
-        });
+        })
     }
 
     /** ()FUNCION QUE MOSTRARÁ MENSAJE DE ERROR CUANDO EL FORMULARIO NO SE VALIDE CORRECTAMENTE
      * 
      */
     let mostrarError = function () {
-        $('#form-agregar-nuevo-platillo').addClass('was-validated');
-        // setTimeout(() => {
-        //     $('#form-agregar-nuevo-ingrediente').removeClass('was-validated');
-        // }, 3000);
+        $('#form-agregar-nuevo-platillo').addClass('was-validated');    
     }
 
 

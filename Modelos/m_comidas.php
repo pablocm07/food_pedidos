@@ -46,25 +46,6 @@ switch ($funcion) {
         }
     break;
     
-    case 'insertar_nuevo_ingrediente':
-        // Parametros recibidos            
-        $nombre_ingrediente = $_POST['nombre_ingrediente'];
-        $precio_ingrediente = $_POST['precio_ingrediente'];
-
-        $datos = [$nombre_ingrediente, $precio_ingrediente];
-
-        $consulta = "SELECT * FROM lista_platillos WHERE id_local = ?;";
-        
-        if ($datos = $querys->ejecutarConsulta($consulta,$datos) ) {
-            if( isset($datos[0]) ){ // Ese usuario no esta registrado            
-                $mensaje['info'] = $datos;
-                $mensaje['estado'] = 'Existen registros';
-            }
-        }else{
-            $mensaje['estado'] = 'Lo sentimos, este local aun no ha agregado ningun platillo a su menú';
-        }
-    break;
-
     case 'datos_sesion':
         $array = ['nombre' => $_SESSION['nombre']];
 

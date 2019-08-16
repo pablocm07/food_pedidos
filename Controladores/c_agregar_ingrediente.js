@@ -19,7 +19,7 @@
      * ESTE EVENTO SE ENCARGA DE SETEAR EL VALOR DE LA VARIABLE PRECIO
      */
     $("#precio_ingrediente_nuevo").on('change', function () {
-        precio = $("#precio_ingrediente_nuevo").val();          
+        precio_ingrediente = $("#precio_ingrediente_nuevo").val();          
     });
     
     /**
@@ -45,10 +45,10 @@
      */
     let validarFormulario = function () {
         
-        if (nombre_ingrediente === undefined || nombre_ingrediente === undefined || nombre_ingrediente === '' || precio_ingrediente === '' ) { //NO HAY DATOS QUE ENVIAR 
+        if (nombre_ingrediente === undefined || precio_ingrediente === undefined || nombre_ingrediente === '' || precio_ingrediente === '' ) { //NO HAY DATOS QUE ENVIAR 
             mostrarError();
         } else { //SI EXISTEN DATOS A ENVIAR                  
-            enviarPeticion(nombre_ingrediente, nombre_ingrediente);            
+            enviarPeticion(nombre_ingrediente, precio_ingrediente);            
         }
     }
 
@@ -58,19 +58,20 @@
      * >> nombre: variable global 'nombre' que se van a insertar
      * >> precio: variable global 'precio' que se van a insertar     
      */
-    function enviarPeticion(nombre_ingrediente, nombre_ingrediente) {
+    function enviarPeticion(nombre_ingrediente, precio_ingrediente) {
         // Peticion por medio de POST
         $.ajax({
             method: 'post',
-            url: "./Modelos/m_comidas.php",
+            url: "./Modelos/m_ingredientes.php",
             data: {
+                funcion: 'insertar_nuevo_ingrediente',
                 nombre_ingrediente: nombre_ingrediente,
                 precio_ingrediente: precio_ingrediente
             }
         }).done(function (respuesta_servidor) {
-            console.log(respuesta_servidor);
-            let respuesta = JSON.parse(respuesta_servidor);
-            if (respuesta.respuesta == 'Registrado') {
+            let respuesta = JSON.parse(respuesta_servidor);            
+            if (respuesta.respuesta == '1') {
+                $("#agregarNuevoIngrediente").modal('hide');
                 Swal.fire({
                     type: 'success',
                     title: '¡Correcto!',

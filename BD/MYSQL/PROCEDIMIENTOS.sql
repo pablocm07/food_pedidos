@@ -74,21 +74,3 @@ DECLARE respuesta CHAR(1);
 END//
 
 DELIMITER ;
-
--- Procedimiento para insertar unu nuevo ingrediente
-DELIMITER //
-
-CREATE PROCEDURE `insertar_nuevo_ingrediente` (    
-    _nombre_ingrediente VARCHAR (30),
-    _precio_ingrediente FLOAT,
-    _id_local INT (10)
-)  
-BEGIN
-DECLARE respuesta VARCHAR(10);
-
-    INSERT INTO ingredientes (id_ingrediente, nombre, precio, id_local, id_estado) VALUES (NULL, _nombre_ingrediente, _precio_ingrediente, _id_local, '1');
-    SET respuesta = 'Registrado';
-    SELECT respuesta;
-END//
-
-DELIMITER ;
