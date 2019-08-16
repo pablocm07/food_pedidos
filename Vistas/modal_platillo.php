@@ -1,4 +1,4 @@
-<?php 
+<?php     
     $id_platillo = (isset($_POST['platillo_elegido'][0]['id_platillo'])) ? $_POST['platillo_elegido'][0]['id_platillo'] : '';
     $nombre_platillo = (isset($_POST['platillo_elegido'][0]['nombre_platillo'])) ? $_POST['platillo_elegido'][0]['nombre_platillo'] : '';
     $precio = (isset($_POST['platillo_elegido'][0]['precio'])) ? $_POST['platillo_elegido'][0]['precio'] : '';
@@ -12,8 +12,13 @@
 <link rel="stylesheet" href="./Plugins/css/bootstrap-multiselect.css">    
 
 <style>
-    .multiselect-selected-text{
-        text: Ingredientes
+    .bordeado{
+        border-radius: 50rem!important;
+        border-top: 1px solid #dee2e6!important;
+        border-right: 2px solid #dee2e6!important;
+        border-bottom: 3px solid #dee2e6!important;
+        border-left: 4px solid #dee2e6!important;
+        margin-left: 8px;
     }
 </style>
 
@@ -24,7 +29,7 @@
     <div class="modal-dialog modal-lg" role="document">
 
         <!-- CONTENEDOR DEL MODAL -->
-        <div class="modal-content">
+        <div class="modal-content">        
 
             <!-- CABECERA DEL MODAL -->
             <div class="modal-header border-0">
@@ -35,7 +40,7 @@
             <!-- CABECERA DEL MODAL -->
 
             <!-- CUERPO DEL MODAL -->
-            <div class="modal-body pt-0">
+            <div class="modal-body pt-0 pb-0">
 
                 <div class="row">
 
@@ -50,15 +55,15 @@
                             <div class="carousel-inner z-depth-2" role="listbox">
 
                                 <div class="carousel-item active">
-                                    <img height="195px" width="373px" class="d-block rounded" src="./Assets/img/comida_1.jpg" alt="First slide">
+                                    <img height="195px" width="100%" class="d-block rounded" src="<?php echo $ubicacion_imagen;?>" alt="First slide">
                                 </div>                                                                        
 
                                 <div class="carousel-item">
-                                    <img height="195px" width="373px" class="d-block rounded" src="./Assets/img/comida_2.jpg" alt="Second slide">
+                                    <img height="195px" width="100%" class="d-block rounded" src="./Assets/img/comida_2.jpg" alt="Second slide">
                                 </div>
 
                                 <div class="carousel-item">
-                                    <img height="195px" width="373px" class="d-block rounded" src="./Assets/img/comida_3.jpg" alt="Third slide">
+                                    <img height="195px" width="100%" class="d-block rounded" src="./Assets/img/comida_3.jpg" alt="Third slide">
                                 </div>
 
                             </div>
@@ -77,7 +82,7 @@
 
                             <ol class="carousel-indicators">
                                 <li data-target="#carousel-thumb" data-slide-to="0" class="pt-2">
-                                    <img class='img-thumbnail' src="./Assets/img/comida_1.jpg">
+                                    <img class='img-thumbnail' src="<?php echo $ubicacion_imagen;?>">
                                 </li>
                                 <li data-target="#carousel-thumb" data-slide-to="1" class="pt-2">
                                     <img class='img-thumbnail' src="./Assets/img/comida_2.jpg">
@@ -90,18 +95,18 @@
                         <!-- CAROUSEL CON IMAGENES DE LA COMIDA -->
 
                         <!-- COMENTARIO DEL PLATILLO -->
-                        <div class="text-center pt-5">
+                        <div id="contenido-boton-agregar" class="text-center pt-5">
 
                             <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
                                 <button class="btn-floating btn-lg btn-amber material-tooltip-smaller" data-toggle="tooltip"
-                                    data-placement="left" title="MD example">
+                                    id="boton-add-platillo" data-placement="left" title="Agregar al pedido">
                                     <i class="fas fa-concierge-bell" aria-hidden="true"></i>
                                 </button>
                             </div>
                             
-                            <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="left" title="Tooltip on left">
+                            <!-- <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="left" title="Tooltip on left">
                                 Tooltip on left
-                            </button>
+                            </button> -->
                             <button id="boton-agregar-platillo" class="btn btn-outline-warning" >Agregar al pedido
                                 <i class="fas fa-concierge-bell ml-2" aria-hidden="true"></i>
                             </button>
@@ -116,20 +121,24 @@
                     <div class="col-lg-7">
 
                         <!-- NOMBRE DEL PLATILLO -->
-                        <h2 class="h2-responsive product-name cyan-lighter-hover">
-                            <strong id='nombre_platillo'><?php echo $nombre_platillo;?></strong>
-                        </h2>
+                        <div class="text-center">
+                            <h1 class="h1-responsive product-name cyan-lighter-hover">
+                                <strong id='nombre_platillo'><?php echo $nombre_platillo;?> x <?php echo $cantidad;?></strong>
+                            </h1>
+                        </div>                        
+                        <hr>
                         <!-- NOMBRE DEL PLATILLO -->
 
                         <!-- CONTENEDOR DEL PRECIO DEL PLATILLO -->
+                        <!-- <div class="text-center"> -->
                         <h4 class="h4-responsive clearfix">                        
                                                 
-                            <span class="green-text float-left">
+                            <span class="border-success green-text bordeado p-1 float-left">
                                 <strong id='precio-platillo'>$ <?php echo $precio;?><span id='unidad_platillo'> </span></strong>
                             </span>
 
                             <!-- TIEMPO -->
-                            <span class="grey-text float-right">
+                            <span class="border-primary grey-text bordeado p-1 float-right">
                                 <small>
                                     <i class="far fa-clock pr-1"></i>
                                     <?php echo $tiempo_preparacion;?> min
@@ -137,15 +146,18 @@
                             </span>
                             <!-- FIN TIEMPO -->
                         </h4>
+                        <!-- </div> -->
+                        <hr>
                         <!-- CONTENEDOR DEL PRECIO DEL PLATILLO -->
 
                         <!-- FORMULARIO PARA AGREGAR DETALLES DEL PEDIDO -->
-                        <div class="card-body">
+                        <div class="card-body pb-0">
 
                             <!-- INPUT CON BOTONES PARA AGREGAR O ELIMINAR SELECTS PARA DETALLES DEL PEDIDDO -->
-                            <div class="input-group mb-3">
+                            <div class="text-center">
 
-                                <h6 class="h6-responsive"><?php echo $descripcion;?></h6>
+                                <label for="select-multiple-ingredientes">Descripción:</label>
+                                <p class="h6-responsive"> <?php echo $descripcion; ?> </p>
 
                             </div>
 

@@ -26,7 +26,7 @@ $id_estado = ( isset($_POST['id_estado']) ) ? $_POST['id_estado'] : '';
     <div id="<?php echo$id_local; ?>" class="card-body card-body-cascade clik-mostrar-local">
 
         <!-- NOMBRE DEL LOCAL -->
-        <h4 id="nombre-local_1" class="card-title font-weight-bold"><?php echo $nombre_local; ?></h4>
+        <h4 id='nombre-local-<?php echo $id_local; ?>' class="card-title font-weight-bold"><?php echo $nombre_local; ?></h4>
 
         <!-- CONTENEDOR DE RATING CON EL QUE CUENTA EL LOCAL -->
         <ul class="list-unstyled list-inline rating mb-0">
