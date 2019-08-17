@@ -44,8 +44,6 @@
                     let total_platillos = data.info.length; // Total de registros
                     global_platillos = data.info;
 
-                    // console.log(data);
-
                     for (let index = 0; index < total_platillos; index++) { // Por cada registro se crea un <div>
                         let contenedor_tarjetas = $('#tarjetas-comidas');
                         let platillo = data.info[index]; // Informacion de cada registro

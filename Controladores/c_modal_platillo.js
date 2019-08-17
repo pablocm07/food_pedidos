@@ -22,6 +22,14 @@
         $('#contenedor-mis-pedidos').append(lista_mis_pedidos);
         $('#contenedor-ningun-pedido').hide();
         $('#contenedor-mis-pedidos').show();
+        $('#boton-hacer-pedido').hide();
+        $('#boton-cancelar-pedido').show();
+        $('#boton-pagar-pedido').show();
+    }
+
+    function agregarDetalleBarra(lista_detalle_pedido) {
+        $('#contenedor-detalle-pedido').append(lista_detalle_pedido);
+        $('#lista-detalle-pedido').show();
         $('#sidebar').toggleClass('active');
         $('#ordenar_comida').modal('hide');
     }
@@ -50,19 +58,31 @@
         return lista_mis_pedidos;
     }
 
+    function crearComponenteDetalle() {
+        let lista_detalle_pedido = $('<div>');
+        lista_detalle_pedido.addClass('item-detalle-pedido');
+        lista_detalle_pedido.html('<div class="p-2 img-detalle-pedido">' +
+            '<img width="70px" height="70px" src="./Assets/img/comida_5.jpg" alt="">' +
+            '</div>' +
+            '<p class="producto-detalle-pedido m-0 p-2 text-center">' +
+            '<span>Guajolote</span>' +
+            '<br> c/n' +
+            '<span>' +
+            '</span>' +
+            '</p>' +
+            '<span class="font-weight-bold precio-detalle-pedido p-2 text-center">' +
+            '$ 45.00' +
+            '</span>');
+    }
+
 
     $("#boton-add-platillo").click(function() {
         // let ids_locales = obtenerDatosPedidos();
         let id_local = $('#id-local').val();
         let nombre_local = $('#nombre-local').text();
         console.log(nombre_local);
-        // if (!ids_locales.includes(id_local)) {
-        //     // ids_locales.push(id_local); // Nuevo pedido - diferente local
-        //     console.log('Ok');
-        // } else { // else se vincula con el idque ya existe
-        //     console.log('No');
-        // }
         agregarPedidoBarra(crearComponentePedido('Cafeteria UTEC', 8, 7));
+        agregarDetalleBarra(crearComponenteDetalle());
 
     });
 
