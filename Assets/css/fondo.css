@@ -54,8 +54,8 @@ body {
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    padding-left: 20px;
-    padding-top: 20px;
+    padding-left: 8px;
+    padding-top: 8px;
     background-color: transparent;
 }
 
@@ -66,6 +66,10 @@ body {
     width: 33.33%;
     padding: 5px;
     height: 80px;
+}
+
+.barras-menu {
+    font-size: 15px;
 }
 
 .imagen-logo {
@@ -91,7 +95,7 @@ body {
 }
 
 .columnas-superior {
-    height: 50px;
+    height: 55px;
     flex: 0 0 9.085%;
     width: 9.085%;
 }
@@ -176,6 +180,18 @@ body {
     font-size: 30px;
 }
 
+.container-footer {
+    width: 100%;
+    padding-right: 12px;
+    padding-left: 12px;
+    margin-right: 5%;
+    margin-left: 5%;
+}
+
+.ancho-footer {
+    width: 100%;
+}
+
 
 /* Clases  */
 
@@ -218,6 +234,13 @@ body {
     .imagen-logo {
         width: 40%;
     }
+    .barras-menu {
+        font-size: 18px;
+    }
+    .btn-food {
+        padding-left: 12px;
+        padding-top: 12px;
+    }
 }
 
 @media only screen and (min-width: 800px) {
@@ -226,6 +249,13 @@ body {
     }
     .imagen-logo {
         width: 30%;
+    }
+    .barras-menu {
+        font-size: 22px;
+    }
+    .btn-food {
+        padding-left: 16px;
+        padding-top: 16px;
     }
 }
 
@@ -253,5 +283,12 @@ body {
     }
     .ancho-inicio-slide {
         padding-top: 300px;
+    }
+    .barras-menu {
+        font-size: 25px;
+    }
+    .btn-food {
+        padding-left: 20px;
+        padding-top: 20px;
     }
 }

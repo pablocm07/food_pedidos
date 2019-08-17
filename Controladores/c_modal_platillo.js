@@ -73,6 +73,7 @@
             '<span class="font-weight-bold precio-detalle-pedido p-2 text-center">' +
             '$ 45.00' +
             '</span>');
+        return lista_detalle_pedido;
     }
 
 
