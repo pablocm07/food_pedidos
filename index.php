@@ -45,14 +45,7 @@ $estado_sesion = (isset($_SESSION['usuario'])) ? 1 : 0;
     <div id="container">
         <!-- ... -->
     </div>
-    <!-- Aqui termina el contenido de la página -->
-
-    <!-- Aqui inicia el pie de página -->
-    <div id="footer">
-        <!-- ... -->
-    </div>
-    <!-- Aqui termina el pie de página -->
-
+    <!-- Aqui termina el contenido de la página -->    
 
     <div id="modal-registro">
         <!-- ... -->

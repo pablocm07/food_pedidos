@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<!-- saved from url=(0030)http://localhost/food_pedidos/ -->
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="icon" href="http://localhost/food_pedidos/Assets/img/logos/Food.png" type="image/x-icon">
+    <title>Food Pedidos</title>
+
+    <!-- LINK PARA JQUERY -->
+    <script src="./Food Pedidos_files/jquery-3.4.1.min.js.descarga"></script>    
+
+    <!-- Link hacia estilos css (BOOTSTRAP) Y (FA) -->
+    <link rel="stylesheet" href="./Food Pedidos_files/bootstrap.min.css">
+    <link rel="stylesheet" href="./Food Pedidos_files/all.min.css">
+
+    <!-- ESTILOS PARA LA PANTALLA PRINCIPAL -->
+    <link rel="stylesheet" href="./Food Pedidos_files/principal.css">
+
+<style>@-webkit-keyframes swal2-show{0%{-webkit-transform:scale(.7);transform:scale(.7)}45%{-webkit-transform:scale(1.05);transform:scale(1.05)}80%{-webkit-transform:scale(.95);transform:scale(.95)}100%{-webkit-transform:scale(1);transform:scale(1)}}@keyframes swal2-show{0%{-webkit-transform:scale(.7);transform:scale(.7)}45%{-webkit-transform:scale(1.05);transform:scale(1.05)}80%{-webkit-transform:scale(.95);transform:scale(.95)}100%{-webkit-transform:scale(1);transform:scale(1)}}@-webkit-keyframes swal2-hide{0%{-webkit-transform:scale(1);transform:scale(1);opacity:1}100%{-webkit-transform:scale(.5);transform:scale(.5);opacity:0}}@keyframes swal2-hide{0%{-webkit-transform:scale(1);transform:scale(1);opacity:1}100%{-webkit-transform:scale(.5);transform:scale(.5);opacity:0}}@-webkit-keyframes swal2-animate-success-line-tip{0%{top:1.1875em;left:.0625em;width:0}54%{top:1.0625em;left:.125em;width:0}70%{top:2.1875em;left:-.375em;width:3.125em}84%{top:3em;left:1.3125em;width:1.0625em}100%{top:2.8125em;left:.875em;width:1.5625em}}@keyframes swal2-animate-success-line-tip{0%{top:1.1875em;left:.0625em;width:0}54%{top:1.0625em;left:.125em;width:0}70%{top:2.1875em;left:-.375em;width:3.125em}84%{top:3em;left:1.3125em;width:1.0625em}100%{top:2.8125em;left:.875em;width:1.5625em}}@-webkit-keyframes swal2-animate-success-line-long{0%{top:3.375em;right:2.875em;width:0}65%{top:3.375em;right:2.875em;width:0}84%{top:2.1875em;right:0;width:3.4375em}100%{top:2.375em;right:.5em;width:2.9375em}}@keyframes swal2-animate-success-line-long{0%{top:3.375em;right:2.875em;width:0}65%{top:3.375em;right:2.875em;width:0}84%{top:2.1875em;right:0;width:3.4375em}100%{top:2.375em;right:.5em;width:2.9375em}}@-webkit-keyframes swal2-rotate-success-circular-line{0%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}5%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}12%{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}100%{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}}@keyframes swal2-rotate-success-circular-line{0%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}5%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}12%{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}100%{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}}@-webkit-keyframes swal2-animate-error-x-mark{0%{margin-top:1.625em;-webkit-transform:scale(.4);transform:scale(.4);opacity:0}50%{margin-top:1.625em;-webkit-transform:scale(.4);transform:scale(.4);opacity:0}80%{margin-top:-.375em;-webkit-transform:scale(1.15);transform:scale(1.15)}100%{margin-top:0;-webkit-transform:scale(1);transform:scale(1);opacity:1}}@keyframes swal2-animate-error-x-mark{0%{margin-top:1.625em;-webkit-transform:scale(.4);transform:scale(.4);opacity:0}50%{margin-top:1.625em;-webkit-transform:scale(.4);transform:scale(.4);opacity:0}80%{margin-top:-.375em;-webkit-transform:scale(1.15);transform:scale(1.15)}100%{margin-top:0;-webkit-transform:scale(1);transform:scale(1);opacity:1}}@-webkit-keyframes swal2-animate-error-icon{0%{-webkit-transform:rotateX(100deg);transform:rotateX(100deg);opacity:0}100%{-webkit-transform:rotateX(0);transform:rotateX(0);opacity:1}}@keyframes swal2-animate-error-icon{0%{-webkit-transform:rotateX(100deg);transform:rotateX(100deg);opacity:0}100%{-webkit-transform:rotateX(0);transform:rotateX(0);opacity:1}}body.swal2-toast-shown .swal2-container{background-color:transparent}body.swal2-toast-shown .swal2-container.swal2-shown{background-color:transparent}body.swal2-toast-shown .swal2-container.swal2-top{top:0;right:auto;bottom:auto;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%)}body.swal2-toast-shown .swal2-container.swal2-top-end,body.swal2-toast-shown .swal2-container.swal2-top-right{top:0;right:0;bottom:auto;left:auto}body.swal2-toast-shown .swal2-container.swal2-top-left,body.swal2-toast-shown .swal2-container.swal2-top-start{top:0;right:auto;bottom:auto;left:0}body.swal2-toast-shown .swal2-container.swal2-center-left,body.swal2-toast-shown .swal2-container.swal2-center-start{top:50%;right:auto;bottom:auto;left:0;-webkit-transform:translateY(-50%);transform:translateY(-50%)}body.swal2-toast-shown .swal2-container.swal2-center{top:50%;right:auto;bottom:auto;left:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%)}body.swal2-toast-shown .swal2-container.swal2-center-end,body.swal2-toast-shown .swal2-container.swal2-center-right{top:50%;right:0;bottom:auto;left:auto;-webkit-transform:translateY(-50%);transform:translateY(-50%)}body.swal2-toast-shown .swal2-container.swal2-bottom-left,body.swal2-toast-shown .swal2-container.swal2-bottom-start{top:auto;right:auto;bottom:0;left:0}body.swal2-toast-shown .swal2-container.swal2-bottom{top:auto;right:auto;bottom:0;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%)}body.swal2-toast-shown .swal2-container.swal2-bottom-end,body.swal2-toast-shown .swal2-container.swal2-bottom-right{top:auto;right:0;bottom:0;left:auto}body.swal2-toast-column .swal2-toast{flex-direction:column;align-items:stretch}body.swal2-toast-column .swal2-toast .swal2-actions{flex:1;align-self:stretch;height:2.2em;margin-top:.3125em}body.swal2-toast-column .swal2-toast .swal2-loading{justify-content:center}body.swal2-toast-column .swal2-toast .swal2-input{height:2em;margin:.3125em auto;font-size:1em}body.swal2-toast-column .swal2-toast .swal2-validation-message{font-size:1em}.swal2-popup.swal2-toast{flex-direction:row;align-items:center;width:auto;padding:.625em;box-shadow:0 0 .625em #d9d9d9;overflow-y:hidden}.swal2-popup.swal2-toast .swal2-header{flex-direction:row}.swal2-popup.swal2-toast .swal2-title{flex-grow:1;justify-content:flex-start;margin:0 .6em;font-size:1em}.swal2-popup.swal2-toast .swal2-footer{margin:.5em 0 0;padding:.5em 0 0;font-size:.8em}.swal2-popup.swal2-toast .swal2-close{position:initial;width:.8em;height:.8em;line-height:.8}.swal2-popup.swal2-toast .swal2-content{justify-content:flex-start;font-size:1em}.swal2-popup.swal2-toast .swal2-icon{width:2em;min-width:2em;height:2em;margin:0}.swal2-popup.swal2-toast .swal2-icon-text{font-size:2em;font-weight:700;line-height:1em}.swal2-popup.swal2-toast .swal2-icon.swal2-success .swal2-success-ring{width:2em;height:2em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line]{top:.875em;width:1.375em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=left]{left:.3125em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=right]{right:.3125em}.swal2-popup.swal2-toast .swal2-actions{height:auto;margin:0 .3125em}.swal2-popup.swal2-toast .swal2-styled{margin:0 .3125em;padding:.3125em .625em;font-size:1em}.swal2-popup.swal2-toast .swal2-styled:focus{box-shadow:0 0 0 .0625em #fff,0 0 0 .125em rgba(50,100,150,.4)}.swal2-popup.swal2-toast .swal2-success{border-color:#a5dc86}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line]{position:absolute;width:2em;height:2.8125em;-webkit-transform:rotate(45deg);transform:rotate(45deg);border-radius:50%}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line][class$=left]{top:-.25em;left:-.9375em;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-transform-origin:2em 2em;transform-origin:2em 2em;border-radius:4em 0 0 4em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line][class$=right]{top:-.25em;left:.9375em;-webkit-transform-origin:0 2em;transform-origin:0 2em;border-radius:0 4em 4em 0}.swal2-popup.swal2-toast .swal2-success .swal2-success-ring{width:2em;height:2em}.swal2-popup.swal2-toast .swal2-success .swal2-success-fix{top:0;left:.4375em;width:.4375em;height:2.6875em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line]{height:.3125em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line][class$=tip]{top:1.125em;left:.1875em;width:.75em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line][class$=long]{top:.9375em;right:.1875em;width:1.375em}.swal2-popup.swal2-toast.swal2-show{-webkit-animation:showSweetToast .5s;animation:showSweetToast .5s}.swal2-popup.swal2-toast.swal2-hide{-webkit-animation:hideSweetToast .2s forwards;animation:hideSweetToast .2s forwards}.swal2-popup.swal2-toast .swal2-animate-success-icon .swal2-success-line-tip{-webkit-animation:animate-toast-success-tip .75s;animation:animate-toast-success-tip .75s}.swal2-popup.swal2-toast .swal2-animate-success-icon .swal2-success-line-long{-webkit-animation:animate-toast-success-long .75s;animation:animate-toast-success-long .75s}@-webkit-keyframes showSweetToast{0%{-webkit-transform:translateY(-.625em) rotateZ(2deg);transform:translateY(-.625em) rotateZ(2deg);opacity:0}33%{-webkit-transform:translateY(0) rotateZ(-2deg);transform:translateY(0) rotateZ(-2deg);opacity:.5}66%{-webkit-transform:translateY(.3125em) rotateZ(2deg);transform:translateY(.3125em) rotateZ(2deg);opacity:.7}100%{-webkit-transform:translateY(0) rotateZ(0);transform:translateY(0) rotateZ(0);opacity:1}}@keyframes showSweetToast{0%{-webkit-transform:translateY(-.625em) rotateZ(2deg);transform:translateY(-.625em) rotateZ(2deg);opacity:0}33%{-webkit-transform:translateY(0) rotateZ(-2deg);transform:translateY(0) rotateZ(-2deg);opacity:.5}66%{-webkit-transform:translateY(.3125em) rotateZ(2deg);transform:translateY(.3125em) rotateZ(2deg);opacity:.7}100%{-webkit-transform:translateY(0) rotateZ(0);transform:translateY(0) rotateZ(0);opacity:1}}@-webkit-keyframes hideSweetToast{0%{opacity:1}33%{opacity:.5}100%{-webkit-transform:rotateZ(1deg);transform:rotateZ(1deg);opacity:0}}@keyframes hideSweetToast{0%{opacity:1}33%{opacity:.5}100%{-webkit-transform:rotateZ(1deg);transform:rotateZ(1deg);opacity:0}}@-webkit-keyframes animate-toast-success-tip{0%{top:.5625em;left:.0625em;width:0}54%{top:.125em;left:.125em;width:0}70%{top:.625em;left:-.25em;width:1.625em}84%{top:1.0625em;left:.75em;width:.5em}100%{top:1.125em;left:.1875em;width:.75em}}@keyframes animate-toast-success-tip{0%{top:.5625em;left:.0625em;width:0}54%{top:.125em;left:.125em;width:0}70%{top:.625em;left:-.25em;width:1.625em}84%{top:1.0625em;left:.75em;width:.5em}100%{top:1.125em;left:.1875em;width:.75em}}@-webkit-keyframes animate-toast-success-long{0%{top:1.625em;right:1.375em;width:0}65%{top:1.25em;right:.9375em;width:0}84%{top:.9375em;right:0;width:1.125em}100%{top:.9375em;right:.1875em;width:1.375em}}@keyframes animate-toast-success-long{0%{top:1.625em;right:1.375em;width:0}65%{top:1.25em;right:.9375em;width:0}84%{top:.9375em;right:0;width:1.125em}100%{top:.9375em;right:.1875em;width:1.375em}}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown){overflow:hidden}body.swal2-height-auto{height:auto!important}body.swal2-no-backdrop .swal2-shown{top:auto;right:auto;bottom:auto;left:auto;background-color:transparent}body.swal2-no-backdrop .swal2-shown>.swal2-modal{box-shadow:0 0 10px rgba(0,0,0,.4)}body.swal2-no-backdrop .swal2-shown.swal2-top{top:0;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%)}body.swal2-no-backdrop .swal2-shown.swal2-top-left,body.swal2-no-backdrop .swal2-shown.swal2-top-start{top:0;left:0}body.swal2-no-backdrop .swal2-shown.swal2-top-end,body.swal2-no-backdrop .swal2-shown.swal2-top-right{top:0;right:0}body.swal2-no-backdrop .swal2-shown.swal2-center{top:50%;left:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%)}body.swal2-no-backdrop .swal2-shown.swal2-center-left,body.swal2-no-backdrop .swal2-shown.swal2-center-start{top:50%;left:0;-webkit-transform:translateY(-50%);transform:translateY(-50%)}body.swal2-no-backdrop .swal2-shown.swal2-center-end,body.swal2-no-backdrop .swal2-shown.swal2-center-right{top:50%;right:0;-webkit-transform:translateY(-50%);transform:translateY(-50%)}body.swal2-no-backdrop .swal2-shown.swal2-bottom{bottom:0;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%)}body.swal2-no-backdrop .swal2-shown.swal2-bottom-left,body.swal2-no-backdrop .swal2-shown.swal2-bottom-start{bottom:0;left:0}body.swal2-no-backdrop .swal2-shown.swal2-bottom-end,body.swal2-no-backdrop .swal2-shown.swal2-bottom-right{right:0;bottom:0}.swal2-container{display:flex;position:fixed;top:0;right:0;bottom:0;left:0;flex-direction:row;align-items:center;justify-content:center;padding:10px;background-color:transparent;z-index:1060;overflow-x:hidden;-webkit-overflow-scrolling:touch}.swal2-container.swal2-top{align-items:flex-start}.swal2-container.swal2-top-left,.swal2-container.swal2-top-start{align-items:flex-start;justify-content:flex-start}.swal2-container.swal2-top-end,.swal2-container.swal2-top-right{align-items:flex-start;justify-content:flex-end}.swal2-container.swal2-center{align-items:center}.swal2-container.swal2-center-left,.swal2-container.swal2-center-start{align-items:center;justify-content:flex-start}.swal2-container.swal2-center-end,.swal2-container.swal2-center-right{align-items:center;justify-content:flex-end}.swal2-container.swal2-bottom{align-items:flex-end}.swal2-container.swal2-bottom-left,.swal2-container.swal2-bottom-start{align-items:flex-end;justify-content:flex-start}.swal2-container.swal2-bottom-end,.swal2-container.swal2-bottom-right{align-items:flex-end;justify-content:flex-end}.swal2-container.swal2-grow-fullscreen>.swal2-modal{display:flex!important;flex:1;align-self:stretch;justify-content:center}.swal2-container.swal2-grow-row>.swal2-modal{display:flex!important;flex:1;align-content:center;justify-content:center}.swal2-container.swal2-grow-column{flex:1;flex-direction:column}.swal2-container.swal2-grow-column.swal2-bottom,.swal2-container.swal2-grow-column.swal2-center,.swal2-container.swal2-grow-column.swal2-top{align-items:center}.swal2-container.swal2-grow-column.swal2-bottom-left,.swal2-container.swal2-grow-column.swal2-bottom-start,.swal2-container.swal2-grow-column.swal2-center-left,.swal2-container.swal2-grow-column.swal2-center-start,.swal2-container.swal2-grow-column.swal2-top-left,.swal2-container.swal2-grow-column.swal2-top-start{align-items:flex-start}.swal2-container.swal2-grow-column.swal2-bottom-end,.swal2-container.swal2-grow-column.swal2-bottom-right,.swal2-container.swal2-grow-column.swal2-center-end,.swal2-container.swal2-grow-column.swal2-center-right,.swal2-container.swal2-grow-column.swal2-top-end,.swal2-container.swal2-grow-column.swal2-top-right{align-items:flex-end}.swal2-container.swal2-grow-column>.swal2-modal{display:flex!important;flex:1;align-content:center;justify-content:center}.swal2-container:not(.swal2-top):not(.swal2-top-start):not(.swal2-top-end):not(.swal2-top-left):not(.swal2-top-right):not(.swal2-center-start):not(.swal2-center-end):not(.swal2-center-left):not(.swal2-center-right):not(.swal2-bottom):not(.swal2-bottom-start):not(.swal2-bottom-end):not(.swal2-bottom-left):not(.swal2-bottom-right):not(.swal2-grow-fullscreen)>.swal2-modal{margin:auto}@media all and (-ms-high-contrast:none),(-ms-high-contrast:active){.swal2-container .swal2-modal{margin:0!important}}.swal2-container.swal2-fade{transition:background-color .1s}.swal2-container.swal2-shown{background-color:rgba(0,0,0,.4)}.swal2-popup{display:none;position:relative;flex-direction:column;justify-content:center;width:32em;max-width:100%;padding:1.25em;border-radius:.3125em;background:#fff;font-family:inherit;font-size:1rem;box-sizing:border-box}.swal2-popup:focus{outline:0}.swal2-popup.swal2-loading{overflow-y:hidden}.swal2-popup .swal2-header{display:flex;flex-direction:column;align-items:center}.swal2-popup .swal2-title{display:block;position:relative;max-width:100%;margin:0 0 .4em;padding:0;color:#595959;font-size:1.875em;font-weight:600;text-align:center;text-transform:none;word-wrap:break-word}.swal2-popup .swal2-actions{flex-wrap:wrap;align-items:center;justify-content:center;margin:1.25em auto 0;z-index:1}.swal2-popup .swal2-actions:not(.swal2-loading) .swal2-styled[disabled]{opacity:.4}.swal2-popup .swal2-actions:not(.swal2-loading) .swal2-styled:hover{background-image:linear-gradient(rgba(0,0,0,.1),rgba(0,0,0,.1))}.swal2-popup .swal2-actions:not(.swal2-loading) .swal2-styled:active{background-image:linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.2))}.swal2-popup .swal2-actions.swal2-loading .swal2-styled.swal2-confirm{width:2.5em;height:2.5em;margin:.46875em;padding:0;border:.25em solid transparent;border-radius:100%;border-color:transparent;background-color:transparent!important;color:transparent;cursor:default;box-sizing:border-box;-webkit-animation:swal2-rotate-loading 1.5s linear 0s infinite normal;animation:swal2-rotate-loading 1.5s linear 0s infinite normal;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.swal2-popup .swal2-actions.swal2-loading .swal2-styled.swal2-cancel{margin-right:30px;margin-left:30px}.swal2-popup .swal2-actions.swal2-loading :not(.swal2-styled).swal2-confirm::after{display:inline-block;width:15px;height:15px;margin-left:5px;border:3px solid #999;border-radius:50%;border-right-color:transparent;box-shadow:1px 1px 1px #fff;content:'';-webkit-animation:swal2-rotate-loading 1.5s linear 0s infinite normal;animation:swal2-rotate-loading 1.5s linear 0s infinite normal}.swal2-popup .swal2-styled{margin:.3125em;padding:.625em 2em;font-weight:500;box-shadow:none}.swal2-popup .swal2-styled:not([disabled]){cursor:pointer}.swal2-popup .swal2-styled.swal2-confirm{border:0;border-radius:.25em;background:initial;background-color:#3085d6;color:#fff;font-size:1.0625em}.swal2-popup .swal2-styled.swal2-cancel{border:0;border-radius:.25em;background:initial;background-color:#aaa;color:#fff;font-size:1.0625em}.swal2-popup .swal2-styled:focus{outline:0;box-shadow:0 0 0 2px #fff,0 0 0 4px rgba(50,100,150,.4)}.swal2-popup .swal2-styled::-moz-focus-inner{border:0}.swal2-popup .swal2-footer{justify-content:center;margin:1.25em 0 0;padding:1em 0 0;border-top:1px solid #eee;color:#545454;font-size:1em}.swal2-popup .swal2-image{max-width:100%;margin:1.25em auto}.swal2-popup .swal2-close{position:absolute;top:0;right:0;justify-content:center;width:1.2em;height:1.2em;padding:0;transition:color .1s ease-out;border:none;border-radius:0;outline:initial;background:0 0;color:#ccc;font-family:serif;font-size:2.5em;line-height:1.2;cursor:pointer;overflow:hidden}.swal2-popup .swal2-close:hover{-webkit-transform:none;transform:none;color:#f27474}.swal2-popup>.swal2-checkbox,.swal2-popup>.swal2-file,.swal2-popup>.swal2-input,.swal2-popup>.swal2-radio,.swal2-popup>.swal2-select,.swal2-popup>.swal2-textarea{display:none}.swal2-popup .swal2-content{justify-content:center;margin:0;padding:0;color:#545454;font-size:1.125em;font-weight:300;line-height:normal;z-index:1;word-wrap:break-word}.swal2-popup #swal2-content{text-align:center}.swal2-popup .swal2-checkbox,.swal2-popup .swal2-file,.swal2-popup .swal2-input,.swal2-popup .swal2-radio,.swal2-popup .swal2-select,.swal2-popup .swal2-textarea{margin:1em auto}.swal2-popup .swal2-file,.swal2-popup .swal2-input,.swal2-popup .swal2-textarea{width:100%;transition:border-color .3s,box-shadow .3s;border:1px solid #d9d9d9;border-radius:.1875em;font-size:1.125em;box-shadow:inset 0 1px 1px rgba(0,0,0,.06);box-sizing:border-box}.swal2-popup .swal2-file.swal2-inputerror,.swal2-popup .swal2-input.swal2-inputerror,.swal2-popup .swal2-textarea.swal2-inputerror{border-color:#f27474!important;box-shadow:0 0 2px #f27474!important}.swal2-popup .swal2-file:focus,.swal2-popup .swal2-input:focus,.swal2-popup .swal2-textarea:focus{border:1px solid #b4dbed;outline:0;box-shadow:0 0 3px #c4e6f5}.swal2-popup .swal2-file::-webkit-input-placeholder,.swal2-popup .swal2-input::-webkit-input-placeholder,.swal2-popup .swal2-textarea::-webkit-input-placeholder{color:#ccc}.swal2-popup .swal2-file:-ms-input-placeholder,.swal2-popup .swal2-input:-ms-input-placeholder,.swal2-popup .swal2-textarea:-ms-input-placeholder{color:#ccc}.swal2-popup .swal2-file::-ms-input-placeholder,.swal2-popup .swal2-input::-ms-input-placeholder,.swal2-popup .swal2-textarea::-ms-input-placeholder{color:#ccc}.swal2-popup .swal2-file::placeholder,.swal2-popup .swal2-input::placeholder,.swal2-popup .swal2-textarea::placeholder{color:#ccc}.swal2-popup .swal2-range input{width:80%}.swal2-popup .swal2-range output{width:20%;font-weight:600;text-align:center}.swal2-popup .swal2-range input,.swal2-popup .swal2-range output{height:2.625em;margin:1em auto;padding:0;font-size:1.125em;line-height:2.625em}.swal2-popup .swal2-input{height:2.625em;padding:0 .75em}.swal2-popup .swal2-input[type=number]{max-width:10em}.swal2-popup .swal2-file{font-size:1.125em}.swal2-popup .swal2-textarea{height:6.75em;padding:.75em}.swal2-popup .swal2-select{min-width:50%;max-width:100%;padding:.375em .625em;color:#545454;font-size:1.125em}.swal2-popup .swal2-checkbox,.swal2-popup .swal2-radio{align-items:center;justify-content:center}.swal2-popup .swal2-checkbox label,.swal2-popup .swal2-radio label{margin:0 .6em;font-size:1.125em}.swal2-popup .swal2-checkbox input,.swal2-popup .swal2-radio input{margin:0 .4em}.swal2-popup .swal2-validation-message{display:none;align-items:center;justify-content:center;padding:.625em;background:#f0f0f0;color:#666;font-size:1em;font-weight:300;overflow:hidden}.swal2-popup .swal2-validation-message::before{display:inline-block;width:1.5em;min-width:1.5em;height:1.5em;margin:0 .625em;border-radius:50%;background-color:#f27474;color:#fff;font-weight:600;line-height:1.5em;text-align:center;content:'!';zoom:normal}@supports (-ms-accelerator:true){.swal2-range input{width:100%!important}.swal2-range output{display:none}}@media all and (-ms-high-contrast:none),(-ms-high-contrast:active){.swal2-range input{width:100%!important}.swal2-range output{display:none}}@-moz-document url-prefix(){.swal2-close:focus{outline:2px solid rgba(50,100,150,.4)}}.swal2-icon{position:relative;justify-content:center;width:5em;height:5em;margin:1.25em auto 1.875em;border:.25em solid transparent;border-radius:50%;line-height:5em;cursor:default;box-sizing:content-box;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;zoom:normal}.swal2-icon-text{font-size:3.75em}.swal2-icon.swal2-error{border-color:#f27474}.swal2-icon.swal2-error .swal2-x-mark{position:relative;flex-grow:1}.swal2-icon.swal2-error [class^=swal2-x-mark-line]{display:block;position:absolute;top:2.3125em;width:2.9375em;height:.3125em;border-radius:.125em;background-color:#f27474}.swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=left]{left:1.0625em;-webkit-transform:rotate(45deg);transform:rotate(45deg)}.swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=right]{right:1em;-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}.swal2-icon.swal2-warning{border-color:#facea8;color:#f8bb86}.swal2-icon.swal2-info{border-color:#9de0f6;color:#3fc3ee}.swal2-icon.swal2-question{border-color:#c9dae1;color:#87adbd}.swal2-icon.swal2-success{border-color:#a5dc86}.swal2-icon.swal2-success [class^=swal2-success-circular-line]{position:absolute;width:3.75em;height:7.5em;-webkit-transform:rotate(45deg);transform:rotate(45deg);border-radius:50%}.swal2-icon.swal2-success [class^=swal2-success-circular-line][class$=left]{top:-.4375em;left:-2.0635em;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-transform-origin:3.75em 3.75em;transform-origin:3.75em 3.75em;border-radius:7.5em 0 0 7.5em}.swal2-icon.swal2-success [class^=swal2-success-circular-line][class$=right]{top:-.6875em;left:1.875em;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-transform-origin:0 3.75em;transform-origin:0 3.75em;border-radius:0 7.5em 7.5em 0}.swal2-icon.swal2-success .swal2-success-ring{position:absolute;top:-.25em;left:-.25em;width:100%;height:100%;border:.25em solid rgba(165,220,134,.3);border-radius:50%;z-index:2;box-sizing:content-box}.swal2-icon.swal2-success .swal2-success-fix{position:absolute;top:.5em;left:1.625em;width:.4375em;height:5.625em;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);z-index:1}.swal2-icon.swal2-success [class^=swal2-success-line]{display:block;position:absolute;height:.3125em;border-radius:.125em;background-color:#a5dc86;z-index:2}.swal2-icon.swal2-success [class^=swal2-success-line][class$=tip]{top:2.875em;left:.875em;width:1.5625em;-webkit-transform:rotate(45deg);transform:rotate(45deg)}.swal2-icon.swal2-success [class^=swal2-success-line][class$=long]{top:2.375em;right:.5em;width:2.9375em;-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}.swal2-progresssteps{align-items:center;margin:0 0 1.25em;padding:0;font-weight:600}.swal2-progresssteps li{display:inline-block;position:relative}.swal2-progresssteps .swal2-progresscircle{width:2em;height:2em;border-radius:2em;background:#3085d6;color:#fff;line-height:2em;text-align:center;z-index:20}.swal2-progresssteps .swal2-progresscircle:first-child{margin-left:0}.swal2-progresssteps .swal2-progresscircle:last-child{margin-right:0}.swal2-progresssteps .swal2-progresscircle.swal2-activeprogressstep{background:#3085d6}.swal2-progresssteps .swal2-progresscircle.swal2-activeprogressstep~.swal2-progresscircle{background:#add8e6}.swal2-progresssteps .swal2-progresscircle.swal2-activeprogressstep~.swal2-progressline{background:#add8e6}.swal2-progresssteps .swal2-progressline{width:2.5em;height:.4em;margin:0 -1px;background:#3085d6;z-index:10}[class^=swal2]{-webkit-tap-highlight-color:transparent}.swal2-show{-webkit-animation:swal2-show .3s;animation:swal2-show .3s}.swal2-show.swal2-noanimation{-webkit-animation:none;animation:none}.swal2-hide{-webkit-animation:swal2-hide .15s forwards;animation:swal2-hide .15s forwards}.swal2-hide.swal2-noanimation{-webkit-animation:none;animation:none}.swal2-rtl .swal2-close{right:auto;left:0}.swal2-animate-success-icon .swal2-success-line-tip{-webkit-animation:swal2-animate-success-line-tip .75s;animation:swal2-animate-success-line-tip .75s}.swal2-animate-success-icon .swal2-success-line-long{-webkit-animation:swal2-animate-success-line-long .75s;animation:swal2-animate-success-line-long .75s}.swal2-animate-success-icon .swal2-success-circular-line-right{-webkit-animation:swal2-rotate-success-circular-line 4.25s ease-in;animation:swal2-rotate-success-circular-line 4.25s ease-in}.swal2-animate-error-icon{-webkit-animation:swal2-animate-error-icon .5s;animation:swal2-animate-error-icon .5s}.swal2-animate-error-icon .swal2-x-mark{-webkit-animation:swal2-animate-error-x-mark .5s;animation:swal2-animate-error-x-mark .5s}@-webkit-keyframes swal2-rotate-loading{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes swal2-rotate-loading{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@media print{body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown){overflow-y:scroll!important}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown)>[aria-hidden=true]{display:none}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown) .swal2-container{position:initial!important}}</style><style type="text/css">/* Chart.js */
+@-webkit-keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}@keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}.chartjs-render-monitor{-webkit-animation:chartjs-render-animation 0.001s;animation:chartjs-render-animation 0.001s;}</style></head>
+
+<body>
+
+    <!-- Para saber el estado de la sesion -->
+    <input type="hidden" id="estado-sesion" value="1">
+
+    <!-- Aqui inicia las barras de navegacion -->
+    <div id="barras-navegacion"><link rel="stylesheet" href="./Food Pedidos_files/BarraNavegacion.min.css">
+<link rel="stylesheet" href="./Food Pedidos_files/lista_pedidos.css">
+
+<!-- BARRA DE NAVEGACION LATERAL -->
+<nav id="sidebar" class="active">
+
+    <!-- CABECERA DEL SIDEBAR -->
+    <div class="sidebar-header">
+
+        <img class="mr-2 pt-2" src="./Food Pedidos_files/Logo ya.png" alt="FP">
+        <!-- <span>Food Pedidos</span> -->
+
+        <button id="cerrar_sidebar" class="btn btn-link btn-sm waves-effect waves-light">
+            <i class="far fa-arrow-left size-icon-arrow"></i>
+        </button>
+
+    </div>
+    <!-- FIN DE LA CABECERA DEL SIDEBAR -->
+
+    <!-- CONTENEDOR PRINCIPAL DEL SIDEBAR -->
+    <div class="contenedor-principal-sidebar pb-5">
+
+        <!-- CONTENEDOR DE LOS DATOS PERSONALES DEL USUARIO -->
+        <div class="sidebar-user">
+
+            <!-- NOMBRE -->
+            <h5 id="nombre_usuario" class="text-center">
+                <div class="btn-group">
+                    <button id="perfil" type="button" class="btn btn-warning btn-sm waves-effect waves-light">Pablo Garcia</button>
+                    <button type="button" class="btn btn-warning btn-sm dropdown-toggle dropdown-toggle-split waves-effect waves-light" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="sr-only">Usuario</span>
+                    </button>
+                    <div class="dropdown-menu">
+                        
+                        
+                        <a id="comidas" class="dropdown-item clearfix pl-3 pr-3">
+                            <font class="float-left">Comida</font>
+                            <i class="fal fa-burrito float-right font-food"></i>
+                        </a>
+                        <hr id="hr-comidas">
+                        <a id="favoritos" class="dropdown-item clearfix pl-3 pr-3">
+                            <font class="float-left">Favoritos</font>
+                            <i class="fal fa-book-heart float-right font-food"></i>
+                        </a>
+                        <hr id="hr-favoritos">
+                        <a id="signout" class="dropdown-item clearfix pl-3 pr-3" title="Cerrar sesión">
+                            <font class="float-left">Salir</font>
+                            <i class="fas fa-sign-out-alt float-right font-food"></i>
+                        </a>
+                    </div>
+                </div>
+            </h5>
+
+            <!-- NOMBRE DE LA EMPRESA -->
+            <p id="correo_usuario" class="text-center">consumidor@</p>
+
+            <!-- FOTO DE PERFIL DEL USUARIO -->
+            <div class="container-fluid d-flex justify-content-center">
+
+                <img class="img-thumbnail" id="foto_usuario" src="./Food Pedidos_files/sin_foto_perfil.png" alt="Foto de perfil del usuario">
+
+            </div>
+            <!-- FIN DE LA FOTO DE PERFIL DEL USUARIO -->
+
+        </div>
+        <!-- FIN DEL CONTENEDOR DE LOS DATOS PERSONALES DEL USUARIO -->
+
+        <!-- CONTENEDOR DE PEDIDOS, DETALLE Y TOTAL -->
+        <div id="contenido-barra-navegacion" class="container-fluid mt-3 pt-5"><!-- CONTENEDOR DE PEDIDOS, DETALLE Y TOTAL -->
+
+<!-- LISTA DE PEDIDOS -->
+<ul id="lista_mis_pedidos" class="lista_mis_pedidos list-group mt-2">
+
+    <h4 class="text-center text-white m-0 font-weight-bold">
+        Mis Pedidos
+    </h4>
+
+    <div id="contenedor-ningun-pedido">
+        <h5 class="text-center text-white">
+            Por ahora no tienes ningún pedido.
+        </h5>
+    </div>
+
+    <div id="contenedor-mis-pedidos" style="display: none;">
+        <!-- ...         -->
+    </div>
+
+
+</ul>
+<!-- LISTA DE PEDIDOS -->
+
+<!-- CONTENEDOR PRINCIPAL DE LOS DETALLES DEL PEDIDO -->
+<div id="lista-detalle-pedido" class="contenedor-detalle-pedido text-white mt-3" style="display: none;">
+
+    <h4 class="text-center text-white mt-2 mb-1 font-weight-bold">
+        Detalle del pedido
+    </h4>
+
+    <!-- CONTENEDOR DE LOS ITEMS DETALLE PEDIDO-->
+    <div id="contenedor-detalle-pedido" class="contenedor-items-detalle-pedido">
+
+    </div>
+    <!-- CONTENEDOR DE LOS ITEMS DETALLE PEDIDO-->
+
+</div>
+<!-- CONTENEDOR PRINCIPAL DE LOS DETALLES DEL PEDIDO -->
+
+<!-- CONTENEDOR DEL TOTAL DE LOS PEDIDOS -->
+<div id="contenedor-total-pedido" style="display: none;">
+    <div class="mt-3 mb-3 d-flex">
+        <span class="precio-total-pedidos text-white mr-1">Total</span>
+        <span class="precio-total-pedidos text-white font-weight-bold ml-auto mr-2">$65.00</span>
+        <hr>
+    </div>
+</div>
+
+<button type="button" id="boton-pagar-pedido" class="button-pagar btn btn-lg btn-warning btn-block text-white" style="display: none;">
+    Pagar Ahora <i class="fa fa-credit-card-front"></i>
+</button>
+<button type="button" id="boton-cancelar-pedido" class="button-pagar btn btn-lg btn-danger btn-block text-white" style="display: none;">
+    Cancelar <i class="fa fa-credit-card-front"></i>
+</button>
+<button type="button" id="boton-hacer-pedido" class="button-pagar btn btn-lg btn-warning btn-block text-white">
+    Hacer un pedido <i class="fas fa-concierge-bell"></i>
+</button>
+<!-- CONTENEDOR DEL TOTAL DE LOS PEDIDOS -->
+
+<!-- CONTENEDOR DE PEDIDOS, DETALLE Y TOTAL -->
+
+<script src="./Food Pedidos_files/c_contenedor_detalles_pedido.js.descarga"></script></div>
+        <!-- CONTENEDOR DE PEDIDOS, DETALLE Y TOTAL -->
+
+    </div>
+    <!-- FIN DEL CONTENEDOR PRINCIPAL DEL SIDEBAR -->
+
+</nav>
+<!-- BARRA DE NAVEGACION LATERAL -->
+
+<script rel="script" src="./Food Pedidos_files/barras_navegacion.js.descarga"></script></div>
+    <!-- Aqui termina las barras de navegacion -->
+
+    <!-- Aqui inicia el contenido de la página -->
+    <div id="container"><link rel="stylesheet" href="./Food Pedidos_files/fondo.css">
+
+<div id="modal-global">
+    <!-- ... -->
+</div>
+
+<style>
+    .p-links {
+        font-size: 18px;
+        margin-bottom: 4px;
+        display: flex!important;
+        align-items: center!important;
+    }
+    
+    .iconos-linkedin {
+        font-size: 30px;
+        padding-right: 5px;
+    }
+</style>
+
+<!-- Aqui comienza el contenido del encabezado superior -->
+<div class="contenido-encabezado-superior">
+
+    <!-- Aqui inicia el contenido con fondo transparente para mostrar el logo y el boton de menu -->
+    <div class="contenido-fondo-oculto">
+
+        <div class="fondo-boton-menu">
+            <a class="button-collapse btn-food" id="sidebarCollapse">
+                <i class="barras-menu fas fa-bars color-food-fontBrown"></i>
+            </a>
+        </div>
+
+        <div class="fondo-logo">
+            <img class="imagen-logo" src="./Food Pedidos_files/Logo ya.png" alt="Logo de la aplicacion">
+        </div>
+
+    </div>
+    <!-- Aqui termina el contenido con fondo transparente para mostrar el logo y el boton de menu -->
+
+    <!-- Aqui inicia el encabezado parte superior -->
+    <div class="encabezado-parte-superior bg-food-orange">
+
+        <div class="columnas-superior bg-white"> </div>
+        <div class="columnas-superior"></div>
+        <div class="columnas-superior bg-white"> </div>
+        <div class="columnas-superior"></div>
+        <div class="columnas-superior bg-white"> </div>
+        <div class="columnas-superior"></div>
+        <div class="columnas-superior bg-white"> </div>
+        <div class="columnas-superior"></div>
+        <div class="columnas-superior bg-white"> </div>
+        <div class="columnas-superior"></div>
+        <div class="columnas-superior bg-white"> </div>
+
+    </div>
+    <!-- Aqui termina el encabezado parte superior -->
+
+    <!-- Aqui inicia el encabezado parte inferior -->
+    <div class="encabezado-parte-inferior">
+
+        <div class="columnas-inferior-blancas border-columnas">
+            <h6 class="estilo-letra-titulo">F</h6>
+        </div>
+        <div class="columnas-inferior border-columnas">
+            <h6 class="estilo-letra-titulo">O</h6>
+        </div>
+        <div class="columnas-inferior-blancas border-columnas">
+            <h6 class="estilo-letra-titulo">O</h6>
+        </div>
+        <div class="columnas-inferior border-columnas">
+            <h6 class="estilo-letra-titulo">D</h6>
+        </div>
+        <div class="columnas-inferior-blancas border-columnas">
+            <h6 class="estilo-letra-titulo">P</h6>
+        </div>
+        <div class="columnas-inferior border-columnas">
+            <h6 class="estilo-letra-titulo">E</h6>
+        </div>
+        <div class="columnas-inferior-blancas border-columnas">
+            <h6 class="estilo-letra-titulo">D</h6>
+        </div>
+        <div class="columnas-inferior border-columnas">
+            <h6 class="estilo-letra-titulo">I</h6>
+        </div>
+        <div class="columnas-inferior-blancas border-columnas">
+            <h6 class="estilo-letra-titulo">D</h6>
+        </div>
+        <div class="columnas-inferior border-columnas">
+            <h6 class="estilo-letra-titulo">O</h6>
+        </div>
+        <div class="columnas-inferior-blancas border-columnas">
+            <h6 class="estilo-letra-titulo">S</h6>
+        </div>
+
+    </div>
+    <!-- Aqui termina el encabezado parte inferior -->
+
+</div>
+<!-- Aqui termina el contenido del encabezado superior -->
+
+<!-- Aqui inicia el fondo de toda la pantalla 
+    Debe ir debajo del encabezado-->
+<div class="fondo-pantalla-completa">
+
+    <div class="lados-laterales-fondo">
+        <div class="boton-levantar-menu">
+            <a id="boton-toggle-menu" title="Ocultar el menú">
+                <i id="fa-arrow-up" class="far fa-arrow-alt-from-bottom icono-levantar-menu"></i>
+                <i id="fa-arrow-down" class="far fa-arrow-alt-from-top icono-levantar-menu d-none"></i>
+            </a>
+        </div>
+    </div>
+
+    <div id="contenedor-todas-vistas" class="centro-fondo ancho-inicio-slide"><!-- Link hacia estilos css -->
+<!-- <link rel="stylesheet" href="./Assets/css/BarraNavegacion.min.css"> -->
+<link rel="stylesheet" href="./Food Pedidos_files/Principal_cliente.css">
+
+<!-- Link hacia MDBOOTSTRAP -->
+<link rel="stylesheet" href="./Food Pedidos_files/mdb.min.css">
+
+
+<!-- CONTENEDOR DE LOS PASOS A REALIZAR PARA HACER UN PEDIDO -->
+<div class="container-fluid">
+    <!-- Vertical Steppers -->
+    <div class="row">
+
+        <div class="col-md-12 pr-0 pl-0">
+
+            <!-- CONTENEDOR DE LOS PASOS PARA REALIZAR PARA UN PEDIDO -->
+            <ul class="stepper p-0 stepper-vertical">
+
+                <!-- CONTENEDOR DEL PRIMER PASO -->
+                <li id="paso_uno" class="step active overflow-auto">
+
+                    <a id="paso_uno_link" class="pt-0">
+                        <span class="circle">1</span>
+                        <span class="label color-food-fontBrown">Selecciona en donde comprarás</span>
+                    </a>
+
+                    <!-- CONTENEDOR DE LAS TARJETAS CON LOS LOCALES -->
+                    <div id="tarjetas-locales" class="step-content lighten-3 p-0 pb-3">
+
+                        <!-- ... -->
+
+                    <div class="col-sm contenedor-local">    
+<!-- CONTENEDOR DE LA TARJETA -->
+<!-- <div class="card booking-card"> -->
+<div class="card card-cascade wider">
+
+    <!-- IMAGEN DEL LOCAL -->
+    <div class="view view-cascade">
+        <img class="card-img-top" style="height:148px; max-height: 148px; " src="./Food Pedidos_files/comida_1.jpg" alt="La imagen puede contener una persona, objeto o logotipo">
+    </div>
+    <!-- FIN DEL IMAGEN DEL LOCAL -->
+
+
+
+    <!-- CONTENIDO DE LA TARJETA -->
+    <div id="1" class="card-body card-body-cascade clik-mostrar-local">
+
+        <!-- NOMBRE DEL LOCAL -->
+        <h4 id="nombre-local-1" class="card-title font-weight-bold">Don andre</h4>
+
+        <!-- CONTENEDOR DE RATING CON EL QUE CUENTA EL LOCAL -->
+        <ul class="list-unstyled list-inline rating mb-0">
+
+            <!-- ESTRELLAS DE RATING -->
+            <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"></i>
+            </li>
+            <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"></i>
+            </li>
+            <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"></i>
+            </li>
+            <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"></i>
+            </li>
+            <li class="list-inline-item"><i class="far fa-star amber-text"></i></li>
+            <!-- ESTRELLAS DE RATING -->
+
+            <!-- VOTACIONES CON NUMERO -->
+            <li class="list-inline-item">
+                <p id="promedio_rating_1" class="text-muted">4.0 <span id="numero_votaciones_1">(413)</span></p>
+            </li>
+            <!-- VOTACIONES CON NUMERO -->
+
+        </ul>
+        <!-- FIN DEL CONTENEDOR DE RATING CON EL QUE CUENTA EL LOCAL -->
+
+        <!-- RANGO DE PRECIOS Y TIPO DE LOCAL -->
+        <p id="rango_precios_1" class="mb-2">$$ • 
+            <span id="tipo_local_1">Cocina Económica</span>
+        </p>
+        <!-- RANGO DE PRECIOS Y TIPO DE LOCAL -->
+
+        <!-- DESCRIPCION DEL LOCAL -->
+        <p id="descripcion_local_1" class="card-text">
+            Los mejores desayunos y comidas, antojitos mexicanos y otros ricos alimntos        </p>
+        <!-- DESCRIPCION DEL LOCAL -->
+
+        <!-- SEPARADOR -->
+        <hr class="my-4">
+        <!-- SEPARADOR -->
+
+        <!-- DESCRIPCION DE APERTURA DEL LOCAL -->
+        <p class="lead"><strong>Abre desde:</strong></p>
+        <ul class="list-unstyled list-inline d-flex justify-content-between mb-0">
+
+            <li class="list-inline-item mr-auto">
+                <div id="hora_abierto" class="green lighten-1 text-white chip mr-0">
+                    08:00 AM</div>
+            </li>
+
+        </ul>
+        <!-- DESCRIPCION DE APERTURA DEL LOCAL -->
+
+        <!-- DESCRIPCION DE CIERRE DEL LOCAL -->
+        <p class="lead"><strong>Cerrado desde:</strong></p>
+        <ul class="list-unstyled list-inline d-flex justify-content-between mb-0">
+
+            <li class="list-inline-item mr-0">
+                <div id="hora_cerrado" class="orange lighten-1 text-white chip mr-0">
+                    18:00 PM</div>
+            </li>
+
+        </ul>
+        <!-- DESCRIPCION DE CIERRE DEL LOCAL -->
+
+    </div>
+    <!-- FIN DEL CONTENIDO DE LA TARJETA -->
+
+</div>
+<!-- CONTENEDOR DE LA TARJETA -->
+</div><div class="col-sm contenedor-local">    
+<!-- CONTENEDOR DE LA TARJETA -->
+<!-- <div class="card booking-card"> -->
+<div class="card card-cascade wider">
+
+    <!-- IMAGEN DEL LOCAL -->
+    <div class="view view-cascade">
+        <img class="card-img-top" style="height:148px; max-height: 148px; " src="./Food Pedidos_files/comida_2.jpg" alt="La imagen puede contener una persona, objeto o logotipo">
+    </div>
+    <!-- FIN DEL IMAGEN DEL LOCAL -->
+
+
+
+    <!-- CONTENIDO DE LA TARJETA -->
+    <div id="2" class="card-body card-body-cascade clik-mostrar-local">
+
+        <!-- NOMBRE DEL LOCAL -->
+        <h4 id="nombre-local-2" class="card-title font-weight-bold">Doña Queta</h4>
+
+        <!-- CONTENEDOR DE RATING CON EL QUE CUENTA EL LOCAL -->
+        <ul class="list-unstyled list-inline rating mb-0">
+
+            <!-- ESTRELLAS DE RATING -->
+            <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"></i>
+            </li>
+            <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"></i>
+            </li>
+            <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"></i>
+            </li>
+            <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"></i>
+            </li>
+            <li class="list-inline-item"><i class="far fa-star amber-text"></i></li>
+            <!-- ESTRELLAS DE RATING -->
+
+            <!-- VOTACIONES CON NUMERO -->
+            <li class="list-inline-item">
+                <p id="promedio_rating_1" class="text-muted">4.0 <span id="numero_votaciones_1">(413)</span></p>
+            </li>
+            <!-- VOTACIONES CON NUMERO -->
+
+        </ul>
+        <!-- FIN DEL CONTENEDOR DE RATING CON EL QUE CUENTA EL LOCAL -->
+
+        <!-- RANGO DE PRECIOS Y TIPO DE LOCAL -->
+        <p id="rango_precios_1" class="mb-2">$$ • 
+            <span id="tipo_local_1">Cocina Económica</span>
+        </p>
+        <!-- RANGO DE PRECIOS Y TIPO DE LOCAL -->
+
+        <!-- DESCRIPCION DEL LOCAL -->
+        <p id="descripcion_local_1" class="card-text">
+            Los mejores desayunos y comidas, antojitos mexicanos y otros ricos alimntos        </p>
+        <!-- DESCRIPCION DEL LOCAL -->
+
+        <!-- SEPARADOR -->
+        <hr class="my-4">
+        <!-- SEPARADOR -->
+
+        <!-- DESCRIPCION DE APERTURA DEL LOCAL -->
+        <p class="lead"><strong>Abre desde:</strong></p>
+        <ul class="list-unstyled list-inline d-flex justify-content-between mb-0">
+
+            <li class="list-inline-item mr-auto">
+                <div id="hora_abierto" class="green lighten-1 text-white chip mr-0">
+                    08:00 AM</div>
+            </li>
+
+        </ul>
+        <!-- DESCRIPCION DE APERTURA DEL LOCAL -->
+
+        <!-- DESCRIPCION DE CIERRE DEL LOCAL -->
+        <p class="lead"><strong>Cerrado desde:</strong></p>
+        <ul class="list-unstyled list-inline d-flex justify-content-between mb-0">
+
+            <li class="list-inline-item mr-0">
+                <div id="hora_cerrado" class="orange lighten-1 text-white chip mr-0">
+                    18:00 PM</div>
+            </li>
+
+        </ul>
+        <!-- DESCRIPCION DE CIERRE DEL LOCAL -->
+
+    </div>
+    <!-- FIN DEL CONTENIDO DE LA TARJETA -->
+
+</div>
+<!-- CONTENEDOR DE LA TARJETA -->
+</div><div class="col-sm contenedor-local">    
+<!-- CONTENEDOR DE LA TARJETA -->
+<!-- <div class="card booking-card"> -->
+<div class="card card-cascade wider">
+
+    <!-- IMAGEN DEL LOCAL -->
+    <div class="view view-cascade">
+        <img class="card-img-top" style="height:148px; max-height: 148px; " src="./Food Pedidos_files/comida_3.jpg" alt="La imagen puede contener una persona, objeto o logotipo">
+    </div>
+    <!-- FIN DEL IMAGEN DEL LOCAL -->
+
+
+
+    <!-- CONTENIDO DE LA TARJETA -->
+    <div id="3" class="card-body card-body-cascade clik-mostrar-local">
+
+        <!-- NOMBRE DEL LOCAL -->
+        <h4 id="nombre-local-3" class="card-title font-weight-bold">Cafeteria UTEC</h4>
+
+        <!-- CONTENEDOR DE RATING CON EL QUE CUENTA EL LOCAL -->
+        <ul class="list-unstyled list-inline rating mb-0">
+
+            <!-- ESTRELLAS DE RATING -->
+            <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"></i>
+            </li>
+            <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"></i>
+            </li>
+            <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"></i>
+            </li>
+            <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"></i>
+            </li>
+            <li class="list-inline-item"><i class="far fa-star amber-text"></i></li>
+            <!-- ESTRELLAS DE RATING -->
+
+            <!-- VOTACIONES CON NUMERO -->
+            <li class="list-inline-item">
+                <p id="promedio_rating_1" class="text-muted">4.0 <span id="numero_votaciones_1">(413)</span></p>
+            </li>
+            <!-- VOTACIONES CON NUMERO -->
+
+        </ul>
+        <!-- FIN DEL CONTENEDOR DE RATING CON EL QUE CUENTA EL LOCAL -->
+
+        <!-- RANGO DE PRECIOS Y TIPO DE LOCAL -->
+        <p id="rango_precios_1" class="mb-2">$$ • 
+            <span id="tipo_local_1">Cafeteria</span>
+        </p>
+        <!-- RANGO DE PRECIOS Y TIPO DE LOCAL -->
+
+        <!-- DESCRIPCION DEL LOCAL -->
+        <p id="descripcion_local_1" class="card-text">
+            Los mejores desayunos y comidas, antojitos mexicanos y otros ricos alimntos        </p>
+        <!-- DESCRIPCION DEL LOCAL -->
+
+        <!-- SEPARADOR -->
+        <hr class="my-4">
+        <!-- SEPARADOR -->
+
+        <!-- DESCRIPCION DE APERTURA DEL LOCAL -->
+        <p class="lead"><strong>Abre desde:</strong></p>
+        <ul class="list-unstyled list-inline d-flex justify-content-between mb-0">
+
+            <li class="list-inline-item mr-auto">
+                <div id="hora_abierto" class="green lighten-1 text-white chip mr-0">
+                    08:00 AM</div>
+            </li>
+
+        </ul>
+        <!-- DESCRIPCION DE APERTURA DEL LOCAL -->
+
+        <!-- DESCRIPCION DE CIERRE DEL LOCAL -->
+        <p class="lead"><strong>Cerrado desde:</strong></p>
+        <ul class="list-unstyled list-inline d-flex justify-content-between mb-0">
+
+            <li class="list-inline-item mr-0">
+                <div id="hora_cerrado" class="orange lighten-1 text-white chip mr-0">
+                    18:00 PM</div>
+            </li>
+
+        </ul>
+        <!-- DESCRIPCION DE CIERRE DEL LOCAL -->
+
+    </div>
+    <!-- FIN DEL CONTENIDO DE LA TARJETA -->
+
+</div>
+<!-- CONTENEDOR DE LA TARJETA -->
+</div></div>
+                    <!--FIN DEL CONTENEDOR DE LAS TARJETAS CON LOS LOCALES -->
+
+                </li>
+                <!-- CONTENEDOR DEL PRIMER PASO -->
+
+                <!-- CONTENEDOR DEL SEGUNDO PASO -->
+                <li id="paso_dos" class="step done overflow-auto">
+
+                    <!--Section Title -->
+                    <a href="http://localhost/food_pedidos/#!">
+                        <span class="circle">2</span>
+                        <span class="label color-food-fontBrown">Selecciona el platillo de tu preferencia.</span>
+                    </a>
+
+                    <!-- CONTENEDOR DE LAS TARJETAS DE COMIDAS -->
+                    <div id="tarjetas-comidas" class="step-content lighten-3 d-none p-0 pb-3 ml-2">
+
+                        <!-- ... -->
+
+                    </div>
+                    <!-- CONTENEDOR DE LAS TARJETAS DE COMIDAS -->
+
+                </li>
+                <!-- CONTENEDOR DEL SEGUNDO PASO -->
+
+            </ul>
+            <!-- CONTENEDOR DE LOS PASOS PARA REALIZAR PARA UN PEDIDO -->
+
+        </div>
+    </div>
+
+</div>
+<!-- CONTENEDOR DE LOS PASOS A REALIZAR PARA HACER UN PEDIDO -->
+
+<!-- <button id="boton"> hola</button>
+
+<div id="parrafo" style="border:1px solid; width:300px;height:250px; overflow:auto">
+	Este es el texto del párrafo palabras unidas ParaGenerarScrollHorizontalYVerticalParaEstaDemoDeEjemplo. Este es el texto del párrafo palabras unidas ParaGenerarScrollHorizontalYVerticalParaEstaDemoDeEjemplo. Este es el texto del párrafo palabras unidas ParaGenerarScrollHorizontalYVerticalParaEstaDemoDeEjemplo. Este es el texto del párrafo palabras unidas ParaGenerarScrollHorizontalYVerticalParaEstaDemoDeEjemplo. Este es el texto del párrafo palabras unidas ParaGenerarScrollHorizontalYVerticalParaEstaDemoDeEjemplo. Este es el texto del párrafo palabras unidas ParaGenerarScrollHorizontalYVerticalParaEstaDemoDeEjemplo. 
+</div>
+
+<script>
+$("#boton").click(function(){
+    $("#parrafo").scrollTop(50)
+}); -->
+
+
+<!-- SCRIPTS DE FUNCIONALIDADES (BOOTSTRAP 4) -->
+<script src="./Food Pedidos_files/popper.min.js.descarga"></script>
+<script src="./Food Pedidos_files/bootstrap.min.js.descarga"></script>
+
+
+<!-- SCRIPT DE FUNCIONALIDADES DE MDBOOTSTRAP -->
+<script src="./Food Pedidos_files/mdb.min.js.descarga"></script>
+
+<!-- <script src="./Assets/js/efectos_principalCliente.js"></script> -->
+<script src="./Food Pedidos_files/c_comidas.js.descarga"></script></div>
+
+    <!-- <footer class="container-footer text-center">
+        Footer -->
+    <footer class="container-footer page-footer font-small pt-4">
+
+        <!-- Footer Links -->
+        <div class="container text-md-left">
+
+            <!-- Grid row -->
+            <div class="row">
+
+                <!-- Grid column -->
+                <div class="col-md-4 m-0">
+
+                    <!-- Content -->
+                    <h5 class="font-weight-bold text-uppercase mt-3 mb-0">Desarrolladores</h5>
+                    <hr class="mb-4 mt-1 d-inline-block mx-auto" style="border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; width: 100px;  height: 3px; background-color: rgba(230, 176, 27, 0.952)!important;">
+
+                    <!-- CONTACTO 1 -->
+                    <p class="p-links">
+                        <!-- <a href="http://linkedin.com/in/pablo-cruz-marquez-08a277132 " target="_blank " class="btn-floating btn-li mx-1 "> -->
+                        <i class="fab fa-linkedin iconos-linkedin"></i>
+                        <!-- </a> -->
+                        <a href="http://linkedin.com/in/pablo-cruz-marquez-08a277132" target="_blank ">
+                            Pablo Cruz Marquez
+                        </a>
+                    </p>
+                    <!-- FIN DE CONTACTO 1 -->
+                    <!-- CONTACTO 1 -->
+                    <p class="p-links">
+                        <i class="fab fa-linkedin" style="font-size: 30px; padding-right: 5px; "></i>
+                        <a>
+                            Miguel Ángel Ortega Montiel
+                        </a>
+                    </p>
+                    <!-- FIN DE CONTACTO 1 -->
+                    <!-- CONTACTO 1 -->
+                    <p class="p-links">
+                        <i class="fab fa-linkedin" style="font-size: 30px; padding-right: 5px; "></i>
+                        <a>
+                            Krista Osorio Monroy
+                        </a>
+                    </p>
+                    <!-- FIN DE CONTACTO 1 -->
+
+                </div>
+                <!-- Grid column -->
+
+                <hr class="clearfix w-100 d-md-none ">
+
+                <!-- Grid column -->
+                <div class="col-md-4 m-0">
+
+                    <!-- Links -->
+                    <h5 class="font-weight-bold text-uppercase mt-3 mb-0">Compañia</h5>
+                    <hr class="mb-4 mt-1 d-inline-block mx-auto" style="border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; width: 100px;  height: 3px; background-color: rgba(230, 176, 27, 0.952)!important;">
+
+                    <ul class="list-unstyled ">
+                        <li>
+                            <p class="p-links">
+                                <a href="http://localhost/food_pedidos/#!">Acerca de nosotros</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="p-links">
+                                <a href="http://localhost/food_pedidos/#!">Blog</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="p-links">
+                                <a href="http://localhost/food_pedidos/#!">Términos y condiciones</a>
+                            </p>
+                        </li>
+                    </ul>
+
+                </div>
+                <!-- Grid column -->
+
+                <hr class="clearfix w-100 d-md-none ">
+
+                <!-- Grid column -->
+                <div class="col-md-4 m-0">
+
+                    <!-- Links -->
+                    <h5 class="font-weight-bold text-uppercase mt-3 mb-0">Contáctanos</h5>
+                    <hr class="mb-4 mt-1 d-inline-block mx-auto" style="border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; width: 100px;  height: 3px; background-color: rgba(230, 176, 27, 0.952)!important;">
+
+                    <ul class="list-unstyled ">
+                        <li>
+                            <p class="p-links">
+                                <i class="fas fa-home mr-3"></i>Tulancingo Hgo, MX</p>
+                        </li>
+                        <li>
+                            <p class="p-links">
+                                <i class="fas fa-envelope mr-3"></i>nucleardevelops@gmail.com</p>
+                        </li>
+                        <li>
+                            <p class="p-links">
+                                <i class="fas fa-phone mr-3"></i>775 146 38 78</p>
+                        </li>
+                    </ul>
+
+                </div>
+                <!-- Grid column -->
+
+            </div>
+            <!-- Grid row -->
+
+        </div>
+        <!-- Footer Links -->
+
+        <hr>
+
+        <!-- Social buttons -->
+        <ul class="list-unstyled list-inline text-center ">
+            <li class="list-inline-item ">
+                <a class="btn-floating btn-fb mx-1  waves-effect waves-light">
+                    <i class="fab fa-facebook-f "> </i>
+                </a>
+            </li>
+            <li class="list-inline-item ">
+                <a class="btn-floating btn-gplus mx-1  waves-effect waves-light">
+                    <i class="fab fa-youtube "> </i>
+                </a>
+            </li>
+            <li class="list-inline-item ">
+                <a class="btn-floating btn-dribbble mx-1  waves-effect waves-light">
+                    <i class="fab fa-github "> </i>
+                </a>
+            </li>
+        </ul>
+        <!-- Social buttons -->
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3 ">© 2019 Copyright:
+            <a> FoodPedidos.com</a>
+        </div>
+        <!-- Copyright -->
+
+    </footer>
+    <!-- Footer -->
+
+    <div class="lados-laterales-fondo "></div>
+
+</div>
+
+
+<!-- Aqui termina el fondo de toda la pantalla -->
+
+<script>
+    $(document).ready(function($) {
+        let flag = 1;
+
+        function mostrarInformacion(usuario) {
+            if (usuario.tipo_usuario == 2) { //SI EL USUARIO ES DE TIPO ADMINISTRADOR
+                $('#contenedor-todas-vistas').load('./Vistas/v_pedidos.html');
+                $('#contenido-barra-navegacion').load('./Vistas/v_funciones_vendedor.html');
+            } else if (usuario.tipo_usuario == 3) {
+                $('#contenedor-todas-vistas').load('./Vistas/v_comidas.html');
+                $('#contenido-barra-navegacion').load('./Vistas/contenedor_detalles_pedido.html');
+                // $('#modal-global').load('./Vistas/modal_platillo.php');
+            }
+        }
+
+        function obtenerDatosSesion() {
+            let url = './Modelos/m_login.php';
+            $.post(url, {
+                funcion: 'datos_sesion'
+            }, function(data, status) {
+                data = JSON.parse(data);
+                mostrarInformacion(data.usuario);
+            });
+        }
+
+        $('#boton-toggle-menu').click(function(e) {
+            e.preventDefault();
+            // $("#imagen-logo ").toggle('hide');
+            $(".imagen-logo ").animate({
+                height: 'toggle'
+            });
+            $("#contenedor-todas-vistas ").toggleClass('ancho-inicio-slide');
+
+            $("#sidebarCollapse ").animate({
+                height: 'toggle'
+            });
+            $(".encabezado-parte-superior ").slideToggle();
+
+            if (flag == 1) {
+                $("#fa-arrow-up ").addClass('d-none');
+                $("#fa-arrow-down ").removeClass('d-none');
+                $("#boton-toggle-menu ").attr('title', 'Mostrar el menú');
+                flag = 0;
+            } else {
+                $("#fa-arrow-up ").removeClass('d-none');
+                $("#fa-arrow-down ").addClass('d-none');
+                $("#boton-toggle-menu ").attr('title', 'Ocultar el menú');
+                flag = 1;
+            }
+        });
+
+        let ancho = $(window).width();
+        let alto = $(window).height();
+
+        let tamaño_pantalla_text = $('<p>').text('W: ' + ancho + ', H:' + alto);
+        // $('.fondo-pantalla-completa').append(tamaño_pantalla_text);
+
+        obtenerDatosSesion();
+
+    });
+</script></div>
+    <!-- Aqui termina el contenido de la página -->
+
+    <!-- Aqui inicia el pie de página -->
+    <div id="footer">
+        <!-- ... -->
+    </div>
+    <!-- Aqui termina el pie de página -->
+
+
+    <div id="modal-registro">
+        <!-- ... -->
+    </div>
+
+
+    <!-- Modal para agregar un nuevo ingrediente -->
+    <div class="modal fade" id="agregarNuevoIngrediente" tabindex="-1" role="dialog" aria-hidden="true">
+
+        <div class="modal-dialog modal-notify modal-warning" role="document">
+
+            <!-- CONTENIDO DEL MODAL -->
+            <div class="modal-content">
+
+                <!-- HEDER DEL MODAL -->
+                <div class="modal-header">
+                    <p class="heading lead">Agregar un nuevo ingrediente</p>
+
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" class="white-text">×</span>
+                    </button>
+                </div>
+                <!-- HEDER DEL MODAL -->
+
+                <!-- CONTENIDO DEL MODAL -->
+                <div id="contenido-modal-ingrediente">
+
+                </div>
+                <!-- CONTENIDO DEL MODAL -->
+
+
+            </div>
+            <!-- CONTENIDO DEL MODAL -->
+
+        </div>
+
+    </div>
+    <!-- Modal para agregar un nuevo ingrediente-->
+
+    <!-- Modal para agregar un nuevo platillo -->
+    <div class="modal fade" id="agregarNuevoPlatillo" tabindex="-1" role="dialog" aria-hidden="true">
+
+        <div class="modal-dialog modal-notify modal-warning" role="document">
+
+            <!-- CONTENIDO DEL MODAL -->
+            <div class="modal-content">
+
+                <!-- HEADER DEL MODAL -->
+                <div class="modal-header">
+                    <p class="heading lead">Agregar un nuevo platillo</p>
+
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" class="white-text">×</span>
+                    </button>
+                </div>
+                <!-- HEADER DEL MODAL -->
+
+                <!-- CONTENIDO DEL MODAL -->
+                <div id="contenido-modal-platillo">
+
+                </div>
+                <!-- CONTENIDO DEL MODAL -->
+
+            </div>
+            <!-- CONTENIDO DEL MODAL -->
+
+        </div>
+
+    </div>
+    <!-- Modal para agregar un nuevo platillo-->
+
+
+
+    <!-- Funciones JS  -->
+    <script rel="script" src="./Food Pedidos_files/c_index.js.descarga"></script>
+
+    <!-- SCRIPTS DE FUNCIONALIDADES (BOOTSTRAP 4) -->
+    <script src="./Food Pedidos_files/popper.min.js.descarga"></script>
+    <script src="./Food Pedidos_files/bootstrap.min.js.descarga"></script>
+
+
+    <!-- SCRIPT DE SWALERT 2 -->
+    <script src="./Food Pedidos_files/sweetalert2.all.min.js.descarga"></script>
+
+
+
+<div class="hiddendiv common"></div></body></html>
