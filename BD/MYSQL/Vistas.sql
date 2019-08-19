@@ -4,7 +4,7 @@ SELECT platillos.id_platillo, platillos.id_local, platillos.nombre_platillo, pla
 platillos.cantidad, platillos.descripcion, platillos.id_estado, 
 IFNULL (imagen_platillo.ubicacion_imagen, 'No existe imagen') AS ubicacion_imagen
 FROM platillos
-INNER JOIN imagen_platillo ON platillos.id_platillo = imagen_platillo.id_platillo GROUP BY id_platillo;
+INNER JOIN imagen_platillo ON platillos.id_platillo = imagen_platillo.id_platillo_img GROUP BY id_platillo;
 
 
 

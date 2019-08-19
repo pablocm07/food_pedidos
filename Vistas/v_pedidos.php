@@ -7,7 +7,7 @@ session_start();
 
 ?>
 
-<link rel="stylesheet" href="./Assets/css/tabla_pedidos.css?v0.0.2">
+<link rel="stylesheet" href="./Assets/css/tabla_pedidos.css">
 
 <!-- CONTENEDOR PRINCIPAL DEL LAYOUT -->
 <div class="contenedor-principal pt-3">
@@ -31,7 +31,7 @@ session_start();
 
       $id_local = [$_SESSION['local']['id_local']];
       // $consulta = 'SELECT * FROM `pedido_general` WHERE id_local = ? AND DATE(fecha_hora) = DATE(NOW());';
-      $consulta = 'SELECT * FROM `pedido_general` WHERE id_local = ? AND ;';
+      $consulta = 'SELECT * FROM `pedido_general` WHERE id_local = ?;';
 
       if ($respuesta_bd = $querys->ejecutarConsulta($consulta, $id_local)) {
 
