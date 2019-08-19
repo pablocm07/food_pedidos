@@ -1,4 +1,5 @@
 <?php     
+    $id_local = (isset($_POST['id_local'])) ? $_POST['id_local'] : '';
     $id_platillo = (isset($_POST['platillo_elegido'][0]['id_platillo'])) ? $_POST['platillo_elegido'][0]['id_platillo'] : '';
     $nombre_platillo = (isset($_POST['platillo_elegido'][0]['nombre_platillo'])) ? $_POST['platillo_elegido'][0]['nombre_platillo'] : '';
     $precio = (isset($_POST['platillo_elegido'][0]['precio'])) ? $_POST['platillo_elegido'][0]['precio'] : '';
@@ -24,7 +25,7 @@
 
 <!-- MODAL QUE MUESTRA LA INFORMACIÓN DEL PRODUCTO A PEDIR -->
 <div class="modal fade" id="ordenar_comida" tabindex="-1" role="dialog" aria-labelledby="ordenar_comida"
-    aria-hidden="false" data-backdrop="true">
+    aria-hidden="false" data-backdrop="true">    
 
     <div class="modal-dialog modal-lg" role="document">
 
@@ -41,6 +42,9 @@
 
             <!-- CUERPO DEL MODAL -->
             <div class="modal-body pt-0 pb-0">
+            <div id="id-local" hidden><?php echo $id_local; ?></div>
+            <div id="id-platillo" hidden><?php echo $id_platillo; ?></div>
+            <div id="precio-subtotal" hidden><?php echo $precio; ?></div>
 
                 <div class="row">
 
@@ -123,7 +127,7 @@
                         <!-- NOMBRE DEL PLATILLO -->
                         <div class="text-center">
                             <h1 class="h1-responsive product-name cyan-lighter-hover">
-                                <strong id='nombre_platillo'><?php echo $nombre_platillo;?> x <?php echo $cantidad;?></strong>
+                                <strong id='nombre-platillo'><?php echo $nombre_platillo;?></strong><strong> x <?php echo $cantidad;?></strong>
                             </h1>
                         </div>                        
                         <hr>
@@ -134,7 +138,7 @@
                         <h4 class="h4-responsive clearfix">                        
                                                 
                             <span class="border-success green-text bordeado p-1 float-left">
-                                <strong id='precio-platillo'>$ <?php echo $precio;?><span id='unidad_platillo'> </span></strong>
+                                <strong id='precio-platillo'>$ <?php echo $precio;?></span></strong>
                             </span>
 
                             <!-- TIEMPO -->
@@ -170,9 +174,7 @@
 
                                 <label for="select-multiple-ingredientes">Ingredientes:</label>
                                 <select id="select-multiple-ingredientes" class="custom-select" multiple="multiple">                                    
-                                    <option value="3">Salchicha</option>
-                                    <option value="7">Queso</option>
-                                    <option value="9">Chorizo</option>
+                                    
                                 </select> 
 
                             </div>
@@ -183,13 +185,6 @@
                                 ></textarea>
                                 <label data-error="wrong" data-success="right" for="comentario-platillo">Comentarios</label>
                             </div>
-                            <!-- <div class="md-form">                                
-                                <textarea class="md-textarea form-control" id="comentario-platillo" 
-                                    style="max-height: 100px; min-height: 80px; overflow:auto;"
-                                    
-                                ></textarea>
-                                <label for="comentario-platillo pb-2">Comentario</label>
-                            </div> -->
 
                         </div>
                         <!-- FORMULARIO PARA AGREGAR DETALLES DEL PEDIDO -->

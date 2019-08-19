@@ -5,7 +5,7 @@
         $.post(url, { funcion: 'get_detalle_pedido' }, function(data, status) {
             data = JSON.parse(data);
             if (status) {
-                if (data.detalle_pedido == 0) {
+                if (data.detalle_pedido == 1) {
                     $('#contenedor-mis-pedidos').hide();
 
                     $('#contenedor-total-pedido').hide();

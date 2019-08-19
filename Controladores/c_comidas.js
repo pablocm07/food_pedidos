@@ -69,7 +69,7 @@
         });
     }
 
-    function activarFuncionesPlatillos() {
+    function activarFuncionesPlatillos(id_local) {
         $("div.clik-mostrar-platillo").click(function() {
             // e.preventDefault();
 
@@ -78,10 +78,12 @@
                 (platillo) => { return platillo.id_platillo == $(this).attr('id') }
             );
 
-            $('#modal-global').load('./Vistas/modal_platillo.php', { platillo_elegido });
+
+
+            $('#modal-global').load('./Vistas/modal_platillo.php', { platillo_elegido, id_local: id_local });
             setTimeout(() => {
                 $('#ordenar_comida').modal('show');
-            }, 300);
+            }, 700);
 
         });
 
@@ -92,12 +94,13 @@
         $("div.clik-mostrar-local").click(function(e) {
             e.preventDefault();
             let id_local = $(this).attr('id');
+            // let nombre_local = $('#nombre-local-' + id_local).text()
             cargarPlatillos(id_local);
 
             // Para aplicar la funcion click despues de que cargue los elementos 
             setTimeout(() => {
-                activarFuncionesPlatillos();
-            }, 350);
+                activarFuncionesPlatillos(id_local);
+            }, 700);
 
             $("li#paso_uno").removeClass('active');
             $("li#paso_uno").addClass('done');
@@ -112,7 +115,7 @@
             $("#tarjetas-comidas").slideDown('slow');
 
         });
-    }, 500);
+    }, 700);
 
     $("#paso_uno_link").click(function(e) {
         e.preventDefault();

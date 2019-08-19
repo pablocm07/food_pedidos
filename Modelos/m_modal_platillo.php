@@ -16,48 +16,79 @@ include('../BD/Querys.php');
 switch ($funcion) {    
     case 'get_datos_pedido':
         // Parametros recibidos
-        // $usuario = $_POST['usuario'];    
+        $id_local = $_POST['id_local'];
+        $id_usuario = $_SESSION['usuario']['id_usuario'];
 
-        $_SESSION['pedidos']['pedido']['id_local'] = 2;        
-        $mensaje['pedidos'] = $_SESSION['pedidos'];
+        $datos = [$id_local, $id_usuario];
 
+        if ($datos = $querys->ejecutarProcedure('agregar_pedido', $datos)) {
+            
+            if (isset($datos[0]['id_pedido'])) { //                 
+                $mensaje['id_pedido'] = $datos[0]['id_pedido'];
+                $mensaje['nuevo_pedido'] = $datos[0]['nuevo_pedido'];
+            }
+        } else {
+            $mensaje['respuesta'] = 0;
+        }
+        
     break;
 
-    case 'verificar_email':
+    case 'get_detalle_platillo':
         // Parametros recibidos
-        $correo = $_POST['correo'];
+        $id_local = $_POST['id_local'];
+        $id_platillo = $_POST['id_platillo'];
 
         // Pasar todos los parametros recibidos en un arreglo        
-        $datos = [$correo];
+        $datos = [$id_local, $id_platillo];
 
-        $consulta = "SELECT COUNT(*) AS usuario_registrado FROM usuarios WHERE correo_electronico = ?;";
+        $consulta = "SELECT * FROM lista_ingredientes WHERE id_local = ? AND id_platillo = ?";
         
         if ($datos = $querys->ejecutarConsulta($consulta,$datos) ) {
-            if( isset($datos[0]['usuario_registrado']) ){ // Ese usuario no esta registrado
-                $mensaje["usuario_registrado"] = $datos[0]['usuario_registrado'];
+            if( isset($datos[0]) ){ // Ese usuario no esta registrado
+                $mensaje["info"] = $datos;
             }
         }else{
-            $mensaje["usuario_registrado"] = 'No se pudo verificar';
+            $mensaje["sin_registros"] = 'No hay ingredientes para este alimento';
         }
-    break;    
+    break;        
+
+    case 'registrar_detalle_pedido':
+        // Parametros recibidos
+        $id_platillo = $_POST['id_platillo'];        
+        $id_pedido = $_POST['id_pedido'];        
+        $precio_platillo = $_POST['precio_platillo'];        
+        $comentario_platillo = $_POST['comentario_platillo'];          
+
+        $datos = [$id_platillo, $id_pedido, $precio_platillo, $comentario_platillo, 8];
+
+        if ($datos = $querys->ejecutarProcedure('registrar_detalle_pedido', $datos)) {
+            
+            if (isset($datos[0]['id_detalle_pedido'])) { //                 
+                $mensaje['id_detalle_pedido'] = $datos[0]['id_detalle_pedido'];
+            }
+        } else {
+            $mensaje['respuesta'] = 0;
+        }
 
     break;
 
-    case 'cambiar_contraseña':
+    case 'agregar_detalle_ingrediente':
         // Parametros recibidos
-        $id_usuario = $_POST['id_usuario'];
-        $contrasena = $_POST['contrasena'];
+        $id_detalle_pedido = $_POST['id_detalle_pedido'];
+        $id_ingrediente = $_POST['id_ingrediente'];
 
-        // Pasar todos los parametros recibidos en un arreglo        
-        $datos = [$id_usuario];
+        $datos = [$id_detalle_pedido, $id_ingrediente];
 
-        $consulta = "UPDATE usuarios SET contrasena = $contrasena WHERE id_usuario = ?;";
-        
-        if ($datos = $querys->ejecutarQuery($consulta,$datos) ) {
-            $mensaje['respuesta'] = 1; // Se modificó correctamente
-        }else{
-            $mensaje["respuesta"] = 0; // No se pudo actualizar
+        if ($datos = $querys->ejecutarProcedure('agregar_detalle_ingrediente', $datos)) {
+            
+            if (isset($datos[0]['id_detalle_ingrediente'])) { //                 
+                $mensaje['id_detalle_ingrediente'] = $datos[0]['id_detalle_ingrediente'];
+            }
+        } else {
+            $mensaje['respuesta'] = 0;
         }
+
+    break;
         
     default:
         # code...

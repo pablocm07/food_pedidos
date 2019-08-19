@@ -8,7 +8,7 @@ CREATE PROCEDURE `consultar_usuario` (
 BEGIN
 DECLARE respuesta CHAR(1);
 
-IF ( (SELECT COUNT(*) FROM usuarios u WHERE u.correo_electronico = _correo_electronico) = 1) then
+IF ( (SELECT COUNT(*) FROM usuarios u WHERE u.correo_electronico = _correo_electronico AND contrasena = _contrasena) = 1) then
     SELECT * FROM usuarios WHERE correo_electronico = _correo_electronico AND contrasena = _contrasena;    
 else
     SET respuesta = 0;
@@ -71,6 +71,76 @@ DECLARE respuesta CHAR(1);
     WHERE id_usuario = _id_usuario;
     SET respuesta = 1;
     SELECT respuesta;
+END//
+
+DELIMITER ;
+
+-- Procedimiento para verificar si existe ya un pedido, si no que lo registre
+DELIMITER //
+
+CREATE OR REPLACE PROCEDURE `agregar_pedido` (
+    IN _id_local INT(10),
+    IN _id_usuario INT(10)
+)  
+BEGIN
+DECLARE id_pedido CHAR(1);
+DECLARE nuevo_pedido CHAR(1);
+
+IF ( (SELECT COUNT(*) FROM pedidos p WHERE p.id_local = _id_local AND p.id_usuario = _id_usuario AND p.id_estado = 8) = 1) then
+    SET id_pedido = (SELECT p.id_pedido FROM pedidos p WHERE p.id_local = _id_local AND p.id_usuario = _id_usuario AND p.id_estado = 8);
+    SET nuevo_pedido = 0;
+else
+    INSERT INTO pedidos (id_local, id_usuario, id_estado)
+    VALUES (_id_local, _id_usuario, 8);
+    SET id_pedido = (SELECT last_insert_id());
+    SET nuevo_pedido = 1;
+end IF;
+    SELECT id_pedido, nuevo_pedido;
+END//
+
+DELIMITER ;
+
+-- Procedimiento que registra el 'Detalle Pedido' y obtiene el id_detalle insertado
+
+DELIMITER //
+
+CREATE OR REPLACE PROCEDURE `registrar_detalle_pedido`(
+    _id_platillo INT (10),
+    _id_pedido INT (10),
+    _precio_subtotal DECIMAL (5, 2),
+    _comentarios VARCHAR (80),
+    _id_estado INT (10)
+)
+BEGIN
+
+DECLARE id_detalle_pedido INT(10);
+
+	INSERT INTO detalle_pedido (id_platillo, id_pedido, precio_subtotal, comentarios, id_estado)
+    VALUES (_id_platillo, _id_pedido, _precio_subtotal, _comentarios, _id_estado);
+    SET id_detalle_pedido = (SELECT last_insert_id());
+    SELECT id_detalle_pedido;
+
+END//
+
+DELIMITER ;
+
+-- Procedimiento que registra el 'Detalle Pedido' y obtiene el id_detalle insertado
+
+DELIMITER //
+
+CREATE OR REPLACE PROCEDURE `agregar_detalle_ingrediente`(
+    _id_detalle_pedido INT (10),
+    _id_ingrediente INT (10)
+)
+BEGIN
+
+DECLARE id_detalle_ingrediente INT(10);
+
+	INSERT INTO detalle_ingredientes (id_detalle_pedido, id_ingrediente)
+    VALUES (_id_detalle_pedido, _id_ingrediente);
+    SET id_detalle_ingrediente = (SELECT last_insert_id());
+    SELECT id_detalle_ingrediente;
+
 END//
 
 DELIMITER ;
