@@ -14,26 +14,13 @@
     $querys = new Querys;
     $mensaje;
 
-    // FUNCION QUE SETEA DE MANERA GLOBAL LOS DATOS DEL LOCAL DEL USUARIO
-    function datosLocal($id_usuario)
-    {
-        $querys = new Querys;
-        $consulta = 'SELECT * FROM locales WHERE id_usuario = ?';
-        $datos_local = $querys->ejecutarConsulta($consulta, $id_usuario);
-
-        //SETEAN LA VARIABLE DE SESION PARA EL LOCAL
-        $_SESSION['local'] = $datos_local[0];
-    }
-
 
     // ejecutara el código segun el parametro que reciba
     switch ($funcion) {
 
         case 'insertar_nuevo_platillo':
 
-            //SE OBTIENE EL LOCAL QUE ADMINISTRA EL USUARIO
-            $id_usuario = [$_SESSION['usuario']['id_usuario']];
-            $consulta_local = datosLocal($id_usuario);
+            //SE OBTIENE EL LOCAL QUE ADMINISTRA EL USUARIO                        
             $id_local = $_SESSION['local']['id_local'];
 
             // Parametros recibidos            

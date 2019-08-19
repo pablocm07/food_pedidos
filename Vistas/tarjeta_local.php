@@ -1,12 +1,12 @@
-    <?php
-$id_local = ( isset($_POST['id_local']) ) ? $_POST['id_local'] : '';
-$nombre_local = ( isset($_POST['nombre_local']) ) ? $_POST['nombre_local'] : '';
-$tipo_local = ( isset($_POST['tipo_local']) ) ? $_POST['tipo_local'] : '';
-$foto_logo = ( isset($_POST['foto_logo']) ) ? $_POST['foto_logo'] : '';
-$descripcion = ( isset($_POST['descripcion']) ) ? $_POST['descripcion'] : '';
-$horario_abrir = ( isset($_POST['horario_abrir']) ) ? $_POST['horario_abrir'] : '';
-$horario_cerrar = ( isset($_POST['horario_cerrar']) ) ? $_POST['horario_cerrar'] : '';
-$id_estado = ( isset($_POST['id_estado']) ) ? $_POST['id_estado'] : '';
+<?php
+    $id_local = ( isset($_POST['id_local']) ) ? $_POST['id_local'] : '';
+    $nombre_local = ( isset($_POST['nombre_local']) ) ? $_POST['nombre_local'] : '';
+    $tipo_local = ( isset($_POST['tipo_local']) ) ? $_POST['tipo_local'] : '';
+    $foto_logo = ( isset($_POST['foto_logo']) ) ? $_POST['foto_logo'] : '';
+    $descripcion = ( isset($_POST['descripcion']) ) ? $_POST['descripcion'] : '';
+    $horario_abrir = ( isset($_POST['horario_abrir']) ) ? $_POST['horario_abrir'] : '';
+    $horario_cerrar = ( isset($_POST['horario_cerrar']) ) ? $_POST['horario_cerrar'] : '';
+    $id_estado = ( isset($_POST['id_estado']) ) ? $_POST['id_estado'] : '';
 ?>
 
 <!-- CONTENEDOR DE LA TARJETA -->

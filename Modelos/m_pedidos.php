@@ -14,23 +14,27 @@
     $querys = new Querys;
     $mensaje;
 
-
     // ejecutara el código segun el parametro que reciba
     switch ($funcion) {
 
-        case 'insertar_nuevo_ingrediente':
+        case 'consultar_platillos':
 
-            //SE OBTIENE EL LOCAL QUE ADMINISTRA EL USUARIO            
+            //SE OBTIENE EL LOCAL QUE ADMINISTRA EL USUARIO
+            $id_usuario = [$_SESSION['usuario']['id_usuario']];
+            $consulta_local = datosLocal($id_usuario);
             $id_local = $_SESSION['local']['id_local'];
 
             // Parametros recibidos            
-            $nombre_ingrediente = $_POST['nombre_ingrediente'];
-            $precio_ingrediente = $_POST['precio_ingrediente'];
+            $nombre_platillo = $_POST['nombre_platillo'];
+            $precio_platillo = $_POST['precio_platillo'];
+            $tiempo_preparacion = $_POST['tiempo_preparacion'];
+            $cantidad = $_POST['cantidad'];
+            $descripcion = $_POST['descripcion'];
+            
+            $datos_a_insertar = [$id_local, $nombre_platillo, $precio_platillo, $tiempo_preparacion, $cantidad,  $descripcion];            
 
-            $datos_a_insertar = [$nombre_ingrediente, $precio_ingrediente, $id_local];            
-
-            $consulta = 'INSERT INTO ingredientes (id_ingrediente, nombre, precio, id_local, id_estado) 
-            VALUES (NULL, ?, ?, ?, "1");';
+            $consulta = 'INSERT INTO platillos (id_platillo, id_local, nombre_platillo, precio, tiempo_preparacion, cantidad, descripcion, id_estado)
+             VALUES (NULL, ?, ?, ?, ?, ?, ?, "3");';
 
             if ($respuesta_bd = $querys->ejecutarQuery($consulta, $datos_a_insertar) ) {            
                 if( isset($respuesta_bd) ){ // Ese usuario no esta registrado            
@@ -38,7 +42,7 @@
                 }
 
             }else{
-                $mensaje['estado'] = 'Lo sentimos, este local aun no ha agregado ningun platillo a su menú';
+                $mensaje['estado'] = 'Lo sentimos, no se pudo agregar correctamente el platillo';
             }
             break;
 
@@ -48,5 +52,3 @@
     }
 
     print json_encode($mensaje, JSON_UNESCAPED_UNICODE);
-
-?>
