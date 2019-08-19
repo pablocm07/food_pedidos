@@ -31,7 +31,7 @@ session_start();
 
       $id_local = [$_SESSION['local']['id_local']];
       // $consulta = 'SELECT * FROM `pedido_general` WHERE id_local = ? AND DATE(fecha_hora) = DATE(NOW());';
-      $consulta = 'SELECT * FROM `pedido_general` WHERE id_local = ?;';
+      $consulta = 'SELECT * FROM `pedido_general` WHERE id_local = ? AND ;';
 
       if ($respuesta_bd = $querys->ejecutarConsulta($consulta, $id_local)) {
 
@@ -258,7 +258,7 @@ session_start();
                     </div>
 
                   </div>                
-              ');
+            ');
 
             $datos_detalle = [$id_pedido];
             $consulta_detalle = 'SELECT * FROM pedido_especifico WHERE id_pedido = ?;';

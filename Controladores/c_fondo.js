@@ -4,7 +4,7 @@
 
     function mostrarInformacion(usuario) {
         if (usuario.tipo_usuario == 2) { // SI EL USUARIO ES DE TIPO LOCATARIO
-            $('#contenedor-todas-vistas').load('./Vistas/v_pedidos.html');
+            $('#contenedor-todas-vistas').load('./Vistas/v_pedidos.php');
             $('#contenido-barra-navegacion').load('./Vistas/v_funciones_vendedor.html');
         } else if (usuario.tipo_usuario == 3) { // SI EL USUARIO ES DE TIPO CONSUMIDPOR
             $('#contenedor-todas-vistas').load('./Vistas/v_comidas.html');

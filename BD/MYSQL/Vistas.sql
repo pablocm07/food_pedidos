@@ -19,7 +19,7 @@ INNER JOIN platillos ON detalle_pedido.id_platillo = platillos.id_platillo
 INNER JOIN pedidos ON detalle_pedido.id_pedido = pedidos.id_pedido
 INNER JOIN estados ON pedidos.id_estado = estados.id_estado
 INNER JOIN usuarios ON usuarios.id_usuario = pedidos.id_usuario
-WHERE pedidos.id_estado = 5 AND pedidos.id_local = '1'
+WHERE pedidos.id_estado IN (5,6,7)
 GROUP BY detalle_pedido.id_pedido;
 
 --VISTA PARA VER LOS INGREDIENTES DE UN PLATILLO 
@@ -28,8 +28,7 @@ SELECT p.id_platillo, p.id_local, p.nombre_platillo, i.id_ingrediente, i.nombre 
 INNER JOIN detalle_platillo dp ON dp.id_platillo = p.id_platillo 
 INNER JOIN ingredientes i ON i.id_ingrediente = dp.id_ingrediente;
 -- WHERE p.id_local = 1 AND dp.id_platillo = 1
-WHERE pedidos.id_estado IN (5,6,7)
-GROUP BY detalle_pedido.id_pedido;
+
 
 
 --VISTA PARA VER LOS DETALLES DEL PEDIDO
