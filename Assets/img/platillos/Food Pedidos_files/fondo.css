@@ -186,7 +186,10 @@ body {
     padding-left: 12px;
     margin-right: 6%;
     margin-left: 6%;
-    background-color: rgba(0, 0, 0, 0.09);
+}
+
+.ancho-footer {
+    width: 100%;
 }
 
 

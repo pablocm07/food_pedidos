@@ -1,0 +1,90 @@
+/* ESTILOS GENERALES DE LA VISTA PRINCIPAL CLIENTE */
+
+li.step.done div.step-content {
+    /* display: none; */
+    /* height: 0px; */
+    overflow: hidden;
+    padding: 0px;
+}
+
+li.step.active div.step-content {
+    /* display: inline-block;  */
+    overflow: hidden;
+    padding: 0px;
+    /* -webkit-transition: height 5s; */
+}
+
+div#tarjetas-locales div.contenedor-local {
+    cursor: pointer;
+    width: 22rem;
+}
+
+div#tarjetas-comidas div.contenedor-comida {
+    cursor: pointer;
+    width: 22rem;
+}
+
+.tabla-detalle-pedido {
+    min-width: 38rem;
+}
+
+.contenedor-locales {
+    background-color: blue;
+    width: 70%;
+    margin: auto;
+    overflow: hidden;
+    height: 15.625rem;
+    position: relative;
+    /* margin-top:20px; */
+    /* margin-bottom:20px; */
+}
+
+.carrusel {
+    width: 100%;
+    position: absolute;
+    z-index: 0;
+}
+
+.locales>div {
+    float: left;
+    height: 203px;
+    margin-right: 5px;
+    width: 195px;
+    text-align: center;
+}
+
+.locales img {
+    cursor: pointer;
+}
+
+.product {
+    border: #CCCCCC 3px solid;
+}
+
+.contenedor-locales .left-arrow {
+    position: absolute;
+    left: 10px;
+    z-index: 1;
+    top: 50%;
+    margin-top: -9px;
+}
+
+.left-arrow:hover {
+    opacity: 0.5;
+}
+
+.contenedor-locales .right-arrow {
+    position: absolute;
+    right: 10px;
+    z-index: 1;
+    top: 50%;
+    margin-top: -9px;
+}
+
+.right-arrow:hover {
+    opacity: 0.5;
+}
+
+.heigh-30 {
+    height: 50px;
+}

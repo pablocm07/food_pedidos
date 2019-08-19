@@ -1,7 +1,7 @@
 (function() {
 
     function obtenerDatosPedidos() {
-        let url = './Modelos/m_model_platillo.php';
+        let url = './Modelos/m_modal_platillo.php';
         $.post(url, { funcion: 'get_datos_pedido' }, function(data, status) {
             data = JSON.parse(data);
             if (status) {
@@ -73,16 +73,17 @@
             '<span class="font-weight-bold precio-detalle-pedido p-2 text-center">' +
             '$ 45.00' +
             '</span>');
+        return lista_detalle_pedido;
     }
 
 
     $("#boton-add-platillo").click(function() {
         // let ids_locales = obtenerDatosPedidos();
         let id_local = $('#id-local').val();
-        let nombre_local = $('#nombre-local').text();
-        console.log(nombre_local);
-        agregarPedidoBarra(crearComponentePedido('Cafeteria UTEC', 8, 7));
-        agregarDetalleBarra(crearComponenteDetalle());
+        let nombre_local = $('#nombre-local-' + id_local).text();
+        console.log('#nombre-local-' + id_local);
+        // agregarPedidoBarra(crearComponentePedido('Cafeteria UTEC', 8, 7));
+        // agregarDetalleBarra(crearComponenteDetalle());
 
     });
 
