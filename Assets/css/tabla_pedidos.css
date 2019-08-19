@@ -1,3 +1,15 @@
+.pedidos_form{
+    color: #FEB03C;
+}
+
+.pedidos_form_2{
+    color: #9E6E28;
+}
+
+.dsa#fds{
+
+}
+
 /* ESTILO DE LA ETIQUETA DE PEDIDOS DE HOY */
 label.fecha_pedidos_dia{
     font-size: 35px;
@@ -58,7 +70,7 @@ div.contenedor-pedido-activo {
 div.contenedor-pedido:hover {    
     cursor: pointer;
     width: 1000px;
-    padding: 10px 5px 10px 5px;
+    padding: 10px 5px 2px 5px;
     margin: auto;        
     border-radius: 3px;
     -webkit-box-shadow: 10px 20px 20px 0px rgba(0,0,0,0.16);

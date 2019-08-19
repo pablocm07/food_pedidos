@@ -60,7 +60,7 @@
 
                 if (isset($datos[0]['respuesta'])) { // Ese usuario no esta registrado
                     $respuesta = $datos[0]['respuesta'];
-                } else {
+                } else {                    
                     $r_id_usuario = (isset($datos[0]['id_usuario'])) ? $datos[0]['id_usuario'] : '';
                     $r_nombre = (isset($datos[0]['nombre'])) ? $datos[0]['nombre'] : '';
                     $r_apellido = (isset($datos[0]['apellido'])) ? $datos[0]['apellido'] : '';
@@ -69,6 +69,16 @@
                     $r_correo = (isset($datos[0]['correo_electronico'])) ? $datos[0]['correo_electronico'] : '';
                     $r_contrasena = (isset($datos[0]['contrasena'])) ? $datos[0]['contrasena'] : '';
                     $datos_usuario = $datos[0];
+
+                    //SI EL TIPO DE USUARIO ES LOCATARIO                    
+                    if ($r_tipo_usuario == "2") {
+                        $id_usuario = [$r_id_usuario];
+                        $consulta = 'SELECT * FROM locales WHERE id_usuario = ?';
+                        $datos_local = $querys->ejecutarConsulta($consulta, $id_usuario);
+
+                        //SETEAN LA VARIABLE DE SESION PARA EL LOCAL
+                        $_SESSION['local'] = $datos_local[0];
+                    }
                 }
             }
 
