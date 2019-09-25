@@ -26,7 +26,7 @@ $estado_sesion = (isset($_SESSION['usuario'])) ? 1 : 0;
     <link rel="stylesheet" href="./Plugins/css/FontAwesome/all.min.css">
 
     <!-- ESTILOS PARA LA PANTALLA PRINCIPAL -->
-    <link rel="stylesheet" href="./Assets/css/principal.css?v0.0.1">
+    <link rel="stylesheet" href="./Assets/css/principal.css">
 
 </head>
 
