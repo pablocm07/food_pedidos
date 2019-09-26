@@ -4,7 +4,7 @@ SELECT platillos.id_platillo, platillos.id_local, platillos.nombre_platillo, pla
 platillos.cantidad, platillos.descripcion, platillos.id_estado, 
 IFNULL (imagen_platillo.ubicacion_imagen, 'No existe imagen') AS ubicacion_imagen
 FROM platillos
-INNER JOIN imagen_platillo ON platillos.id_platillo = imagen_platillo.id_platillo GROUP BY id_platillo;
+INNER JOIN imagen_platillo ON platillos.id_platillo = imagen_platillo.id_platillo_img GROUP BY id_platillo;
 
 
 
@@ -48,3 +48,14 @@ WHERE pedidos.id_estado IN (5,6,7)
 GROUP BY detalle_pedido.id_detalle_pedido;
 
 SELECT * FROM `pedido_general` WHERE id_local = 1 AND DATE(fecha_hora) = DATE('2019-08-16');
+
+-- VISTA PARA MOSTRAR DETALLES DEL PEDIDO EN LA BARRA 
+CREATE OR REPLACE VIEW pedido_datos_barra AS
+SELECT p.id_pedido, dpe.id_detalle_pedido, pl.id_platillo, l.nombre_local, l.id_estado AS id_estado_local, pl.nombre_platillo, pl.id_estado AS id_estado_platillo, pl.tiempo_preparacion, pl.precio, ip.ubicacion_imagen 
+FROM pedidos p
+INNER JOIN detalle_pedido dpe ON dpe.id_pedido = p.id_pedido
+INNER JOIN detalle_ingredientes di ON di.id_detalle_pedido = dpe.id_detalle_pedido
+INNER JOIN platillos pl ON pl.id_platillo = dpe.id_platillo
+INNER JOIN locales l ON l.id_local = p.id_local
+INNER JOIN imagen_platillo ip ON ip.id_platillo_img = pl.id_platillo
+GROUP BY di.id_detalle_pedido;

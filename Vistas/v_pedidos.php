@@ -7,7 +7,7 @@ session_start();
 
 ?>
 
-<link rel="stylesheet" href="./Assets/css/tabla_pedidos.css?v0.0.2">
+<link rel="stylesheet" href="./Assets/css/tabla_pedidos.css">
 
 <!-- CONTENEDOR PRINCIPAL DEL LAYOUT -->
 <div class="contenedor-principal pt-3">
