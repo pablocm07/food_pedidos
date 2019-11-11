@@ -11,15 +11,16 @@ $estado_sesion = (isset($_SESSION['usuario'])) ? 1 : 0;
 <html lang="es">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">    
 
     <link rel="icon" href="Assets/img/logos/Food.png" type="image/x-icon" />
     <title>Food Pedidos</title>
 
     <!-- LINK PARA JQUERY -->
-    <script src="Plugins/js/jquery-3.4.1.min.js"></script>    
+    <script src="Plugins/js/jquery-3.4.1.min.js"></script>
 
     <!-- Link hacia estilos css (BOOTSTRAP) Y (FA) -->
     <link rel="stylesheet" href="./Plugins/css/Bootstrap/bootstrap.min.css">
@@ -45,7 +46,7 @@ $estado_sesion = (isset($_SESSION['usuario'])) ? 1 : 0;
     <div id="container">
         <!-- ... -->
     </div>
-    <!-- Aqui termina el contenido de la página -->    
+    <!-- Aqui termina el contenido de la página -->
 
     <div id="modal-registro">
         <!-- ... -->

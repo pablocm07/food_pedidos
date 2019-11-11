@@ -1,0 +1,51 @@
+.registro{    
+    background-color: blue;
+}
+
+.contenedor-parte-uno{
+    display: flex;      
+    justify-content: center;
+}
+
+.contenedor-radios{
+    background-color: #FEB03C;
+    display: flex;
+    justify-content: space-around;    
+    width: auto;
+    border-radius: 0.6em;
+    /* padding: 0.3rem; */
+}
+
+.radio-container{    
+    /* background-color: #FEB03C;     */
+    background-color: #9E6E28;    
+    padding: 0.3rem;
+    border-radius: 0.5rem;    
+    margin: 0.2rem;
+}
+
+.radio-container :hover{    
+    background-color: #FEB03C;    
+    /* background-color: #9E6E28;     */
+    padding: 0.3rem;
+    border-radius: 0.5rem;    
+    margin: 0.3rem;
+}
+
+.radio-container input{
+    margin-right: 0.2rem;
+    padding: 0.2rem;    
+}
+
+.radio-container label{    
+    color: #fefefe;
+    font-weight: bold;
+    padding: 0.2rem;
+    margin: 0rem;
+}
+
+.diferencias-pregunta{
+    margin-top: 0.5rem;
+    margin-bottom: 0.3rem;
+    width: 90%;    
+}

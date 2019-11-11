@@ -47,9 +47,8 @@ html body{
 }
 
 p.text-center.fp-logo{
-    font-size: 3rem;
-    font-weight: bold;
-    margin-top: 10px;
+    font-size: 2.5rem;
+    font-weight: bold;    
     margin-bottom: 0px;
 }
 
@@ -74,6 +73,27 @@ a#contrasenia_olvidada{
 a#contrasenia_olvidada:hover{
     cursor: hand;
     color: #FB0900;
+}
+
+.separador-login {
+  position: relative;
+  height: 25px;  
+  text-align: center;  
+}
+
+.separador-login hr {
+  width: 90%;
+  margin: -16px auto 10px auto;
+  /* border-top: 1px solid #dce0e0; */
+  border-top: 1px solid #9a9b9b;
+}
+
+.separador-login .text {
+  display: inline-block;
+  padding: 8px;
+  margin: 0;
+  color: #9a9b9b;
+  background-color: #fff;
 }
 
 /* ------------------------------------------------ 
