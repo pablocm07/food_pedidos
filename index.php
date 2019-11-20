@@ -1,10 +1,10 @@
 <?php
 
-session_start();
+    session_start();
 
-// Si existe una sesion abierta cargar en la pagina principal        
-$estado_sesion = (isset($_SESSION['usuario'])) ? 1 : 0;
-
+    // Si existe una sesion abierta asigna a la variable el numero 1        
+    $estado_sesion = ( isset( $_SESSION['usuario'] ) ) ? 1 : 0;
+    
 ?>
 
 <!DOCTYPE html>
@@ -14,9 +14,8 @@ $estado_sesion = (isset($_SESSION['usuario'])) ? 1 : 0;
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">    
-
-    <link rel="icon" href="Assets/img/logos/Food.png" type="image/x-icon" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="Assets/img/logos/Logo ya.png" type="image/x-icon" />
     <title>Food Pedidos</title>
 
     <!-- LINK PARA JQUERY -->
@@ -117,7 +116,6 @@ $estado_sesion = (isset($_SESSION['usuario'])) ? 1 : 0;
 
     </div>
     <!-- Modal para agregar un nuevo platillo-->
-
 
 
     <!-- Funciones JS  -->

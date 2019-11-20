@@ -1,3 +1,6 @@
+INSERT INTO tipo_usuarios (`id_tipo_usuario`, `tipo_usuario`) 
+VALUES (NULL, 'Administrador Global'), (NULL, 'Vendedor'), (NULL, 'Cliente');
+
 Insert into estados (estado) 
 values
 ('En existencia'),
@@ -10,15 +13,15 @@ values
 ('Abierto'),
 ('Cerrado');
 
-INSERT INTO usuarios (nombre, apellido, no_telefonico, tipo_usuario, correo_electronico, contrasena, foto_perfil)
+INSERT INTO usuarios (nombre, apellido, no_telefonico, id_tipo_usuario, correo_electronico, contrasena, foto_perfil)
 VALUES 
 ('Pablo', 'Cruz', '7751463878', '3', 'pablocm1747@gmail.com', '12345678', './Assets/img/foto_perfil_pablo.JPG'),
-('Miguel', 'Ortega', '7758765433', '2', 'miguelortega@gmail.com', '87654321', NULL);
+('Miguel', 'Ortega', '7758765433', '1', 'miguelortega@gmail.com', '87654321', NULL);
 
 
 INSERT INTO locales (nombre_local, tipo_local, foto_logo, descripcion, horario_abrir, horario_cerrar, id_estado, id_usuario)
 VALUES 
-('Don andre', 'Cocina Económica', './Assets/img/comida_1.jpg', 'Los mejores desayunos y comidas, antojitos mexicanos y otros ricos alimntos', '08:00', '18:00', 8, 1),
+('Don andre', 'Cocina Económica', './Assets/img/comida_1.jpg', 'Los mejores desayunos y comidas, antojitos mexicanos y otros ricos alimntos', '08:00', '18:00', 8, 2),
 ('Doña Queta', 'Cocina Económica', './Assets/img/comida_2.jpg', 'Los mejores desayunos y comidas, antojitos mexicanos y otros ricos alimntos', '08:00', '18:00', 8, 1),
 ('Cafeteria UTEC', 'Cafeteria', './Assets/img/comida_3.jpg', 'Los mejores desayunos y comidas, antojitos mexicanos y otros ricos alimntos', '08:00', '18:00', 8, 1);
 

@@ -4,8 +4,10 @@
     function cargarLocales() {
         $.post("./Modelos/m_comidas.php", { funcion: 'consultar_locales' }, function(data, status) {
             data = JSON.parse(data);
-            // console.log(data);
+            console.log(data);
+            
             if (status == 'success') { // Si la peticion es exitosa 
+                
                 if (data.estado == 'Existen registros') {
 
                     let total_locales = data.info.length; // Total de registros
@@ -23,19 +25,21 @@
                             horario_cerrar: local.horario_cerrar,
                             id_estado: local.id_estado
                         }
-                        let div = $("<div>");
-                        div.addClass('col-sm contenedor-local');
-                        div.load('./Vistas/tarjeta_local.php', datos);
-                        contenedor_tarjetas.append(div);
+                        // let div = $("<div>");
+                        // div.addClass('col-sm contenedor-local');
+                        // div.load('./Vistas/tarjeta_local.php', datos);
+                        // contenedor_tarjetas.append(div);
                     }
                 } else {
                     alert(data.estado);
                 }
             }
+
         });
     }
 
     function cargarPlatillos(id_local) {
+
         $.post("./Modelos/m_comidas.php", { funcion: 'consultar_platillos', id_local: id_local }, function(data, status) {
             data = JSON.parse(data);
             if (status == 'success') { // Si la peticion es exitosa
@@ -86,7 +90,6 @@
             }, 700);
 
         });
-
     }
 
     // Para aplicar la funcion click despues de que cargue los elementos 

@@ -24,45 +24,45 @@ VALUES
 
 INSERT INTO platillos (id_local, nombre_platillo, precio, tiempo_preparacion, cantidad, descripcion, id_estado)
 VALUES
-(1, 'Guajolotes', 10.00, 10, 1, 'Freido con manteca, incluye lechuga', 3),
-(2, 'Guajolotes', 16.00, 10, 1, 'Freido con aceite, incluye lechuga', 3),
-(3, 'Guajolotes', 12.00, 10, 1, 'Freido con manteca', 3),
-(1, 'Tacos', 10.00, 8, 5, 'Solo se venden por ordenIncluyen lechuga, queso y crema', 3),
-(2, 'Tacos', 15.00, 8, 5, 'Incluyen lechuga, queso y crema', 3),
-(3, 'Tacos', 10.00, 8, 3, 'Incluyen lechuga, queso y crema', 3),
-(1, 'Quesadillas', 10.00, 5, 1, 'Incluye lechuga y crema', 3),
-(2, 'Quesadillas', 8.00, 10, 1, 'Incluye lechuga y crema', 3),
-(3, 'Quesadillas', 8.00, 6, 1, 'Incluye lechuga y crema', 3);
+(4, 'Guajolotes', 10.00, 10, 1, 'Freido con manteca, incluye lechuga', 3),
+(5, 'Guajolotes', 16.00, 10, 1, 'Freido con aceite, incluye lechuga', 3),
+(6, 'Guajolotes', 12.00, 10, 1, 'Freido con manteca', 3),
+(4, 'Tacos', 10.00, 8, 5, 'Solo se venden por ordenIncluyen lechuga, queso y crema', 3),
+(5, 'Tacos', 15.00, 8, 5, 'Incluyen lechuga, queso y crema', 3),
+(6, 'Tacos', 10.00, 8, 3, 'Incluyen lechuga, queso y crema', 3),
+(4, 'Quesadillas', 10.00, 5, 1, 'Incluye lechuga y crema', 3),
+(5, 'Quesadillas', 8.00, 10, 1, 'Incluye lechuga y crema', 3),
+(6, 'Quesadillas', 8.00, 6, 1, 'Incluye lechuga y crema', 3);
 
 INSERT INTO ingredientes (nombre, precio, id_local, id_estado)
 VALUES
-('Chorizo', 3.00, 1, 1),
-('Queso de hebra', 3.00, 1, 1),
-('Jamon', 3.00, 1, 1),
-('Pollo', 3.00, 1, 1),
-('Huevo', 3.00, 1, 1),
-('Milanesa', 3.00, 1, 1),
-('Bistec', 3.00, 1, 1),
-('Pierna', 3.00, 1, 1),
-('Salchicha', 3.00, 1, 1),
-('Chorizo', 3.00, 2, 1),
-('Queso de hebra', 3.00, 2, 1),
-('Jamon', 3.00, 2, 1),
-('Pollo', 3.00, 2, 1),
-('Huevo', 3.00, 2, 1),
-('Milanesa', 3.00, 2, 1),
-('Bistec', 3.00, 2, 1),
-('Pierna', 3.00, 2, 1),
-('Salchicha', 3.00, 2, 1),
-('Chorizo', 3.00, 3, 1),
-('Queso de hebra', 3.00, 3, 1),
-('Jamon', 3.00, 3, 1),
-('Pollo', 3.00, 3, 1),
-('Huevo', 3.00, 3, 1),
-('Milanesa', 3.00, 3, 1),
-('Bistec', 3.00, 3, 1),
-('Pierna', 3.00, 3, 1),
-('Salchicha', 3.00, 3, 1);
+('Chorizo', 3.00, 4, 1),
+('Queso de hebra', 3.00, 4, 1),
+('Jamon', 3.00, 4, 1),
+('Pollo', 3.00, 4, 1),
+('Huevo', 3.00, 4, 1),
+('Milanesa', 3.00, 4, 1),
+('Bistec', 3.00, 4, 1),
+('Pierna', 3.00, 4, 1),
+('Salchicha', 3.00, 4, 1),
+('Chorizo', 3.00, 5, 1),
+('Queso de hebra', 3.00, 5, 1),
+('Jamon', 3.00, 5, 1),
+('Pollo', 3.00, 5, 1),
+('Huevo', 3.00, 5, 1),
+('Milanesa', 3.00, 5, 1),
+('Bistec', 3.00, 5, 1),
+('Pierna', 3.00, 5, 1),
+('Salchicha', 3.00, 5, 1),
+('Chorizo', 3.00, 6, 1),
+('Queso de hebra', 3.00, 6, 1),
+('Jamon', 3.00, 6, 1),
+('Pollo', 3.00, 6, 1),
+('Huevo', 3.00, 6, 1),
+('Milanesa', 3.00, 6, 1),
+('Bistec', 3.00, 6, 1),
+('Pierna', 3.00, 6, 1),
+('Salchicha', 3.00, 6, 1);
 
 INSERT INTO detalle_platillo (id_platillo, id_ingrediente)
 VALUES
@@ -83,7 +83,7 @@ VALUES
 (NULL, 'consumidor', 's/a', '7751698675', '3', 'consumidor@', '123', NULL);
 
 INSERT INTO imagen_platillo
-(ubicacion_imagen, id_platillo_img)
+(ubicacion_imagen, id_img_platillo)
 VALUES
 ('./Assets/img/platillos/guajolote1.jpg', 1),
 ('./Assets/img/platillos/guajolote2.jpg', 1),

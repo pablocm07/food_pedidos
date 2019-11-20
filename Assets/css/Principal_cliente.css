@@ -14,9 +14,15 @@ li.step.active div.step-content {
     /* -webkit-transition: height 5s; */
 }
 
+div#tarjetas-locales {    
+    overflow: visible;
+    cursor: pointer;
+    width: 322px;
+}
+
 div#tarjetas-locales div.contenedor-local {
     cursor: pointer;
-    width: 22rem;
+    min-width: 322px;
 }
 
 div#tarjetas-comidas div.contenedor-comida {
@@ -28,16 +34,15 @@ div#tarjetas-comidas div.contenedor-comida {
     min-width: 38rem;
 }
 
-.contenedor-locales {
-    background-color: blue;
-    width: 70%;
+/* .contenedor-locales {    
+    width: 322px;
     margin: auto;
     overflow: hidden;
     height: 15.625rem;
     position: relative;
     /* margin-top:20px; */
     /* margin-bottom:20px; */
-}
+} */
 
 .carrusel {
     width: 100%;
@@ -49,7 +54,7 @@ div#tarjetas-comidas div.contenedor-comida {
     float: left;
     height: 203px;
     margin-right: 5px;
-    width: 195px;
+    /* width: 195px; */
     text-align: center;
 }
 

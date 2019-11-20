@@ -70,7 +70,7 @@
     function enviarPeticion(datos) {
         // Peticion por medio de POST
         $.post("./Modelos/m_login.php", datos, function (data, status) {  
-            // console.log(data);
+            // console.log(data);                      
             data = JSON.parse(data);
             let usuario = data.usuario;
             if (status == 'success') { // Si la peticion es exitosa  
@@ -139,6 +139,7 @@
                 $("#form-login").removeClass('was-validated');
             }, 3000);
         }
+
     });
 
     $('#registrar').click(function() {

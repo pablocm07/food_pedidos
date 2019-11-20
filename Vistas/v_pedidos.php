@@ -1,12 +1,3 @@
-<?php
-
-include('../BD/Querys.php');
-
-$querys = new Querys;
-session_start();
-
-?>
-
 <link rel="stylesheet" href="./Assets/css/tabla_pedidos.css">
 
 <!-- CONTENEDOR PRINCIPAL DEL LAYOUT -->
@@ -24,331 +15,140 @@ session_start();
     </form>
     <!-- SELECT PARA ESCOGER LA FECHA EN LA QUE SE MOSTRARÁN LOS PEDIDOS -->
 
-    <!-- CONTENEDOR DE TODOS LOS PEDIDOS -->
-    <div class="contenedor-todos-pedidos ">
+    <!-- CONTENEDOR DE LA TABLA DE PEDIDOS -->
+    <div class="table-responsive p-2 mt-2 contenedor-tabla-pedidos">
+      
+      <table class="table table-bordered table-hover">
+        
+        <thead>
 
-      <?php
+          <tr class="text-center">
 
-      $id_local = [$_SESSION['local']['id_local']];
-      // $consulta = 'SELECT * FROM `pedido_general` WHERE id_local = ? AND DATE(fecha_hora) = DATE(NOW());';
-      $consulta = 'SELECT * FROM `pedido_general` WHERE id_local = ? AND DATE(fecha_hora) = CURDATE();';
+            <th class="font-weight-bolder" scope="col">
+              <p class="font-weight-bolder">
+                Numero de Pedido
+              </p> 
+            </th>
 
-      if ($respuesta_bd = $querys->ejecutarConsulta($consulta, $id_local)) {
+            <th class="font-weight-bolder" scope="col">
+              <p class="font-weight-bolder">
+                Estado
+              </p>
+            </th>
 
-        for ($index_pedido = 0; $index_pedido < sizeof($respuesta_bd); $index_pedido++) {
+            <th class="font-weight-bolder" scope="col">
+              <p class="font-weight-bolder">                
+                Hora de Finalización
+              </p>  
+            </th>     
 
-          $id_pedido = $respuesta_bd[$index_pedido]['id_pedido'];
-          $no_platillos = $respuesta_bd[$index_pedido]['no_platillos'];
-          $finalizacion_pedido = $respuesta_bd[$index_pedido]['finalizacion_pedido'];
-          $id_estado_pedido = $respuesta_bd[$index_pedido]['id_estado'];
-          $nombre_usuario = $respuesta_bd[$index_pedido]['nombre_usuario'];
+            <th class="font-weight-bolder" scope="col">
+              <p class="font-weight-bolder">            
+                Cliente
+              </p>
+            </th>        
 
-          echo ('
-              <div id="pedido_' . $id_pedido . '" class="contenedor-pedido">
-                <div class="contenedor-detalles-generales">
+          </tr>
 
-                  <div class="numero-pedidos">
-                      <p class="numero-pedidos">
-                          ' . $no_platillos . '
-                      </p>
-                      <span class="numero-pedidos">
-                        Número de Platillos
-                      </span>
-                  </div>
-                          
-                  <div class=" hora-finalizacion">
-                      <p class="hora-finalizacion">
-                        ' . $finalizacion_pedido . '                        
-                      </p>
-                      <span class="hora-finalizacion">
-                          Hora de Finalización
-                      </span>
-                  </div>
-          ');
+        </thead>
 
-          if ($id_estado_pedido == '5') { //SI EL ESTADO DEL PEDIDO ES EN ESPERA
+        <tbody>
+          
+          <tr class="table-primary registro-pedido">
+              <td class="text-center">              
+                  <P>
+                    # 0003123            
+                  </p>
+                <button class="m-auto btn btn-sm btn-success">
+                  Detalle del Pedido <i class="fas fa-hat-chef"></i>
+                </button>
+              </td>
+              <td class="text-center">              
+                  En espera              
+              </td>
+              <td class="text-center">              
+                  Miguel Montiel              
+              </td>
+              <td class="text-center">
+                <button class="m-auto btn btn-sm btn-primary">
+                  Iniciar Pedido <i class="fas fa-hat-chef"></i>
+                </button>
+              </td>            
+          </tr>     
+          
+          <tr class="table-success registro-pedido">
+              <td class="text-center">              
+                  <P>
+                    # 0003123            
+                  </p>
+                <button class="m-auto btn btn-sm btn-success">
+                  Detalle del Pedido <i class="fas fa-hat-chef"></i>
+                </button>
+              </td>
+              <td class="text-center">              
+                  En espera              
+              </td>
+              <td class="text-center">              
+                  Miguel Montiel              
+              </td>
+              <td class="text-center">
+                <button class="m-auto btn btn-sm btn-primary">
+                  Iniciar Pedido <i class="fas fa-hat-chef"></i>
+                </button>
+              </td>            
+          </tr>     
+          
+          <tr class="table-primary registro-pedido">
+              <td class="text-center">              
+                  <P>
+                    # 0003123            
+                  </p>
+                <button class="m-auto btn btn-sm btn-success">
+                  Detalle del Pedido <i class="fas fa-hat-chef"></i>
+                </button>
+              </td>
+              <td class="text-center">              
+                  En espera              
+              </td>
+              <td class="text-center">              
+                  Miguel Montiel              
+              </td>
+              <td class="text-center">
+                <button class="m-auto btn btn-sm btn-primary">
+                  Iniciar Pedido <i class="fas fa-hat-chef"></i>
+                </button>
+              </td>            
+          </tr>     
+          
+          <tr class="table-danger registro-pedido">
+              <td class="text-center">              
+                  <P>
+                    # 0003123            
+                  </p>
+                <button class="m-auto btn btn-sm btn-success">
+                  Detalle del Pedido <i class="fas fa-hat-chef"></i>
+                </button>
+              </td>
+              <td class="text-center">              
+                  Cancelado           
+              </td>
+              <td class="text-center">              
+                  Miguel Montiel              
+              </td>
+              <td class="text-center">
+                <button class="m-auto btn btn-sm btn-primary">
+                  Iniciar Pedido <i class="fas fa-hat-chef"></i>
+                </button>
+              </td>            
+          </tr>     
+                
+        </tbody>
 
-            echo ('
-                  <div class="estado_pedido d-flex align-items-center">
-                          <button class="btn btn-md btn-primary">
-                              Iniciar Pedido <i class="fas fa-hat-chef"></i>
-                          </button>
-                  </div>
-                  <div class="nombre-cliente">
-                          <p class="nombre-cliente">
-                              ' . $nombre_usuario . '
-                          </p>
-                          <span class="cliente">
-                              Cliente
-                          </span>
-                  </div>
+      </table>
 
-                  </div>
-            ');
+    </div>     
+    <!-- CONTENEDOR DE LA TABLA DE PEDIDOS -->
 
-            $datos_detalle = [$id_pedido];
-            $consulta_detalle = 'SELECT * FROM pedido_especifico WHERE id_pedido = ?;';
-            $respuesta_detalle = $querys->ejecutarConsulta($consulta_detalle, $datos_detalle);
-
-            $respuesta_detalle = $querys->ejecutarConsulta($consulta_detalle, $datos_detalle);
-
-
-            for ($index_detalle = 0; $index_detalle < sizeof($respuesta_detalle); $index_detalle++) {
-
-              $id_detalle_pedido = $respuesta_detalle[$index_detalle]['id_detalle_pedido'];
-              $platillo = $respuesta_detalle[$index_detalle]['nombre_platillo'];
-              $num_ingredientes = $respuesta_detalle[$index_detalle]['num_ingredientes'];
-              $ingredientes = $respuesta_detalle[$index_detalle]['ingredientes'];
-              $comentarios = $respuesta_detalle[$index_detalle]['comentarios'];
-
-              echo ('
-                      <div id="pedido_' . $id_pedido . '" class="contenedor-detalles-especificos">
-
-                        <div class="cantidad-pedido text-center">            
-                          <input id="' . $id_detalle_pedido . '" type="checkbox">
-                          <br>
-                          <span class="cantidad-pedido">
-                              ¿Terminado?
-                          </span>
-                        </div>
-
-                        <div class="nombre-platillo">
-                            <p class="nombre-platillo">
-                                ' . $platillo . '
-                            </p>
-                            <span class="nombre-platillo">
-                                Platillo
-                            </span>
-                        </div>
-
-                        <div class="cantidad-pedido">
-                            <p class="cantidad-pedido">
-                                X ' . $num_ingredientes . '
-                            </p>
-                            <span class="cantidad-pedido">
-                                Cantidad Ingredientes
-                            </span>
-                        </div>
-
-                        <div class="ingrediente-numero-uno">
-                            <p class="ingrediente-numero-uno">
-                                ' . $ingredientes . '
-                            </p>
-                            <span class="ingrediente-numero-uno">
-                                Ingredientes
-                            </span>
-                        </div>
-
-                        <div class="comentario-platillo overflow-auto">
-                            <textarea class="form-control" rows="2">' . $comentarios . '</textarea>
-                            <span class="comentario-platillo">
-                                Comentarios
-                            </span>
-                        </div>
-
-                      </div>                    
-              ');
-
-              if ((sizeof($respuesta_detalle) - 1) == $index_detalle) {
-                echo ('</div>');
-              }
-            }
-          } else if ($id_estado_pedido == '6') { //SI EL ESTADO DEL PEDIDO ES EN PROCESO
-
-            echo ('
-                  <div class="estado_pedido d-flex align-items-center">
-                      <button class="btn btn-md btn-warning">
-                          Terminar <i class="fas fa-hat-chef"></i>
-                      </button>
-                  </div>
-                  <div class="nombre-cliente">
-                      <p class="nombre-cliente">
-                          ' . $nombre_usuario . '
-                      </p>
-                      <span class="cliente">
-                          Cliente
-                      </span>
-                  </div>
-
-                  </div>                
-            ');
-
-            $datos_detalle = [$id_pedido];
-            $consulta_detalle = 'SELECT * FROM pedido_especifico WHERE id_pedido = ?;';
-            $respuesta_detalle = $querys->ejecutarConsulta($consulta_detalle, $datos_detalle);
-
-            $respuesta_detalle = $querys->ejecutarConsulta($consulta_detalle, $datos_detalle);
-
-
-            for ($index_detalle = 0; $index_detalle < sizeof($respuesta_detalle); $index_detalle++) {
-
-              $id_detalle_pedido = $respuesta_detalle[$index_detalle]['id_detalle_pedido'];
-              $platillo = $respuesta_detalle[$index_detalle]['nombre_platillo'];
-              $num_ingredientes = $respuesta_detalle[$index_detalle]['num_ingredientes'];
-              $ingredientes = $respuesta_detalle[$index_detalle]['ingredientes'];
-              $comentarios = $respuesta_detalle[$index_detalle]['comentarios'];
-
-              echo ('
-                  <div id="pedido_' . $id_pedido . '" class="contenedor-detalles-especificos">
-
-                                  <div class="cantidad-pedido text-center">            
-                                    <input id="' . $id_detalle_pedido . '" type="checkbox">
-                                    <br>
-                                    <span class="cantidad-pedido">
-                                        ¿Terminado?
-                                    </span>
-                                  </div>
-
-                                  <div class="nombre-platillo">
-                                      <p class="nombre-platillo">
-                                          ' . $platillo . '
-                                      </p>
-                                      <span class="nombre-platillo">
-                                          Platillo
-                                      </span>
-                                  </div>
-
-                                  <div class="cantidad-pedido">
-                                      <p class="cantidad-pedido">
-                                          X ' . $num_ingredientes . '
-                                      </p>
-                                      <span class="cantidad-pedido">
-                                          Cantidad Ingredientes
-                                      </span>
-                                  </div>
-
-                                  <div class="ingrediente-numero-uno">
-                                      <p class="ingrediente-numero-uno">
-                                          ' . $ingredientes . '
-                                      </p>
-                                      <span class="ingrediente-numero-uno">
-                                          Ingredientes
-                                      </span>
-                                  </div>
-
-                                  <div class="comentario-platillo overflow-auto">
-                                      <textarea class="form-control" rows="2">' . $comentarios . '</textarea>
-                                      <span class="comentario-platillo">
-                                          Comentarios
-                                      </span>
-                                  </div>
-
-                  </div>                      
-              ');
-
-              if ((sizeof($respuesta_detalle) - 1) == $index_detalle) {
-                echo ('</div>');
-              }
-            }
-          } else { //SI EL ESTADO DEL PEDIDO ES PARA ENTREGAR
-
-            echo ('
-                    <div class="estado_pedido d-flex align-items-center">
-                        <button class="btn btn-md btn-success">
-                            Entregar <i class="fas fa-hat-chef"></i>
-                        </button>
-                    </div>
-                    <div class="nombre-cliente">
-                        <p class="nombre-cliente">
-                            ' . $nombre_usuario . '
-                        </p>
-                        <span class="cliente">
-                            Cliente
-                        </span>
-                    </div>
-
-                  </div>                
-            ');
-
-            $datos_detalle = [$id_pedido];
-            $consulta_detalle = 'SELECT * FROM pedido_especifico WHERE id_pedido = ?;';
-            $respuesta_detalle = $querys->ejecutarConsulta($consulta_detalle, $datos_detalle);
-
-            $respuesta_detalle = $querys->ejecutarConsulta($consulta_detalle, $datos_detalle);
-
-
-            for ($index_detalle = 0; $index_detalle < sizeof($respuesta_detalle); $index_detalle++) {
-
-              $id_detalle_pedido = $respuesta_detalle[$index_detalle]['id_detalle_pedido'];
-              $platillo = $respuesta_detalle[$index_detalle]['nombre_platillo'];
-              $num_ingredientes = $respuesta_detalle[$index_detalle]['num_ingredientes'];
-              $ingredientes = $respuesta_detalle[$index_detalle]['ingredientes'];
-              $comentarios = $respuesta_detalle[$index_detalle]['comentarios'];
-
-
-              echo ('
-                  <div id="pedido_' . $id_pedido . '" class="contenedor-detalles-especificos">
-
-                      <div class="cantidad-pedido text-center">            
-                        <input id="' . $id_detalle_pedido . '" type="checkbox">
-                        <br>
-                        <span class="cantidad-pedido">
-                            ¿Terminado?
-                        </span>
-                      </div>
-
-                      <div class="nombre-platillo">
-                                              <p class="nombre-platillo">
-                                                  ' . $platillo . '
-                                              </p>
-                                              <span class="nombre-platillo">
-                                                  Platillo
-                                              </span>
-                      </div>
-
-                      <div class="cantidad-pedido">
-                                              <p class="cantidad-pedido">
-                                                  X ' . $num_ingredientes . '
-                                              </p>
-                                              <span class="cantidad-pedido">
-                                                  Cantidad Ingredientes
-                                              </span>
-                      </div>
-
-                      <div class="ingrediente-numero-uno">
-                                              <p class="ingrediente-numero-uno">
-                                                  ' . $ingredientes . '
-                                              </p>
-                                              <span class="ingrediente-numero-uno">
-                                                  Ingredientes
-                                              </span>
-                      </div>
-
-                      <div class="comentario-platillo overflow-auto">
-                                              <textarea class="form-control" rows="2">' . $comentarios . '</textarea>
-                                              <span class="comentario-platillo">
-                                                  Comentarios
-                                              </span>
-                      </div>
-
-                  </div>                      
-              ');
-
-              //SI ES EL UTLIMO REGISTRO
-              if ((sizeof($respuesta_detalle) - 1) == $index_detalle) {
-                echo ('</div>');
-              }
-            }
-          } //CIERRE DEL ELSE                                              
-
-        } //CIERRE DEL BUCLE DE LAS TARJETAS
-
-      } else { //SI NO HAY PEDIDOS EL DIA DE HOY
-        echo ('
-                <div class="container text-center" style="height: 30rem">
-                  <img width="300" height="300" src="./Assets/img/sin_resultados.png" alt="Sin pedidos">
-                  <br>
-                  <h3> En este momento no tienes ningun pedido.</h3>
-                </div>
-            ');
-      }
-
-      ?>
-
-
-
-    </div>
-    <!-- CONTENEDOR DE TODOS LOS PEDIDOS -->
 
   </div>
   <!-- CONTENEDOR PRINCIPAL DE LOS PEDIDOS -->
@@ -356,16 +156,8 @@ session_start();
 </div>
 <!-- CONTENEDOR PRINCIPAL DEL LAYOUT -->
 
-<script>
-  $(document).ready(function() {
-
-    $(".contenedor-detalles-especificos").toggle();
-    
-    $(".contenedor-pedido").click(function() {
-      // $(".contenedor-detalles-especificos").toggle();
-      let detalle_pedido = $(this).attr('id');            
-      $(".contenedor-detalles-especificos#" + detalle_pedido).toggle('slow');
-
-    });
-  });
-</script>
+<!-- <div class="container text-center" style="height: 30rem">
+ <img width="300" height="300" src="./Assets/img/sin_resultados.png" alt="Sin pedidos">
+ <br>
+ <h3> En este momento no tienes ningun pedido.</h3>
+ </div> -->

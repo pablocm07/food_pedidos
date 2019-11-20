@@ -3,22 +3,28 @@
     let flag = 1;
 
     function mostrarInformacion(usuario) {
-        if (usuario.tipo_usuario == 2) { // SI EL USUARIO ES DE TIPO LOCATARIO
+        
+        if (usuario.id_tipo_usuario == 02) { // SI EL USUARIO ES DE TIPO VENDEDOR
             $('#contenedor-todas-vistas').load('./Vistas/v_pedidos.php');
             $('#contenido-barra-navegacion').load('./Vistas/v_funciones_vendedor.html');
-        } else if (usuario.tipo_usuario == 3) { // SI EL USUARIO ES DE TIPO CONSUMIDPOR
+        } else if (usuario.id_tipo_usuario == 03) { // SI EL USUARIO ES DE TIPO CONSUMIDPOR
             $('#contenedor-todas-vistas').load('./Vistas/v_comidas.html');
             $('#contenido-barra-navegacion').load('./Vistas/contenedor_detalles_pedido.html');
         }
+        
         $('#footer').load('./Vistas/pie_pagina.html'); // Cargar el pie de pagina
     }
 
     function obtenerDatosSesion() {
+        
         let url = './Modelos/m_login.php';
+        
         $.post(url, {
+            
             funcion: 'datos_sesion'
-        }, function(data, status) {
-            data = JSON.parse(data);
+            
+        }, function (data, status) {                
+            data = JSON.parse(data);            
             mostrarInformacion(data.usuario);
         });
     }
@@ -29,6 +35,7 @@
         $(".imagen-logo, #sidebarCollapse, .fondo-boton-menu, .fondo-logo").animate({
             height: 'toggle'
         });
+
         $("#contenedor-todas-vistas ").toggleClass('ancho-inicio-slide');
 
         // $("#sidebarCollapse").animate({
