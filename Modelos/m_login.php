@@ -78,7 +78,7 @@
                         $datos_local = $querys->ejecutarConsulta($consulta, $id_usuario);
 
                         //SETEAN LA VARIABLE DE SESION PARA EL LOCAL
-                        $_SESSION['local'] = $datos_local[0];
+                        $_SESSION['local'] = (isset($datos_local[0])) ? $datos_local[0] : 'Sin local';
                     }
                 }
             }            
