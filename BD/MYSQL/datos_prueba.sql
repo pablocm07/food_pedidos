@@ -16,7 +16,9 @@ values
 INSERT INTO usuarios (nombre, apellido, no_telefonico, id_tipo_usuario, correo_electronico, contrasena, foto_perfil)
 VALUES 
 ('Pablo', 'Cruz', '7751463878', '3', 'pablocm1747@gmail.com', '12345678', './Assets/img/foto_perfil_pablo.JPG'),
-('Miguel', 'Ortega', '7758765433', '1', 'miguelortega@gmail.com', '87654321', NULL);
+('Miguel', 'Ortega', '7758765433', '1', 'miguelortega@gmail.com', '87654321', NULL),
+('locatario', 's/a', '7750180023', '2', 'locatario@', '123', NULL), 
+('consumidor', 's/a', '7751698675', '3', 'consumidor@', '123', NULL);
 
 
 INSERT INTO locales (nombre_local, tipo_local, foto_logo, descripcion, horario_abrir, horario_cerrar, id_estado, id_usuario)
@@ -79,21 +81,34 @@ VALUES
 (6, 20),(6, 21),(6, 22),(6, 27),
 (9, 25),(9, 27),(9, 20),(9, 21);
 
-INSERT INTO usuarios 
-(id_usuario, nombre, apellido, no_telefonico, tipo_usuario, correo_electronico, contrasena, foto_perfil) 
-VALUES 
-(NULL, 'locatario', 's/a', '7750180023', '2', 'locatario@', '123', NULL), 
-(NULL, 'consumidor', 's/a', '7751698675', '3', 'consumidor@', '123', NULL);
 
 INSERT INTO imagen_platillo
 (ubicacion_imagen, id_platillo)
 VALUES
 ('./Assets/img/platillos/guajolote1.jpg', 1),
+('./Assets/img/platillos/guajolote2.jpg', 1),
+('./Assets/img/platillos/guajolote3.jpg', 1),
 ('./Assets/img/platillos/guajolote2.jpg', 2),
+('./Assets/img/platillos/guajolote1.jpg', 2),
+('./Assets/img/platillos/guajolote3.jpg', 2),
 ('./Assets/img/platillos/guajolote3.jpg', 3),
-('./Assets/img/platillos/tacos.jpg', 4),
-('./Assets/img/platillos/tacos.jpg', 5),
-('./Assets/img/platillos/tacos.jpg', 6),
+('./Assets/img/platillos/guajolote2.jpg', 3),
+('./Assets/img/platillos/guajolote1.jpg', 3),
+('./Assets/img/platillos/tacos1.jpg', 4),
+('./Assets/img/platillos/tacos2.jpg', 4),
+('./Assets/img/platillos/tacos3.jpg', 4),
+('./Assets/img/platillos/tacos2.jpg', 5),
+('./Assets/img/platillos/tacos1.jpg', 5),
+('./Assets/img/platillos/tacos3.jpg', 5),
+('./Assets/img/platillos/tacos3.jpg', 6),
+('./Assets/img/platillos/tacos2.jpg', 6),
+('./Assets/img/platillos/tacos1.jpg', 6),
+('./Assets/img/platillos/quesadillas1.jpg', 7),
+('./Assets/img/platillos/quesadillas2.jpg', 7),
 ('./Assets/img/platillos/quesadillas3.jpg', 7),
+('./Assets/img/platillos/quesadillas2.jpg', 8),
+('./Assets/img/platillos/quesadillas1.jpg', 8),
 ('./Assets/img/platillos/quesadillas3.jpg', 8),
-('./Assets/img/platillos/quesadillas3.jpg', 9);
+('./Assets/img/platillos/quesadillas3.jpg', 9),
+('./Assets/img/platillos/quesadillas2.jpg', 9),
+('./Assets/img/platillos/quesadillas1.jpg', 9);

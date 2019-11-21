@@ -2,7 +2,7 @@
 
     let flag = 1;
 
-    function mostrarInformacion(usuario) {
+    function mostrarInformacion(usuario) {        
         
         if (usuario.id_tipo_usuario == 02) { // SI EL USUARIO ES DE TIPO VENDEDOR
             $('#contenedor-todas-vistas').load('./Vistas/v_pedidos.html');
