@@ -36,13 +36,13 @@
 
     $("#signout").click(function() {
         Swal.fire({
-            title: '¿Estas seguro?',
+            title: '¿Quieres salir de FoodPedidos?',
             text: "Desea cerrar tu sesión",
             type: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Cerrar sesión!'
+            confirmButtonText: 'Cerrar sesión'
         }).then((result) => {
             if (result.value) {
                 // Aqui se obtiene el url actual, para recargar la pagina
