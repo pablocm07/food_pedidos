@@ -23,14 +23,16 @@
         if (src_foto_logo != "") {
             $('#foto_usuario').attr('src', src_foto_logo);
         }
-        if (usuario_info.tipo_usuario == 2) {
+        if (usuario_info.id_tipo_usuario == 2) {
             $('#comidas').remove();
             $('#hr-comidas').remove();
             $('#favoritos').remove();
             $('#hr-favoritos').remove();
-        } else if (usuario_info.tipo_usuario == 3) {
+        } else if (usuario_info.id_tipo_usuario == 3) {
             $('#pedidos').remove();
             $('#hr-pedidos').remove();
+            $('#platillos').remove();
+            $('#hr-platillos').remove();
         }
     }
 
@@ -59,6 +61,11 @@
 
     $("#pedidos").click(function() {
         $("#contenedor-todas-vistas").load('./Vistas/v_pedidos.html');
+        $('#sidebar').toggleClass('active');
+    });
+    
+    $("#platillos").click(function () {
+        $("#contenedor-todas-vistas").load('./Vistas/v_platillos.html');
         $('#sidebar').toggleClass('active');
     });
 

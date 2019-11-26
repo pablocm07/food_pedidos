@@ -5,7 +5,9 @@
     function mostrarInformacion(usuario) {        
         
         if (usuario.id_tipo_usuario == 02) { // SI EL USUARIO ES DE TIPO VENDEDOR
-            $('#contenedor-todas-vistas').load('./Vistas/v_pedidos.html');
+            // $('#contenedor-todas-vistas').load('./Vistas/v_pedidos.html');
+            $('#sidebar').toggleClass('active');
+            $('#contenedor-todas-vistas').load('./Vistas/v_platillos.html');
             $('#contenido-barra-navegacion').load('./Vistas/v_funciones_vendedor.html');
         } else if (usuario.id_tipo_usuario == 03) { // SI EL USUARIO ES DE TIPO CONSUMIDPOR
             $('#contenedor-todas-vistas').load('./Vistas/v_comidas.html');
