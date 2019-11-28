@@ -130,6 +130,6 @@
         <!-- SCRIPT DE SWALERT 2 -->
         <script src="Plugins/js/SweetAlert2/sweetalert2.all.min.js"></script>
         
-    </body>
+    </body>    
 
 </html>

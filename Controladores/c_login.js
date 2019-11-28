@@ -62,7 +62,8 @@
         }
     }
 
-    /** () para verificar que el correo y la contraseña sean correctos
+    /** () para verificar que el correo y la contraseña sean correctos y 
+     *  enviar los datos
      * 
      * >> datos: un arreglo con todos los datos que seran enviados - [Array]
      * 
@@ -76,9 +77,9 @@
             if (status == 'success') { // Si la peticion es exitosa  
                 // console.log(data.correo[0].nombre);
                 if (data.valido == 1) { // Si los datos son correctos                                         
-                    // Se cargan las barras de navegacion y contenido depende el tipo de usuario
-                    $('#barras-navegacion').load('./Vistas/barras_navegacion.html');
+                    // Se cargan las barras de navegacion y contenido
                     $('#container').load('./Vistas/fondo.html');
+                    $('#barras-navegacion').load('./Vistas/barras_navegacion.html');
 
                 } else {
 
