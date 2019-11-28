@@ -1,6 +1,6 @@
 (function() {
 
-    let flag = 1;
+    let flag = 1;    
 
     function mostrarInformacion(usuario) {        
         setTimeout(() => {
@@ -65,7 +65,6 @@
 
     let tamaño_pantalla_text = $('<p>').text('W: ' + ancho + ', H:' + alto);
     // $('.fondo-pantalla-completa').append(tamaño_pantalla_text);
-
     obtenerDatosSesion();
 
     setTimeout(function() {        

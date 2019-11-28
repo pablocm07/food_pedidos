@@ -78,8 +78,10 @@
                 // console.log(data.correo[0].nombre);
                 if (data.valido == 1) { // Si los datos son correctos                                         
                     // Se cargan las barras de navegacion y contenido
-                    $('#container').load('./Vistas/fondo.html');
-                    $('#barras-navegacion').load('./Vistas/barras_navegacion.html');
+                    setTimeout(() => {                        
+                        $('#container').load('./Vistas/fondo.html');
+                        $('#barras-navegacion').load('./Vistas/barras_navegacion.html');
+                    }, 1500);
 
                 } else {
 
