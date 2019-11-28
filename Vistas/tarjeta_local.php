@@ -11,11 +11,11 @@
 
 <!-- CONTENEDOR DE LA TARJETA -->
 <!-- <div class="card booking-card"> -->
-<div class="card card-cascade wider">
+<div class="card card-cascade wider">    
 
     <!-- IMAGEN DEL LOCAL -->
     <div class="view view-cascade">
-        <img class="card-img-top" style="height:148px; max-height: 148px; " src="<?php echo$foto_logo; ?>"
+        <img class="card-img-top" style="height:148px; max-height: 148px; " src="<?php echo$foto_logo;?>"
             alt="La imagen puede contener una persona, objeto o logotipo">
     </div>
     <!-- FIN DEL IMAGEN DEL LOCAL -->

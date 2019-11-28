@@ -5,14 +5,17 @@
     function mostrarInformacion(usuario) {        
         setTimeout(() => {
             if (usuario.id_tipo_usuario == 02) { // SI EL USUARIO ES DE TIPO VENDEDOR
-                $('#contenedor-todas-vistas').load('./Vistas/v_pedidos.php');
+                // $('#contenedor-todas-vistas').load('./Vistas/v_pedidos.html');
+                $('#sidebar').toggleClass('active');
+                $('#contenedor-todas-vistas').load('./Vistas/v_platillos.html');
                 $('#contenido-barra-navegacion').load('./Vistas/v_funciones_vendedor.html');
             } else if (usuario.id_tipo_usuario == 03) { // SI EL USUARIO ES DE TIPO CONSUMIDPOR
                 $('#contenedor-todas-vistas').load('./Vistas/v_comidas.html');
                 $('#contenido-barra-navegacion').load('./Vistas/contenedor_detalles_pedido.html');
-            }            
+            }
+            
             $('#footer').load('./Vistas/pie_pagina.html'); // Cargar el pie de pagina
-        }, 1500);        
+        }, 1500);
     }
 
     function obtenerDatosSesion() {

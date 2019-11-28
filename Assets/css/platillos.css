@@ -1,0 +1,46 @@
+/* /* ESTILOS NORMALES (para escritorios muy grandes)    */
+
+.titulo-platillos {
+  display: flex;
+  align-items: baseline;
+}
+
+.titulo-platillos a {
+  margin-left: 0.5rem;
+}
+
+.contenedor-editar-platillo {
+  display: flex;
+  align-items: baseline;
+}
+
+.contenedor-editar-platillo small {
+  margin-left: 0.5rem;
+}
+
+/* RESPONSIVE */
+
+/* Tablets en horizonal y escritorios normales    */
+@media (min-width: 768px) and (max-width: 1199px) {
+}
+
+/* Móviles en horizontal o tablets en vertical    */
+@media (max-width: 767px) {
+}
+
+/* Móviles en vertical    */
+@media (max-width: 480px) {
+  
+    .titulo-platillos {
+        display: block;
+    }
+
+    .contenedor-editar-platillo {
+        display: block;        
+    }
+
+    .contenedor-editar-platillo small {
+        margin-left: 0px;
+    }
+
+}

@@ -23,26 +23,28 @@
         if (src_foto_logo != "") {
             $('#foto_usuario').attr('src', src_foto_logo);
         }
-        if (usuario_info.tipo_usuario == 2) {
+        if (usuario_info.id_tipo_usuario == 2) {
             $('#comidas').remove();
             $('#hr-comidas').remove();
             $('#favoritos').remove();
             $('#hr-favoritos').remove();
-        } else if (usuario_info.tipo_usuario == 3) {
+        } else if (usuario_info.id_tipo_usuario == 3) {
             $('#pedidos').remove();
             $('#hr-pedidos').remove();
+            $('#platillos').remove();
+            $('#hr-platillos').remove();
         }
     }
 
     $("#signout").click(function() {
         Swal.fire({
-            title: '¿Estas seguro?',
+            title: '¿Quieres salir de FoodPedidos?',
             text: "Desea cerrar tu sesión",
             type: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Cerrar sesión!'
+            confirmButtonText: 'Cerrar sesión'
         }).then((result) => {
             if (result.value) {
                 // Aqui se obtiene el url actual, para recargar la pagina
@@ -59,6 +61,11 @@
 
     $("#pedidos").click(function() {
         $("#contenedor-todas-vistas").load('./Vistas/v_pedidos.html');
+        $('#sidebar').toggleClass('active');
+    });
+    
+    $("#platillos").click(function () {
+        $("#contenedor-todas-vistas").load('./Vistas/v_platillos.html');
         $('#sidebar').toggleClass('active');
     });
 
