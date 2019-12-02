@@ -1,94 +1,171 @@
 <link rel="stylesheet" href="./Assets/css/platillos.css">
 
 <!-- CONTENEDOR PRINCIPAL DEL LAYOUT -->
-<div class="contenedor-principal p-3 bg-info">
+<div class="contenedor-principal p-3">
 
-    <!-- BOTON Y TITULO PARA AGREGAR UN NUEVO PLATILLO -->
-    <div class="titulo-platillos pl-2 bg-white">
+    <!-- CONTENEDOR DE LA TARJETA DE AGREGAR NUEVOS PLATILLOS -->
+    <div class="accordion md-accordion accordion-3 z-depth-1-half" id="acordeon-platillos" role="tablist" aria-multiselectable="true">
 
-        <!-- TEXTO PLATILLOS -->
-        <p class="h2 text-muted m-0 p-0">
-            <i class="fad fa-taco"></i> Platillos
-        </p>
-        <!-- TEXTO PLATILLOS -->
+        <!-- ICONOS QUE SE MOSTRARÁN EN EL HEADER -->
+        <ul class="list-unstyled d-flex justify-content-center pt-4">
+            <li><i class="fad fa-utensils-alt mr-3 fa-2x color-food-fontBrown" aria-hidden="true"></i></li>
+            <li><i class="fad fa-burger-soda mr-3 fa-2x color-food-fontOrange" aria-hidden="true"></i></li>
+            <li><i class="fad fa-taco fa-2x color-food-fontBrown" aria-hidden="true"></i></li>
+        </ul>
+        <!-- ICONOS QUE SE MOSTRARÁN EN EL HEADER -->
+
+        <h2 class="text-center font-weight-bolder text-warning py-2 px-3">
+            <span class="color-food-fontBrown">PLATI</span><span class="color-food-fontOrange">LLOS</span>
+        </h2>
 
         <!-- BOTON PARA AGREGAR UN NUEVO PLATILLO -->
-        <a href="">
-            <small class="font-weight-bolder"><i class="fal fa-plus-circle"></i> ¿Vendes Tortas, Guajolotes o Tacos? Agrégalos.</small>
+        <a href="#" id="nuevo_platillo" class="text-center text-uppercase px-3 d-block color-food-fontBrown">
+            <small class="font-weight-bolder">
+                <i class="fal fa-plus-circle"></i> ¿Vendes Tortas, Guajolotes o Tacos? Agrégalos.
+            </small>
         </a>
         <!-- BOTON PARA AGREGAR UN NUEVO PLATILLO -->
 
-    </div>
-    <!-- BOTON Y TITULO PARA AGREGAR UN NUEVO PLATILLO -->
+        <hr class="mb-0">
 
-    <!-- CONTENEDOR DE TODOS LOS PLATILLOS DISPONIBLES DEL LOCAL -->
-    <div class="contenedor-platillos mt-4 p-2 bg-success">
+        <!-- CONTENEDOR DE PLATILLO INDIVIDUAL -->
+        <div class="card">
 
-        <!-- CONTENEDOR DE UN SOLO PLATILLO -->
-        <div class="contenedor-platillo bg-warning p-2">
-            
-            <!-- CONTENEDOR PARA EDITAR LOS PLATILLOS -->
-            <div class="contenedor-editar-platillo p-1 bg-success">
+            <!-- NOMBRE DEL PLATILLO Y SUS OPCIONES -->
+            <div class="card-header" role="tab" id="heading4">
 
-                <!-- NOMBRE PLATILLO -->
-                <p class="h3 m-0 p-0">
-                    <i class="fad fa-utensils-alt"></i> Tacos
-                </p>
-                <!-- NOMBRE PLATILLO -->
+                <!-- DROPDOWN DE OPCIONES PARA EL PLATILLO -->
+                <div class="dropdown float-left mt-1">
+                    <button class="btn btn-warning btn-sm m-0 mr-3 p-2 dropdown-toggle" type="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-ellipsis-v-alt mr-1"></i> Opciones
+                    </button>
+                    <div class="dropdown-menu dropdown-warning">
+                        <a class="dropdown-item" href="#">
+                            <i class="fal fa-plus-circle fa-fw" aria-hidden="true"></i>
+                            Agregar un nuevo ingrediente
+                        </a>
+                        <a class="dropdown-item" href="#">
+                            <i class="fal fa-pencil-alt fa-fw" aria-hidden="true"></i>
+                            Editar el Platillo
+                        </a>
+                        <a class="dropdown-item" href="#">
+                            <i class="fal fa-minus-circle fa-fw" aria-hidden="true"></i>
+                            Eliminar este platillo
+                        </a>
+                    </div>
+                </div>
+                <!-- DROPDOWN DE OPCIONES PARA EL PLATILLO -->
+
+                <!-- TITULO DEL PLATILLO -->
+                <a data-toggle="collapse" data-parent="#acordeon-platillos" href="#collapse_platillo_1"
+                    aria-expanded="true" aria-controls="collapse_platillo_1">
+                    <h5 class="mt-2 mb-0 text-warning">
+                        <i class="fad fa-utensils fa-w"></i>
+                        <span id="nombre_platillo" class="font-weight-bolder">Tacos</span>
+                        <i class="fas fa-angle-down rotate-icon fa-2x"></i>
+                    </h5>
+                </a>
+
+            </div>
+            <!-- NOMBRE DEL PLATILLO Y SUS OPCIONES -->
+
+            <!-- CONTENEDOR DE LOS INGREDIENTES PARA CADA PLATILLO -->
+            <div id="collapse_platillo_1" class="collapse show" role="tabpanel" aria-labelledby="heading4"
+                data-parent="#acordeon-platillos">
 
                 <!-- CONTENEDOR DE LA DISPONIBILIDAD DEL PLATILLO -->
-                <div class="contenedor-disponibilidad d-flex align-items-baseline bg-success">
-
-                    <small class="text-muted">
-                        ¿Aún esta disponible este platillo?
-                    </small>
-                    
+                <div class="contenedor-disponibilidad my-2 ">
+                
+                    <a href="">
+                
+                        <small class="">
+                            ¿Aún esta disponible este platillo?
+                        </small>
+                
+                    </a>
+                
                     <!-- Material checked -->
-                    <div class="ml-1 switch">
+                    <div class="switch">
                         <label>
                             NO
-                            <input type="checkbox" >
-                            <span class="lever"></span> 
+                            <input type="checkbox">
+                            <span class="lever"></span>
                             SI
                         </label>
                     </div>
-
-                </div>                
+                
+                </div>
                 <!-- CONTENEDOR DE LA DISPONIBILIDAD DEL PLATILLO -->
 
-                <!-- CONTENDDOR DE LOS INGREDIENTES DISPONIBLES DEL PLATILLO -->
-                <div class="contenedor-i-disponibles">
-                    
-                    <div class="contenedor-a-ingrediente">
-                        
+                <!-- CONTENEDOR DEL CUERPO DEL  -->
+                <div class="card-body p-0">
+
+                    <!-- CONTENEDOR RESPONSIVO DE LA TABLA -->
+                    <div class="table-responsive p-1">
+
+                        <!-- TABLA DE INGREDIENTES -->
+                        <table class="table table-hover mb-0">
+
+                            <!-- TITULOS DE LA TABLA O CABECERAS -->
+                            <thead class="font-weight-bolder text-center">
+
+                                <tr class="text-center">
+                                    
+                                    <th>Ingrediente</th>
+                                    <th>Disponibilidad</th>
+                                    <th>Editar</th>                                    
+
+                                </tr>
+
+                            </thead>
+                            <!-- TITULOS DE LA TABLA O CABECERAS -->
+
+                            <!-- CUERPO DE LA TABLA CON LOS INGREDIENTES -->
+                            <tbody class="text-center">
+
+                                <tr>
+                                    
+                                    <td>Milanesa</td>
+
+                                    <td class="text-center">
+                                        <div class="switch">
+                                            <label>
+                                                NO
+                                                <input type="checkbox">
+                                                <span class="lever"></span>
+                                                SI
+                                            </label>
+                                        </div>
+                                    </td>
+
+                                    <td>
+                                        <button class="btn btn-sm btn-rounded btn-blue-grey btn-block">Editar</button>
+                                    </td>       
+
+                                </tr>     
+
+                            </tbody>
+                            <!-- CUERPO DE LA TABLA CON LOS INGREDIENTES -->
+
+                        </table>
+                        <!-- TABLA DE INGREDIENTES -->
+
                     </div>
+                    <!-- CONTENEDOR RESPONSIVO DE LA TABLA -->
 
                 </div>
-                <!-- CONTENDDOR DE LOS INGREDIENTES DISPONIBLES DEL PLATILLO -->
 
             </div>
-            <!-- CONTENEDOR PARA EDITAR LOS PLATILLOS -->
-
-            <!-- CONTENEDOR PARA AGREGAR UN NUEVO INGREDIENTE AL PLATILLO -->
-            <div class="p-1 bg-white d-flex justify-content-center">                
-                <a href="" class="bg-dark p-1">
-                    <small class="font-weight-bolder"><i class="fal fa-plus-circle"></i> Agrega ingredientes a tu platillo
-                        <span id="nombre-platillo">
-                            "Tortas"
-                        </span>
-                    </small>
-                </a>                
-            </div>
-            <!-- CONTENEDOR PARA AGREGAR UN NUEVO INGREDIENTE AL PLATILLO -->
-
-
+            <!-- CONTENEDOR DE LOS INGREDIENTES PARA CADA PLATILLO -->
 
         </div>
-        <!-- CONTENEDOR DE UN SOLO PLATILLO -->        
+        <!-- CONTENEDOR DE PLATILLO INDIVIDUAL -->
 
     </div>
-    <!-- CONTENEDOR DE TODOS LOS PLATILLOS DISPONIBLES DEL LOCAL -->
-
+    <!-- CONTENEDOR DE LA TARJETA DE AGREGAR NUEVOS PLATILLOS -->
 
 </div>
 <!-- CONTENEDOR PRINCIPAL DEL LAYOUT -->
+
+<script rel="script" src="./Controladores/c_platillos.js"></script>

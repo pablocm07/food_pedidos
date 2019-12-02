@@ -26,14 +26,15 @@
             // Parametros recibidos            
             $nombre_platillo = $_POST['nombre_platillo'];
             $precio_platillo = $_POST['precio_platillo'];
+            $precio_extra_platillo = $_POST['precio_extra_platillo'];            
             $tiempo_preparacion = $_POST['tiempo_preparacion'];
             $cantidad = $_POST['cantidad'];
             $descripcion = $_POST['descripcion'];
             
-            $datos_a_insertar = [$id_local, $nombre_platillo, $precio_platillo, $tiempo_preparacion, $cantidad,  $descripcion];            
+            $datos_a_insertar = [$id_local, $nombre_platillo, $precio_platillo, $precio_extra_platillo, $tiempo_preparacion, $cantidad,  $descripcion];            
 
-            $consulta = 'INSERT INTO platillos (id_platillo, id_local, nombre_platillo, precio, tiempo_preparacion, cantidad, descripcion, id_estado)
-             VALUES (NULL, ?, ?, ?, ?, ?, ?, "3");';
+            $consulta = 'INSERT INTO platillos (id_platillo, id_local, nombre_platillo, precio, precio_ing_extra, tiempo_preparacion, cantidad, descripcion, id_estado)
+             VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, "3");';
 
             if ($respuesta_bd = $querys->ejecutarQuery($consulta, $datos_a_insertar) ) {            
                 if( isset($respuesta_bd) ){ // Ese usuario no esta registrado            

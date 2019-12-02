@@ -54,6 +54,7 @@ CREATE TABLE platillos (
     id_platillo INT(10) ZEROFILL AUTO_INCREMENT PRIMARY KEY NOT NULL,
     nombre_platillo VARCHAR(60),
     precio DECIMAL(5,2),
+    precio_ing_extra DECIMAL(5,2),
     tiempo_preparacion SMALLINT(4),
     cantidad TINYINT(2),
     descripcion VARCHAR(80),
