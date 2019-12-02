@@ -1,44 +1,49 @@
 (function () {
+    
+    $('button.close').click(function () {    
+        cerrar_modal();
+    });
 
-    let datos = new Object();
+    const cerrar_modal = function () {
+        $('#modal-global').empty();
+        $('#barras-navegacion').load('./Vistas/barras_navegacion.html');
+        $('#container').load('./Vistas/fondo.html');
+        $('.modal-backdrop').remove(); // Para remover el backdrope modal del body
+    }
+
+    let datos = new Object();    
 
     
     /**
-     * 
-     * 
-     * 
-     * 
      * 
      * () EVENTOS QUE SE ACTIVAN CUANDO CAMBIA EL VALOR DEL INPUT
      * 
      * ESTOS EVENTOS SE ENCARGAN DE SETEAR EL CONTENIDO DE LOS INPUT A LAS VARIABLES DEFINIDAS
      */
     $("#nombre_platillo_nuevo").on('change', function () {
-        datos.nombre_platillo = capitalizeFirstLetter($("#nombre_platillo_nuevo").val());
+        datos.nombre_platillo = capitalizeFirstLetter($("#nombre_platillo_nuevo").val());        
     });
     
     $("#precio_platillo_nuevo").on('change', function () {
-        datos.precio_platillo = $("#precio_platillo_nuevo").val();
+        datos.precio_platillo = $("#precio_platillo_nuevo").val();        
+    });
+    
+    $("#precio_extra_platillo_nuevo").on('change', function () {
+        datos.precio_extra_platillo = $("#precio_extra_platillo_nuevo").val();        
     });
     
     $("#tiempo_platillo_nuevo").on('change', function () {
-        datos.tiempo_preparacion = $("#tiempo_platillo_nuevo").val();        
+        datos.tiempo_preparacion = $("#tiempo_platillo_nuevo").val();               
     });
     
     $("#cantidad_platillo_nuevo").on('change', function () {
-        datos.cantidad = $("#cantidad_platillo_nuevo").val();
+        datos.cantidad = $("#cantidad_platillo_nuevo").val();        
     });
     
     $("#descripcion_platillo_nuevo").on('change', function () {
-        datos.descripcion = $("#descripcion_platillo_nuevo").val();
+        datos.descripcion = $("#descripcion_platillo_nuevo").val();        
     });
-    /**
-     * 
-     * 
-     * 
-     * 
-     * 
-     */
+
 
     /**
      * () FUNCION CON CONVIERTE LA PRIMERA LETRA A MAYUSCULA DE CUALQUIER STRING
@@ -58,10 +63,10 @@
         e.preventDefault();
         if (
             validar(datos.nombre_platillo) & validar(datos.precio_platillo) &            
-            validar(datos.tiempo_preparacion) & validar(datos.cantidad)        
+            validar(datos.tiempo_preparacion) & validar(datos.cantidad) & validar(datos.descripcion)        
         ) {                 
-            if (datos.descripcion == null || datos.descripcion === '' ) {
-                datos.descripcion = 'No se agregó ninguna descripción';
+            if (datos.precio_extra_platillo_nuevo == null || datos.precio_extra_platillo_nuevo === '' ) {
+                datos.precio_extra_platillo_nuevo = '0';                        
             }
             enviarPeticion(datos);            
         } else {        
@@ -102,21 +107,21 @@
                 funcion: 'insertar_nuevo_platillo',
                 nombre_platillo: datos_a_enviar.nombre_platillo,
                 precio_platillo: datos_a_enviar.precio_platillo,
+                precio_extra_platillo: datos_a_enviar.precio_extra_platillo_nuevo,
                 tiempo_preparacion: datos_a_enviar.tiempo_preparacion,
                 cantidad: datos_a_enviar.cantidad,
                 descripcion: datos_a_enviar.descripcion
             }
-        }).done(function (respuesta_servidor) {
-            console.log(respuesta_servidor);
+        }).done(function (respuesta_servidor) {            
             let respuesta = JSON.parse(respuesta_servidor);
             if (respuesta.respuesta == '1') {
-                $("#agregarNuevoPlatillo").modal('hide');
+                cerrar_modal();
                 Swal.fire({
                     type: 'success',
                     title: '¡Correcto!',
                     buttonsStyling: false,
-                    confirmButtonText: 'El platillo fue agregado correctamente.',
-                    confirmButtonClass: 'btn btn-lg btn-outline-success'
+                    confirmButtonText: '<i class="fad fa-utensils-alt"></i> El platillo fue agregado correctamente.',
+                    confirmButtonClass: 'btn btn-md btn-outline-success'
                 });
             } else {
                 Swal.fire({
@@ -134,7 +139,7 @@
      * 
      */
     let mostrarError = function () {
-        $('#form-agregar-nuevo-platillo').addClass('was-validated');    
+        $('#form_agregar_nuevo_platillo').addClass('was-validated');    
     }
 
 

@@ -18,6 +18,23 @@
   margin-left: 0.5rem;
 }
 
+.contenedor-disponibilidad{
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.contenedor-disponibilidad div{
+  display: flex;
+  justify-content: center;
+  margin-left: 0.5rem;
+}
+
+.contenedor-disponibilidad div label{
+  margin: 0;
+}
+
 /* RESPONSIVE */
 
 /* Tablets en horizonal y escritorios normales    */
@@ -41,6 +58,24 @@
 
     .contenedor-editar-platillo small {
         margin-left: 0px;
+    }
+
+    .contenedor-disponibilidad{
+        display: block;
+        margin: auto;
+        padding: 0.5rem;
+    }
+
+    .contenedor-disponibilidad div{
+        margin: 0;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .contenedor-disponibilidad a{
+        margin-bottom: 0.5rem;
+        display: flex;
+        justify-content: center;
     }
 
 }
