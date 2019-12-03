@@ -1,0 +1,128 @@
+<!-- MODAL PARA AGREGAR UN NUEVO PLATILLO -->
+<div id="modal_detalle_platillo" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modal_detalle_platillo"
+    aria-hidden="false" data-backdrop="true">
+
+    <div class="modal-content">
+
+        <div class="modal-header bg-primary text-white text-center">
+
+            <h5 class="modal-title m-auto">
+                Agregar un nuevo Platillo
+            </h5>
+
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+
+        </div>
+
+        <!-- CONTENIDO DEL MODAL -->
+        <div class="modal-body">
+
+            <!-- FORMULARIO PARA AGREGAR UN NUEVO PLATILLO -->
+            <form id="form_agregar_nuevo_platillo">
+
+                <!-- NOMBRE DEL PLATILLO -->
+                <div class="form-group">
+                    <label class="font-weight-bolder" for="nombre_platillo_nuevo">Nombre del platillo</label>
+                    <input type="text" name="nombre_platillo_nuevo" id="nombre_platillo_nuevo" class="form-control"
+                        placeholder="Ej. Enchiladas Suizas" aria-describedby="Nombre del platillo" required>
+                    <small id="Nombre del platillo" class="text-muted">¿Cuál será el nombre del platillo que ofrecerás a
+                        tus clientes?</small>
+
+                    <div class="invalid-feedback">
+                        Debe ingresar un nombre para su platillo.
+                    </div>
+                </div>
+                <!-- NOMBRE DEL PLATILLO -->
+
+                <!-- CANTIDAD DE LA ORDEN -->
+                <div class="form-group">
+                    <label class="font-weight-bolder" for="cantidad_platillo_nuevo">Cantidad de la orden</label>
+                    <input type="number" name="cantidad_platillo_nuevo" id="cantidad_platillo_nuevo"
+                        class="form-control" placeholder="Ej. 4" required>
+                    <small id="" class="text-muted">Indica a tus clientes cuántas piezas contiene tu platillo.</small>
+
+                    <div class="invalid-feedback">
+                        Debe agregar el tamaño de la orden.
+                    </div>
+                </div>
+                <!-- CANTIDAD DE LA ORDEN -->
+                
+                <!-- TIEMPO DE PREPARACION -->
+                <div class="form-group">
+                    <label class="font-weight-bolder" for="tiempo_platillo_nuevo">Tiempo de preparación</label>
+                    <input type="number" name="tiempo_platillo_nuevo" id="tiempo_platillo_nuevo"
+                        class="form-control" placeholder="Ej. 5" required>
+                    <small id="" class="text-muted">Indica a un tiempo aproximado en minutos para preparar el platillo.</small>
+
+                    <div class="invalid-feedback">
+                        Debe agregar el tamaño de la orden.
+                    </div>
+                </div>
+                <!-- TIEMPO DE PREPARACION -->
+
+                <!-- DESCRIPCIÓN DEL PLATILLO -->
+                <div class="form-group">
+                    <label class="font-weight-bolder" for="descripcion_platillo_nuevo">Descripción del platillo</label>
+                    <textarea class="form-control" name="descripcion_platillo_nuevo" id="descripcion_platillo_nuevo"
+                        placeholder="Ej. Tortillas de maiz con relleno de queso. Pueden ser de salsa verde o roja"
+                        rows="3" required></textarea>
+
+                    <div class="invalid-feedback">
+                        Debe ingresar una descripción para los clientes.
+                    </div>
+                </div>
+                <!-- DESCRIPCIÓN DEL PLATILLO -->
+
+                <!-- PRECIO DEL PLATILLO -->
+                <div class="form-group">
+
+                    <label class="font-weight-bolder" for="precio_platillo_nuevo">Precio del platillo</label><br>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">$</span>
+                        </div>
+                        <input type="number" id="precio_platillo_nuevo" class="form-control" required>
+                        <div class="input-group-append">
+                            <span class="input-group-text">.00</span>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- PRECIO DEL PLATILLO -->
+
+                <!-- PRECIO DEL INGREDIENTE EXTRA -->
+                <div class="form-group">
+
+                    <label class="font-weight-bolder" for="precio_extra_platillo_nuevo">Precio por ingrediente extra</label><br>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">$</span>
+                        </div>
+                        <input type="number" id="precio_extra_platillo_nuevo" class="form-control">
+                        <div class="input-group-append">
+                            <span class="input-group-text">.00</span>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- PRECIO DEL INGREDIENTE EXTRA -->
+
+                <button type="submit" name="insertar_nuevo_platillo" id="insertar_nuevo_platillo" class="btn btn-primary btn-md btn-block">
+                    <i class="fal fa-plus-circle"></i>
+                    Agregar nuevo Platillo
+                </button>
+
+            </form>
+            <!-- FORMULARIO PARA AGREGAR UN NUEVO PLATILLO -->
+
+        </div>
+        <!-- CONTENIDO DEL MODAL -->
+
+    </div>
+
+</div>
+<!-- MODAL PARA AGREGAR UN NUEVO PLATILLO -->
+
+<script rel="script" src="./Controladores/c_agregar_platillo.js"></script>

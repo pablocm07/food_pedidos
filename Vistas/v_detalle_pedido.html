@@ -1,255 +1,261 @@
 <!-- MODAL PARA VISUALIZAR LOS DETALLES DEL PEDIDO -->
-<div class="modal-dialog" role="document">
+<div id="modal_detalle_pedido" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modal_detalle_pedido"
+    aria-hidden="false" data-backdrop="true">
 
-    <div class="modal-content">
+    <div class="modal-dialog" role="document">
 
-        <div class="modal-header bg-primary text-white text-center">
+        <div class="modal-content">
 
-            <h5 class="modal-title m-auto">Detalles del pedido
-                <span class="font-weight-bolder">#003210</span>
-            </h5>
+            <div class="modal-header bg-primary text-white text-center">
 
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
+                <h5 class="modal-title m-auto">Detalles del pedido
+                    <span class="font-weight-bolder">#003210</span>
+                </h5>
 
-        </div>
-
-        <div class="modal-body">
-
-            <!-- NOMBRE DEL CLIENTE -->
-            <h5 class="text-center">
-                <span id="nombre-cliente" class="font-italic font-weight-bolder">
-                    Miguel Angel Ortega
-                </span>
-                <br>
-                <span class="text-muted">
-                    Cliente
-                </span>
-            </h5>
-            <!-- NOMBRE DEL CLIENTE -->
-
-
-            <hr> <!-- SEPARADOR -->
-
-            <!-- ESTADO Y TIEMPO APROXIMADO DEL PEDIDO -->
-            <ul class="list-group">
-
-                <!-- ESTADO DEL PEDIDO -->
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    Estado del Pedido:
-
-                    <span class="badge badge-primary badge-pill">
-                        <i class="fas fa-pause-circle"></i>
-
-                        <span id="estado_pedido">
-                            En espera
-                        </span>
-                    </span>
-
-                </li>
-                <!-- ESTADO DEL PEDIDO -->
-
-                <!-- TIEMPO ESTIMADO DE LA PREPARACIÓN DE LOS ALIMENTOS -->
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    Tiempo estimado de preparación:
-
-                    <span class="badge badge-warning badge-pill">
-                        <i class="fad fa-clock"></i>
-
-                        <span id="tiempo_aproximado">
-                            15 Min.
-                        </span>
-                    </span>
-
-                </li>
-                <!-- TIEMPO ESTIMADO DE LA PREPARACIÓN DE LOS ALIMENTOS -->
-
-            </ul>
-            <!-- ESTADO Y TIEMPO APROXIMADO DEL PEDIDO -->
-
-            <!-- BOTON PARA CAMBIAR EL ESTADO DEL PEDIDO -->
-            <button type="button" class="btn btn-sm btn-block btn-primary mt-3" data-dismiss="modal" aria-label="Close">
-                <span id="boton_estado_pedido">
-                    Iniciar Pedido
-                </span>
-                <i class="fas fa-play-circle"></i>
-            </button>
-            <!-- BOTON PARA CAMBIAR EL ESTADO DEL PEDIDO -->
-
-            <hr> <!-- SEPARADOR -->
-
-            <h5 class="font-weight-bolder">Detalles del pedido</h5>
-
-            <!-- CONTENEDOR DE LOS DETALLES DEL PLATILLO -->
-            <div id="contenedor_detalles_platillos">
-
-                <!-- CONTENEDOR CON LOS DETALLES PARA UN SOLO PLATILLO -->
-                <div class="contenedor-platillo">
-
-                    <!-- CHECKBOX PARA ACTUALIZAR EL ESTADO DEL PLATILLO -->
-                    <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="check_1">
-                        <label class="custom-control-label font-weight-bolder" for="check_1">Torta</label>
-                    </div>
-                    <!-- CHECKBOX PARA ACTUALIZAR EL ESTADO DEL PLATILLO -->
-
-                    <!-- LISTA CON LOS DETALLES DEL PEDIDO -->
-                    <ul class="ml-4 list-unstyled">
-
-                        <!-- ITEM CON LOS INGREDIENTES PARA EL PLATILLO -->
-                        <li>
-                            <small class="text-muted">
-                                <span class="font-weight-bolder">Ingredientes: </span>
-
-                                <!-- INGREDIENTES CONCATENADOS -->
-                                <span id="ingredientes_platillo_no_">
-                                    Queso, Pierna, Milanesa
-                                </span>
-                                <!-- INGREDIENTES CONCATENADOS -->
-
-                            </small>
-                        </li>
-                        <!-- ITEM CON LOS INGREDIENTES PARA EL PLATILLO -->
-
-                        <!-- ITEM CON LAS OBSERVACIONES PARA EL PLATILLO -->
-                        <li>
-                            <small class="text-muted">
-                                <span class="font-weight-bolder">Comentarios: </span>
-
-                                <!-- OBSERVACIONES DEL CLIENTE -->
-                                <span id="comentarios_platillo_no_">
-                                    El guajolote sin cebolla y con poca grasa, por favor. Además con una pizca de
-                                    sal al gusto.
-                                </span>
-                                <!-- OBSERVACIONES DEL CLIENTE -->
-
-                            </small>
-                        </li>
-                        <!-- ITEM CON LAS OBSERVACIONES PARA EL PLATILLO -->
-
-                    </ul>
-                    <!-- LISTA CON LOS DETALLES DEL PEDIDO -->
-
-                </div>
-                <!-- CONTENEDOR CON LOS DETALLES PARA UN SOLO PLATILLO -->
-
-                <!-- CONTENEDOR CON LOS DETALLES PARA UN SOLO PLATILLO -->
-                <div class="contenedor-platillo">
-
-                    <!-- CHECKBOX PARA ACTUALIZAR EL ESTADO DEL PLATILLO -->
-                    <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="check_2">
-                        <label class="custom-control-label font-weight-bolder" for="check_2">Guajolote</label>
-                    </div>
-                    <!-- CHECKBOX PARA ACTUALIZAR EL ESTADO DEL PLATILLO -->
-
-                    <!-- LISTA CON LOS DETALLES DEL PEDIDO -->
-                    <ul class="ml-4 list-unstyled">
-
-                        <!-- ITEM CON LOS INGREDIENTES PARA EL PLATILLO -->
-                        <li>
-                            <small class="text-muted">
-                                <span class="font-weight-bolder">Ingredientes: </span>
-
-                                <!-- INGREDIENTES CONCATENADOS -->
-                                <span id="ingredientes_platillo_no_">
-                                    Pierna
-                                </span>
-                                <!-- INGREDIENTES CONCATENADOS -->
-
-                            </small>
-                        </li>
-                        <!-- ITEM CON LOS INGREDIENTES PARA EL PLATILLO -->
-
-                        <!-- ITEM CON LAS OBSERVACIONES PARA EL PLATILLO -->
-                        <li>
-                            <small class="text-muted">
-                                <span class="font-weight-bolder">Comentarios: </span>
-
-                                <!-- OBSERVACIONES DEL CLIENTE -->
-                                <span id="comentarios_platillo_no_">
-                                    No
-                                </span>
-                                <!-- OBSERVACIONES DEL CLIENTE -->
-
-                            </small>
-                        </li>
-                        <!-- ITEM CON LAS OBSERVACIONES PARA EL PLATILLO -->
-
-                    </ul>
-                    <!-- LISTA CON LOS DETALLES DEL PEDIDO -->
-
-                </div>
-                <!-- CONTENEDOR CON LOS DETALLES PARA UN SOLO PLATILLO -->
-
-                <!-- CONTENEDOR CON LOS DETALLES PARA UN SOLO PLATILLO -->
-                <div class="contenedor-platillo">
-
-                    <!-- CHECKBOX PARA ACTUALIZAR EL ESTADO DEL PLATILLO -->
-                    <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="check_3">
-                        <label class="custom-control-label font-weight-bolder" for="check_3">Orden de Tacos</label>
-                    </div>
-                    <!-- CHECKBOX PARA ACTUALIZAR EL ESTADO DEL PLATILLO -->
-
-                    <!-- LISTA CON LOS DETALLES DEL PEDIDO -->
-                    <ul class="ml-4 list-unstyled">
-
-                        <!-- ITEM CON LOS INGREDIENTES PARA EL PLATILLO -->
-                        <li>
-                            <small class="text-muted">
-                                <span class="font-weight-bolder">Ingredientes: </span>
-
-                                <!-- INGREDIENTES CONCATENADOS -->
-                                <span id="ingredientes_platillo_no_">
-                                    Pierna, Queso, Salchicha
-                                </span>
-                                <!-- INGREDIENTES CONCATENADOS -->
-
-                            </small>
-                        </li>
-                        <!-- ITEM CON LOS INGREDIENTES PARA EL PLATILLO -->
-
-                        <!-- ITEM CON LAS OBSERVACIONES PARA EL PLATILLO -->
-                        <li>
-                            <small class="text-muted">
-                                <span class="font-weight-bolder">Comentarios: </span>
-
-                                <!-- OBSERVACIONES DEL CLIENTE -->
-                                <span id="comentarios_platillo_no_">
-                                    Con muy poca salsa y sin lechuga.
-                                </span>
-                                <!-- OBSERVACIONES DEL CLIENTE -->
-
-                            </small>
-                        </li>
-                        <!-- ITEM CON LAS OBSERVACIONES PARA EL PLATILLO -->
-
-                    </ul>
-                    <!-- LISTA CON LOS DETALLES DEL PEDIDO -->
-
-                </div>
-                <!-- CONTENEDOR CON LOS DETALLES PARA UN SOLO PLATILLO -->
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
 
             </div>
-            <!-- CONTENEDOR DE LOS DETALLES DEL PLATILLO -->
+
+            <div class="modal-body">
+
+                <!-- NOMBRE DEL CLIENTE -->
+                <h5 class="text-center">
+                    <span id="nombre-cliente" class="font-italic font-weight-bolder">
+                        Miguel Angel Ortega
+                    </span>
+                    <br>
+                    <span class="text-muted">
+                        Cliente
+                    </span>
+                </h5>
+                <!-- NOMBRE DEL CLIENTE -->
+
+
+                <hr> <!-- SEPARADOR -->
+
+                <!-- ESTADO Y TIEMPO APROXIMADO DEL PEDIDO -->
+                <ul class="list-group">
+
+                    <!-- ESTADO DEL PEDIDO -->
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Estado del Pedido:
+
+                        <span class="badge badge-primary badge-pill">
+                            <i class="fas fa-pause-circle"></i>
+
+                            <span id="estado_pedido">
+                                En espera
+                            </span>
+                        </span>
+
+                    </li>
+                    <!-- ESTADO DEL PEDIDO -->
+
+                    <!-- TIEMPO ESTIMADO DE LA PREPARACIÓN DE LOS ALIMENTOS -->
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Tiempo estimado de preparación:
+
+                        <span class="badge badge-warning badge-pill">
+                            <i class="fad fa-clock"></i>
+
+                            <span id="tiempo_aproximado">
+                                15 Min.
+                            </span>
+                        </span>
+
+                    </li>
+                    <!-- TIEMPO ESTIMADO DE LA PREPARACIÓN DE LOS ALIMENTOS -->
+
+                </ul>
+                <!-- ESTADO Y TIEMPO APROXIMADO DEL PEDIDO -->
+
+                <!-- BOTON PARA CAMBIAR EL ESTADO DEL PEDIDO -->
+                <button type="button" class="btn btn-sm btn-block btn-primary mt-3" data-dismiss="modal"
+                    aria-label="Close">
+                    <span id="boton_estado_pedido">
+                        Iniciar Pedido
+                    </span>
+                    <i class="fas fa-play-circle"></i>
+                </button>
+                <!-- BOTON PARA CAMBIAR EL ESTADO DEL PEDIDO -->
+
+                <hr> <!-- SEPARADOR -->
+
+                <h5 class="font-weight-bolder">Detalles del pedido</h5>
+
+                <!-- CONTENEDOR DE LOS DETALLES DEL PLATILLO -->
+                <div id="contenedor_detalles_platillos">
+
+                    <!-- CONTENEDOR CON LOS DETALLES PARA UN SOLO PLATILLO -->
+                    <div class="contenedor-platillo">
+
+                        <!-- CHECKBOX PARA ACTUALIZAR EL ESTADO DEL PLATILLO -->
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="check_1">
+                            <label class="custom-control-label font-weight-bolder" for="check_1">Torta</label>
+                        </div>
+                        <!-- CHECKBOX PARA ACTUALIZAR EL ESTADO DEL PLATILLO -->
+
+                        <!-- LISTA CON LOS DETALLES DEL PEDIDO -->
+                        <ul class="ml-4 list-unstyled">
+
+                            <!-- ITEM CON LOS INGREDIENTES PARA EL PLATILLO -->
+                            <li>
+                                <small class="text-muted">
+                                    <span class="font-weight-bolder">Ingredientes: </span>
+
+                                    <!-- INGREDIENTES CONCATENADOS -->
+                                    <span id="ingredientes_platillo_no_">
+                                        Queso, Pierna, Milanesa
+                                    </span>
+                                    <!-- INGREDIENTES CONCATENADOS -->
+
+                                </small>
+                            </li>
+                            <!-- ITEM CON LOS INGREDIENTES PARA EL PLATILLO -->
+
+                            <!-- ITEM CON LAS OBSERVACIONES PARA EL PLATILLO -->
+                            <li>
+                                <small class="text-muted">
+                                    <span class="font-weight-bolder">Comentarios: </span>
+
+                                    <!-- OBSERVACIONES DEL CLIENTE -->
+                                    <span id="comentarios_platillo_no_">
+                                        El guajolote sin cebolla y con poca grasa, por favor. Además con una pizca de
+                                        sal al gusto.
+                                    </span>
+                                    <!-- OBSERVACIONES DEL CLIENTE -->
+
+                                </small>
+                            </li>
+                            <!-- ITEM CON LAS OBSERVACIONES PARA EL PLATILLO -->
+
+                        </ul>
+                        <!-- LISTA CON LOS DETALLES DEL PEDIDO -->
+
+                    </div>
+                    <!-- CONTENEDOR CON LOS DETALLES PARA UN SOLO PLATILLO -->
+
+                    <!-- CONTENEDOR CON LOS DETALLES PARA UN SOLO PLATILLO -->
+                    <div class="contenedor-platillo">
+
+                        <!-- CHECKBOX PARA ACTUALIZAR EL ESTADO DEL PLATILLO -->
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="check_2">
+                            <label class="custom-control-label font-weight-bolder" for="check_2">Guajolote</label>
+                        </div>
+                        <!-- CHECKBOX PARA ACTUALIZAR EL ESTADO DEL PLATILLO -->
+
+                        <!-- LISTA CON LOS DETALLES DEL PEDIDO -->
+                        <ul class="ml-4 list-unstyled">
+
+                            <!-- ITEM CON LOS INGREDIENTES PARA EL PLATILLO -->
+                            <li>
+                                <small class="text-muted">
+                                    <span class="font-weight-bolder">Ingredientes: </span>
+
+                                    <!-- INGREDIENTES CONCATENADOS -->
+                                    <span id="ingredientes_platillo_no_">
+                                        Pierna
+                                    </span>
+                                    <!-- INGREDIENTES CONCATENADOS -->
+
+                                </small>
+                            </li>
+                            <!-- ITEM CON LOS INGREDIENTES PARA EL PLATILLO -->
+
+                            <!-- ITEM CON LAS OBSERVACIONES PARA EL PLATILLO -->
+                            <li>
+                                <small class="text-muted">
+                                    <span class="font-weight-bolder">Comentarios: </span>
+
+                                    <!-- OBSERVACIONES DEL CLIENTE -->
+                                    <span id="comentarios_platillo_no_">
+                                        No
+                                    </span>
+                                    <!-- OBSERVACIONES DEL CLIENTE -->
+
+                                </small>
+                            </li>
+                            <!-- ITEM CON LAS OBSERVACIONES PARA EL PLATILLO -->
+
+                        </ul>
+                        <!-- LISTA CON LOS DETALLES DEL PEDIDO -->
+
+                    </div>
+                    <!-- CONTENEDOR CON LOS DETALLES PARA UN SOLO PLATILLO -->
+
+                    <!-- CONTENEDOR CON LOS DETALLES PARA UN SOLO PLATILLO -->
+                    <div class="contenedor-platillo">
+
+                        <!-- CHECKBOX PARA ACTUALIZAR EL ESTADO DEL PLATILLO -->
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="check_3">
+                            <label class="custom-control-label font-weight-bolder" for="check_3">Orden de Tacos</label>
+                        </div>
+                        <!-- CHECKBOX PARA ACTUALIZAR EL ESTADO DEL PLATILLO -->
+
+                        <!-- LISTA CON LOS DETALLES DEL PEDIDO -->
+                        <ul class="ml-4 list-unstyled">
+
+                            <!-- ITEM CON LOS INGREDIENTES PARA EL PLATILLO -->
+                            <li>
+                                <small class="text-muted">
+                                    <span class="font-weight-bolder">Ingredientes: </span>
+
+                                    <!-- INGREDIENTES CONCATENADOS -->
+                                    <span id="ingredientes_platillo_no_">
+                                        Pierna, Queso, Salchicha
+                                    </span>
+                                    <!-- INGREDIENTES CONCATENADOS -->
+
+                                </small>
+                            </li>
+                            <!-- ITEM CON LOS INGREDIENTES PARA EL PLATILLO -->
+
+                            <!-- ITEM CON LAS OBSERVACIONES PARA EL PLATILLO -->
+                            <li>
+                                <small class="text-muted">
+                                    <span class="font-weight-bolder">Comentarios: </span>
+
+                                    <!-- OBSERVACIONES DEL CLIENTE -->
+                                    <span id="comentarios_platillo_no_">
+                                        Con muy poca salsa y sin lechuga.
+                                    </span>
+                                    <!-- OBSERVACIONES DEL CLIENTE -->
+
+                                </small>
+                            </li>
+                            <!-- ITEM CON LAS OBSERVACIONES PARA EL PLATILLO -->
+
+                        </ul>
+                        <!-- LISTA CON LOS DETALLES DEL PEDIDO -->
+
+                    </div>
+                    <!-- CONTENEDOR CON LOS DETALLES PARA UN SOLO PLATILLO -->
+
+                </div>
+                <!-- CONTENEDOR DE LOS DETALLES DEL PLATILLO -->
+
+            </div>
+
+            <!-- CONTENEDOR DEL PRECIO DEL PEDIDO -->
+            <div class="modal-footer bg-success text-white d-flex justify-content-between">
+
+                <h2 class="font-weight-bolder">
+                    Total:
+                </h2>
+
+                <h2 class="font-weight-bolder">
+                    $58.00 MXN
+                </h2>
+
+            </div>
+            <!-- CONTENEDOR DEL PRECIO DEL PEDIDO -->
 
         </div>
-
-        <!-- CONTENEDOR DEL PRECIO DEL PEDIDO -->
-        <div class="modal-footer bg-success text-white d-flex justify-content-between">
-
-            <h2 class="font-weight-bolder">
-                Total:
-            </h2>
-
-            <h2 class="font-weight-bolder">
-                $58.00 MXN
-            </h2>
-
-        </div>
-        <!-- CONTENEDOR DEL PRECIO DEL PEDIDO -->
 
     </div>
 

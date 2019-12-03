@@ -7,7 +7,7 @@
 html,
 body {
     height: 100%;
-    background: #FACC2E;
+    background: #FEB03C;
 }
 
 
@@ -103,14 +103,14 @@ body {
 .columnas-inferior-blancas {
     background: #ffffff;
     flex: 0 0 9.085%;
-    border-bottom: 4px solid #FACC2E;
-    color: #FACC2E;
+    border-bottom: 4px solid #FEB03C;
+    color: #FEB03C;
 }
 
 .columnas-inferior {
-    background: #FACC2E;
+    background: #FEB03C;
     flex: 0 0 9.085%;
-    border-bottom: 4px solid #FACC2E;
+    border-bottom: 4px solid #FEB03C;
     color: #ffffff;
 }
 
@@ -193,23 +193,23 @@ body {
 /* Clases  */
 
 .color-food-fontOrange {
-    color: #FACC2E!important;
+    color: #FEB03C!important;
 }
 
 .bg-food-orange {
-    background: #FACC2E!important;
+    background: #FEB03C!important;
 }
 
 .border-food-orange {
-    border: 1px solid #FACC2E!important;
+    border: 1px solid #FEB03C!important;
 }
 
 .color-food-fontBrown {
-    color: #795548!important;
+    color: #9E6E28!important;
 }
 
 .bg-food-brown {
-    background: #795548!important;
+    background: #9E6E28!important;
 }
 
 
