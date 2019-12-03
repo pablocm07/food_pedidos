@@ -1,5 +1,16 @@
 (function() {
 
+    /**
+     * Función para mostrar el loading. Incluido en el index
+     */
+    function ejecutarLoading() {        
+        $(".loadingpage").fadeIn("fast");
+    
+        setTimeout(function() {        
+            $(".loadingpage").fadeOut("slow");
+        },2500);
+    }
+
     function getDetallePedido() {
         let url = './Modelos/m_contenedor_detalles_pedido.php';
         $.post(url, { funcion: 'get_detalle_pedido' }, function(data, status) {
@@ -21,6 +32,7 @@
     }
 
     $("#boton-hacer-pedido").click(function() {
+        ejecutarLoading();
         $("#contenedor-todas-vistas").load('./Vistas/v_comidas.html');
         $('#sidebar').toggleClass('active');
     });

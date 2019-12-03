@@ -66,7 +66,15 @@
                     }
 
                 } else {
-                    alert(data.estado);
+                    Swal.fire({
+                        type: 'warning',
+                        title: data.estado,
+                        showCloseButton: true,
+                        buttonsStyling: false,
+                        confirmButtonText: 'Aceptar',
+                        confirmButtonClass: 'btn btn-lg btn-outline-info'
+                    });
+                    returnPasoUno();
                 }
             }
         });
@@ -117,10 +125,9 @@
             $("#tarjetas-comidas").slideDown('slow');
 
         });
-    }, 700);
+    }, 1000);
 
-    $("#paso_uno_link").click(function(e) {
-        e.preventDefault();
+    function returnPasoUno() {
         $("li#paso_uno").addClass('active');
         $("li#paso_uno").removeClass('done');
 
@@ -131,6 +138,11 @@
         $("#tarjetas-comidas").slideUp('slow');
 
         $("#tarjetas-comidas").empty();
+    }
+
+    $("#paso_uno_link").click(function(e) {
+        e.preventDefault();
+        returnPasoUno();
     });
 
     cargarLocales();

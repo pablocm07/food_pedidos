@@ -41,7 +41,7 @@ switch ($funcion) {
         // Pasar todos los parametros recibidos en un arreglo        
         $datos = [$id_local, $id_platillo];
 
-        $consulta = "SELECT * FROM lista_ingredientes WHERE id_local = ? AND id_platillo = ?";
+        $consulta = "SELECT * FROM ingredientes WHERE id_local = ? AND id_platillo = ?";
         
         if ($datos = $querys->ejecutarConsulta($consulta,$datos) ) {
             if( isset($datos[0]) ){ // Ese usuario no esta registrado

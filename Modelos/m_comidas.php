@@ -34,7 +34,7 @@ switch ($funcion) {
 
         $datos = [$id_local];
 
-        $consulta = "SELECT * FROM lista_platillos WHERE id_local = ?;";
+        $consulta = "SELECT * FROM platillos WHERE id_local = ?;";
         
         if ($datos = $querys->ejecutarConsulta($consulta,$datos) ) {
             if( isset($datos[0]) ){ // Ese usuario no esta registrado            
@@ -42,7 +42,7 @@ switch ($funcion) {
                 $mensaje['estado'] = 'Existen registros';
             }
         }else{
-            $mensaje['estado'] = 'Lo sentimos, este local aun no ha agregado ningun platillo a su menú';
+            $mensaje['estado'] = 'Lo sentimos, este local aún no ha agregado ningún platillo a su menú';
         }
     break;
     

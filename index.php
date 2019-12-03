@@ -33,6 +33,14 @@
 
     <body>
 
+        <div class="loadingpage">
+            <div class="contenido-loading text-center">
+                <img src="./Assets/img/logos/Logo_chef.png" alt="Logo chef" style="width: 200px;">
+                <p><b>C A R G A N D O. . .</b></p>
+                <img src="./Assets/img/logos/30.gif" alt="Loading" style="width: 200px;">
+            </div>
+        </div>
+
         <!-- Para saber el estado de la sesion -->
         <input type="hidden" id="estado-sesion" value="<?php echo $estado_sesion ?>">
 
@@ -54,7 +62,7 @@
 
 
         <!-- Funciones JS  -->
-        <script rel="script" src="./Controladores/c_index.js"></script>
+        <script rel="script" type="text/javascript" src="./Controladores/c_index.js"></script>
 
         <!-- SCRIPTS DE FUNCIONALIDADES (BOOTSTRAP 4) -->
         <script src="Plugins/js/Bootstrap/popper.min.js"></script>

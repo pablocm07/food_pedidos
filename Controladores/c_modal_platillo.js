@@ -189,6 +189,7 @@
                     $('#select-multiple-ingredientes').append('<option value="' + data.info[i].id_ingrediente + '">' + data.info[i].nombre + '</option>');
                 }
             }
+            console.log(data);
         });
     }
 

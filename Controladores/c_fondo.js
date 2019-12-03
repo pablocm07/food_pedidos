@@ -2,7 +2,19 @@
 
     let flag = 1;    
 
-    function mostrarInformacion(usuario) {        
+    /**
+     * Función para mostrar el loading. Incluido en el index
+     */
+    function ejecutarLoading() {        
+        $(".loadingpage").fadeIn("fast");
+    
+        setTimeout(function() {        
+            $(".loadingpage").fadeOut("slow");
+        },2500);
+    }
+
+    function mostrarInformacion(usuario) {  
+        ejecutarLoading();
         setTimeout(() => {
             if (usuario.id_tipo_usuario == 02) { // SI EL USUARIO ES DE TIPO VENDEDOR
                 // $('#contenedor-todas-vistas').load('./Vistas/v_pedidos.html');
@@ -15,7 +27,7 @@
             }
             
             $('#footer').load('./Vistas/pie_pagina.html'); // Cargar el pie de pagina
-        }, 1500);
+        }, 1000);
     }
 
     function obtenerDatosSesion() {
@@ -65,10 +77,6 @@
 
     let tamaño_pantalla_text = $('<p>').text('W: ' + ancho + ', H:' + alto);
     // $('.fondo-pantalla-completa').append(tamaño_pantalla_text);
-    obtenerDatosSesion();
-
-    setTimeout(function() {        
-        $(".loadingpage").fadeOut("slow");
-    },3000);
+    obtenerDatosSesion();       
 
 }());
