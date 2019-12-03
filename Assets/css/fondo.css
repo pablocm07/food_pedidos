@@ -7,7 +7,7 @@
 html,
 body {
     height: 100%;
-    background: #FACC2E;
+    background: #FEB03C;
 }
 
 
@@ -103,14 +103,14 @@ body {
 .columnas-inferior-blancas {
     background: #ffffff;
     flex: 0 0 9.085%;
-    border-bottom: 4px solid #FACC2E;
-    color: #FACC2E;
+    border-bottom: 4px solid #FEB03C;
+    color: #FEB03C;
 }
 
 .columnas-inferior {
-    background: #FACC2E;
+    background: #FEB03C;
     flex: 0 0 9.085%;
-    border-bottom: 4px solid #FACC2E;
+    border-bottom: 4px solid #FEB03C;
     color: #ffffff;
 }
 

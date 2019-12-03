@@ -31,9 +31,9 @@ class Conexion{
     private function conectar(){
         
         // Uso de try{} y catch{} para capturar los posibles errores que ocurran
-        try {
-            
+        try {            
             $mbd = new PDO('mysql:host=localhost;dbname='.BD.';charset=utf8', USER, PASS);
+            // $mbd = new PDO('mysql:host=localhost:3308;dbname='.BD.';charset=utf8', USER, PASS);
             $mbd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
 
         } catch (PDOException $e) { // En caso de algún error

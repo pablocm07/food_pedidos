@@ -1,15 +1,4 @@
-(function () {
-    
-    $('button.close').click(function () {    
-        cerrar_modal();
-    });
-
-    const cerrar_modal = function () {
-        $('#modal-global').empty();
-        $('#barras-navegacion').load('./Vistas/barras_navegacion.html');
-        $('#container').load('./Vistas/fondo.html');
-        $('.modal-backdrop').remove(); // Para remover el backdrope modal del body
-    }
+(function () {    
 
     let datos = new Object();    
 
