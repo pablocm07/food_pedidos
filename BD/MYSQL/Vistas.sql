@@ -1,14 +1,14 @@
+use food_pedidos;
+
 -- Vista para obtener la lista de los platillos
 CREATE OR REPLACE VIEW lista_platillos AS 
 SELECT platillos.id_platillo, platillos.id_local, platillos.nombre_platillo, platillos.precio, platillos.tiempo_preparacion,
 platillos.cantidad, platillos.descripcion, platillos.id_estado, 
 IFNULL (imagen_platillo.ubicacion_imagen, 'No existe imagen') AS ubicacion_imagen
 FROM platillos
-INNER JOIN imagen_platillo ON platillos.id_platillo = imagen_platillo.id_platillo_img GROUP BY id_platillo;
+INNER JOIN imagen_platillo ON platillos.id_platillo = imagen_platillo.id_img_platillo GROUP BY id_platillo;
 
-
-
---VISTA PARA VER EL PEDIDO 
+-- VISTA PARA VER EL PEDIDO 
 CREATE OR REPLACE VIEW pedido_general AS
 SELECT estados.estado,detalle_pedido.id_pedido, COUNT(detalle_pedido.id_detalle_pedido) AS no_platillos, 
 pedidos.id_local,pedidos.id_estado, pedidos.fecha_hora, SUM(platillos.tiempo_preparacion) AS tiempo_total_preparacion,
@@ -22,16 +22,14 @@ INNER JOIN usuarios ON usuarios.id_usuario = pedidos.id_usuario
 WHERE pedidos.id_estado IN (5,6,7)
 GROUP BY detalle_pedido.id_pedido;
 
---VISTA PARA VER LOS INGREDIENTES DE UN PLATILLO 
+-- VISTA PARA VER LOS INGREDIENTES DE UN PLATILLO 
 CREATE OR REPLACE VIEW lista_ingredientes AS
 SELECT p.id_platillo, p.id_local, p.nombre_platillo, i.id_ingrediente, i.nombre FROM platillos p 
 INNER JOIN detalle_platillo dp ON dp.id_platillo = p.id_platillo 
 INNER JOIN ingredientes i ON i.id_ingrediente = dp.id_ingrediente;
 -- WHERE p.id_local = 1 AND dp.id_platillo = 1
 
-
-
---VISTA PARA VER LOS DETALLES DEL PEDIDO
+-- VISTA PARA VER LOS DETALLES DEL PEDIDO
 CREATE OR REPLACE VIEW pedido_especifico AS
 SELECT platillos.nombre_platillo, GROUP_CONCAT(ingredientes.nombre) AS ingredientes,
 COUNT(detalle_ingredientes.id_detalle_pedido) AS num_ingredientes, detalle_pedido.comentarios, platillos.tiempo_preparacion,
@@ -57,5 +55,5 @@ INNER JOIN detalle_pedido dpe ON dpe.id_pedido = p.id_pedido
 INNER JOIN detalle_ingredientes di ON di.id_detalle_pedido = dpe.id_detalle_pedido
 INNER JOIN platillos pl ON pl.id_platillo = dpe.id_platillo
 INNER JOIN locales l ON l.id_local = p.id_local
-INNER JOIN imagen_platillo ip ON ip.id_platillo_img = pl.id_platillo
+INNER JOIN imagen_platillo ip ON ip.id_img_platillo = pl.id_platillo
 GROUP BY di.id_detalle_pedido;

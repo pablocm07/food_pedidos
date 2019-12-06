@@ -1,3 +1,5 @@
+use food_pedidos;
+
 -- Procedimiento para verificar si existen los datos de un usuario
 DELIMITER //
 

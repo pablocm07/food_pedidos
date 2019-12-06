@@ -45,7 +45,7 @@ CREATE TABLE ingredientes (
     nombre VARCHAR(30),
     precio DECIMAL(5,2),
     id_local INT(10) ZEROFILL NULL,    
-    FOREIGN KEY (id_local) REFERENCES locales (id_local),
+    FOREIGN KEY (id_local) REFERENCES locales (id_local)
 );
 
 CREATE TABLE platillos ( 
