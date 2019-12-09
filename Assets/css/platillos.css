@@ -1,3 +1,7 @@
+.imagen-s-resultados{
+  width: 30%;   
+}
+
 /* /* ESTILOS NORMALES (para escritorios muy grandes)    */
 
 .titulo-platillos {
@@ -47,6 +51,10 @@
 
 /* Móviles en vertical    */
 @media (max-width: 480px) {
+
+  .imagen-s-resultados{
+    width: 50%;   
+  }
   
     .titulo-platillos {
         display: block;

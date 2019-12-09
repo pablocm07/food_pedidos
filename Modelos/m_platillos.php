@@ -14,6 +14,8 @@
     $querys = new Querys;
     $mensaje;
 
+    $a = 0;
+
 
     // ejecutara el código segun el parametro que reciba
     switch ($funcion) {
@@ -45,6 +47,23 @@
                 $mensaje['estado'] = 'Lo sentimos, no se pudo agregar correctamente el platillo';
             }
             break;
+
+        case 'consultar_platillos':
+
+            $id_local[0] = $_SESSION['local']['id_local'];                     
+
+            $consulta = "SELECT * FROM platillos WHERE id_local = ? AND id_estado = '3';";
+            
+            if ($datos = $querys->ejecutarConsulta($consulta,$id_local) ) {
+                if( isset($datos[0]) ){ // Ese usuario no esta registrado            
+                    $mensaje['platillos'] = $datos;                    
+                    $mensaje['estado'] = 'Tiene platillos';
+                }
+            }else{
+                $mensaje['estado'] = 'Sin platillos';
+            }
+            
+            break;        
 
         default:
             # code...

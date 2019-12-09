@@ -23,14 +23,16 @@
         if (src_foto_logo != "") {
             $('#foto_usuario').attr('src', src_foto_logo);
         }
-        if (usuario_info.id_tipo_usuario == 2) {
+        if (usuario_info.id_tipo_usuario == 2) {    //USUARIO LOCATARIO
             $('#comidas').remove();
             $('#hr-comidas').remove();
             $('#favoritos').remove();
             $('#hr-favoritos').remove();
-        } else if (usuario_info.id_tipo_usuario == 3) {
+        } else if (usuario_info.id_tipo_usuario == 3) {     //USUARIO CONSUMIDOR
             $('#pedidos').remove();
             $('#hr-pedidos').remove();
+            $('#ingredientes').remove();
+            $('#hr-ingredientes').remove();
             $('#platillos').remove();
             $('#hr-platillos').remove();
         }
@@ -38,8 +40,8 @@
 
     $("#signout").click(function() {
         Swal.fire({
-            title: '¿Quieres salir de FoodPedidos?',
-            text: "Desea cerrar tu sesión",
+            title: 'Cerrar Sesión',
+            text: "¿Quieres salir de FoodPedidos?",
             type: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
@@ -66,6 +68,11 @@
     
     $("#platillos").click(function () {
         $("#contenedor-todas-vistas").load('./Vistas/v_platillos.html');
+        $('#sidebar').toggleClass('active');
+    });
+    
+    $("#ingredientes").click(function () {
+        $("#contenedor-todas-vistas").load('./Vistas/v_ingredientes.html');
         $('#sidebar').toggleClass('active');
     });
 

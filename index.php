@@ -33,7 +33,7 @@
 
     <body>
 
-        <div class="loadingpage">
+        <div class="loadingpage m-auto">
             <div class="contenido-loading text-center">
                 <img src="./Assets/img/logos/Logo_chef.png" alt="Logo chef" style="width: 200px;">
                 <p><b>C A R G A N D O. . .</b></p>
