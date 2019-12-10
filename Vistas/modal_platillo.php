@@ -42,9 +42,10 @@
 
             <!-- CUERPO DEL MODAL -->
             <div class="modal-body pt-0 pb-0">
-            <div id="id-local" hidden><?php echo $id_local; ?></div>
-            <div id="id-platillo" hidden><?php echo $id_platillo; ?></div>
-            <div id="precio-subtotal" hidden><?php echo $precio; ?></div>
+
+                <div id="id-local" hidden><?php echo $id_local; ?></div>
+                <div id="id-platillo" hidden><?php echo $id_platillo; ?></div>
+                <div id="precio-subtotal" hidden><?php echo $precio; ?></div>
 
                 <div class="row">
 
@@ -55,7 +56,7 @@
                         <div id="carousel-thumb" class="carousel slide carousel-fade carousel-thumbnails"
                             data-ride="carousel">
 
-                            <!--Slides-->
+                            <!--Slides CON IMAGENES DEL PLATILLO -->
                             <div class="carousel-inner z-depth-2" role="listbox">
 
                                 <div class="carousel-item active">
@@ -71,7 +72,7 @@
                                 </div>
 
                             </div>
-                            <!--/.Slides-->
+                            <!--Slides CON IMAGENES DEL PLATILLO -->
 
                             <!--Controls-->
                             <a class="carousel-control-prev" href="#carousel-thumb" role="button" data-slide="prev">
@@ -95,6 +96,7 @@
                                     <img class='img-thumbnail' src="./Assets/img/comida_3.jpg">
                                 </li>
                             </ol>
+
                         </div>
                         <!-- CAROUSEL CON IMAGENES DE LA COMIDA -->
 
@@ -111,7 +113,8 @@
                             <!-- <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="left" title="Tooltip on left">
                                 Tooltip on left
                             </button> -->
-                            <button id="boton-agregar-platillo" class="btn btn-outline-warning" >Agregar al pedido
+                            <button id="boton-agregar-platillo" class="btn btn-outline-warning"> 
+                                Agregar al pedido
                                 <i class="fas fa-concierge-bell ml-2" aria-hidden="true"></i>
                             </button>
                             
@@ -125,16 +128,15 @@
                     <div class="col-lg-7">
 
                         <!-- NOMBRE DEL PLATILLO -->
-                        <div class="text-center">
-                            <h1 class="h1-responsive product-name cyan-lighter-hover">
+                        <div class="text-center m-2">
+                            <h1 class="h1-responsive color-food-fontBrown product-name">
                                 <strong id='nombre-platillo'><?php echo $nombre_platillo;?></strong><strong> x <?php echo $cantidad;?></strong>
                             </h1>
                         </div>                        
                         <hr>
                         <!-- NOMBRE DEL PLATILLO -->
 
-                        <!-- CONTENEDOR DEL PRECIO DEL PLATILLO -->
-                        <!-- <div class="text-center"> -->
+                        <!-- CONTENEDOR DEL PRECIO Y TIEMPO DE PREPARACIÓN DEL PLATILLO -->                        
                         <h4 class="h4-responsive clearfix">                        
                                                 
                             <span class="border-success green-text bordeado p-1 float-left">
@@ -149,10 +151,9 @@
                                 </small>
                             </span>
                             <!-- FIN TIEMPO -->
-                        </h4>
-                        <!-- </div> -->
+                        </h4>                        
                         <hr>
-                        <!-- CONTENEDOR DEL PRECIO DEL PLATILLO -->
+                        <!-- CONTENEDOR DEL PRECIO Y TIEMPO DE PREPARACIÓN DEL PLATILLO -->
 
                         <!-- FORMULARIO PARA AGREGAR DETALLES DEL PEDIDO -->
                         <div class="card-body pb-0">
@@ -179,6 +180,7 @@
 
                             </div>
                             <!-- CONTENEDOR DEL BOTON PARA AGREGAR AL PEDIDO -->
+                            
                             <div class="md-form">          
                                 <!-- Aqui puedes describir como quieres tu platillo, con mas salsa, sin lechuga, con poca aceita, etc... -->
                                 <textarea type="text" id="comentario-platillo" class="md-textarea form-control" rows="4" style="max-height: 100px; min-height: 80px; overflow:auto;"

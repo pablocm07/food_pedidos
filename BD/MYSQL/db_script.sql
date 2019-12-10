@@ -73,10 +73,10 @@ CREATE TABLE imagen_platillo (
 CREATE TABLE detalle_platillo (
     id_detalle_platillo INT(10) ZEROFILL AUTO_INCREMENT PRIMARY KEY NOT NULL,
     id_platillo INT(10) ZEROFILL NULL,
-    id_ingrediente INT(10) ZEROFILL NULL,  
-    id_estado INT(10) ZEROFILL NULL,
+    id_ingrediente INT(10) ZEROFILL NULL,    
+    id_estado INT(10) ZEROFILL NULL
     FOREIGN KEY (id_platillo) REFERENCES platillos (id_platillo),
-    FOREIGN KEY (id_ingrediente) REFERENCES ingredientes (id_ingrediente),
+    FOREIGN KEY (id_ingrediente) REFERENCES ingredientes (id_ingrediente),    
     FOREIGN KEY (id_estado) REFERENCES estados (id_estado)
 );
 

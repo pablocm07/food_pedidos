@@ -5,21 +5,21 @@
     /**
      * Función para mostrar el loading. Incluido en el index
      */
-    function ejecutarLoading() {        
-        $(".loadingpage").fadeIn("fast");
+    // function ejecutarLoading() {        
+    //     $(".loadingpage").fadeIn("fast");
     
-        setTimeout(function() {        
-            $(".loadingpage").fadeOut("slow");
-        },2500);
-    }
+    //     setTimeout(function() {        
+    //         $(".loadingpage").fadeOut("slow");
+    //     },2500);
+    // }
 
     function mostrarInformacion(usuario) {  
-        ejecutarLoading();
+        // ejecutarLoading();
         setTimeout(() => {
             if (usuario.id_tipo_usuario == 02) { // SI EL USUARIO ES DE TIPO VENDEDOR
                 $('#sidebar').toggleClass('active');
                 // $('#contenedor-todas-vistas').load('./Vistas/v_pedidos.html');
-                $('#contenedor-todas-vistas').load('./Vistas/v_ingredientes.html');
+                $('#contenedor-todas-vistas').load('./Vistas/v_platillos.html');
                 $('#contenido-barra-navegacion').load('./Vistas/v_funciones_vendedor.html');
             } else if (usuario.id_tipo_usuario == 03) { // SI EL USUARIO ES DE TIPO CONSUMIDPOR
                 $('#contenedor-todas-vistas').load('./Vistas/v_comidas.html');

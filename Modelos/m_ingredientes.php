@@ -99,6 +99,23 @@
             }
             break;
 
+        case 'eliminar_ingrediente_platillo':
+
+            // Parametros recibidos                             
+            $id_detalle_platillo = [ $_POST['id_detalle_platillo'] ];
+
+            $consulta = 'UPDATE detalle_platillo SET id_estado = "4" WHERE id_detalle_platillo = ?;';            
+
+            if ($respuesta_bd = $querys->ejecutarQuery($consulta, $id_detalle_platillo) ) {            
+                if( isset($respuesta_bd) ){ // SE INSERTO CORRECTAMENTE
+                    $mensaje['respuesta'] = $respuesta_bd;                                     
+                }
+
+            }else{//NO SE PUDO INSERTAR CORRECTAMENTE
+                $mensaje['estado'] = 'Lo sentimos, no se ha podido actualizar';                
+            }
+            break;
+
         default:
             # code...
             break;

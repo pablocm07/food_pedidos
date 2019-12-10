@@ -5,7 +5,7 @@
     let estado_sesion = $('#estado-sesion').val();
     let modal = $('#modal-registro');    
 
-    ejecutarLoading();
+    // ejecutarLoading();
     
     if (estado_sesion == 1) { // Si es 1?, existe una sesion abierta
         contenedor.load('./Vistas/fondo.html'); // Cargar contenido    
@@ -20,13 +20,13 @@
     /**
      * Función para mostrar el loading. Incluido en el index
      */
-    function ejecutarLoading() {        
-        $(".loadingpage").fadeIn("fast");
+    // function ejecutarLoading() {        
+    //     $(".loadingpage").fadeIn("fast");
     
-        setTimeout(function() {        
-            $(".loadingpage").fadeOut("slow");
-        },2500);
-    }
+    //     setTimeout(function() {        
+    //         $(".loadingpage").fadeOut("slow");
+    //     },2500);
+    // }
 
 
 }());
