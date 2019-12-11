@@ -82,7 +82,8 @@ DELIMITER //
 
 CREATE OR REPLACE PROCEDURE `agregar_pedido` (
     IN _id_local INT(10),
-    IN _id_usuario INT(10)
+    IN _id_usuario INT(10),
+    IN _precio_nuevo DECIMAL(5,2)
 )  
 BEGIN
 DECLARE id_pedido INT(10);
@@ -91,13 +92,16 @@ DECLARE precio_existente DECIMAL(5,2);
 
 IF ( (SELECT COUNT(*) FROM pedidos p WHERE p.id_local = _id_local AND p.id_usuario = _id_usuario AND p.id_estado = 10) = 1) then
     SET id_pedido = (SELECT p.id_pedido FROM pedidos p WHERE p.id_local = _id_local AND p.id_usuario = _id_usuario AND p.id_estado = 10);
-    SET precio_existente = (SELECT p.precio FROM pedidos p WHERE p.id_local = _id_local AND p.id_usuario = _id_usuario AND p.id_estado = 10);
+    SET precio_existente = (SELECT p.precio_total FROM pedidos p WHERE p.id_local = _id_local AND p.id_usuario = _id_usuario AND p.id_estado = 10);
     SET nuevo_pedido = 0;
+    SET precio_existente = precio_existente + _precio_nuevo;
+    UPDATE pedidos p SET p.precio_total = precio_existente, p.fecha_hora = NOW() WHERE p.id_pedido = id_pedido;
+
 else
-    INSERT INTO pedidos (id_local, id_usuario, id_estado)
-    VALUES (_id_local, _id_usuario, 8);
+    INSERT INTO pedidos (precio_total, fecha_hora, id_local, id_usuario, id_estado)
+    VALUES (_precio_nuevo, NOW(), _id_local, _id_usuario, 10);
     SET id_pedido = (SELECT last_insert_id());
-    SET precio_existente = (SELECT p.precio FROM pedidos p WHERE p.id_pedido = id_pedido);
+    SET precio_existente = _precio_nuevo;
     SET nuevo_pedido = 1;
 end IF;
     SELECT id_pedido, nuevo_pedido, precio_existente;
@@ -145,6 +149,43 @@ DECLARE id_detalle_ingrediente INT(10);
     VALUES (_id_detalle_pedido, _id_ingrediente);
     SET id_detalle_ingrediente = (SELECT last_insert_id());
     SELECT id_detalle_ingrediente;
+
+END//
+
+DELIMITER ;
+
+-- Procedimiento que elimina el pedido con los registros de las demas tablas
+
+DELIMITER //
+
+CREATE OR REPLACE PROCEDURE `eliminar_pedido`(
+    _id_pedido INT (10)
+)
+BEGIN
+
+    DECLARE fin int default 0;
+    DECLARE _id_detalle_pedido int(10);
+
+    DECLARE cursor_eliminar_pedido cursor for SELECT id_detalle_pedido FROM detalle_pedido AS dp WHERE dp.id_pedido = _id_pedido;
+
+    DECLARE CONTINUE HANDLER FOR  NOT FOUND SET fin=1;
+
+    OPEN cursor_eliminar_pedido;
+        ciclo_loop: LOOP
+            FETCH cursor_eliminar_pedido into _id_detalle_pedido;
+
+            IF ( fin=1) THEN
+                LEAVE ciclo_loop;
+            END IF;
+            
+            DELETE FROM detalle_ingredientes WHERE id_detalle_pedido = _id_detalle_pedido;
+            DELETE FROM detalle_pedido WHERE id_detalle_pedido = _id_detalle_pedido;
+
+        end LOOP ciclo_loop ;
+    CLOSE cursor_eliminar_pedido;
+    
+    DELETE FROM pedidos WHERE id_pedido = _id_pedido;
+    SELECT fin;
 
 END//
 

@@ -89,7 +89,12 @@
                 (platillo) => { return platillo.id_platillo == $(this).attr('id') }
             );
 
+            // 0 = Oculta; 1 = Visual
+            let sidebar_activa =  ( ($('#sidebar').hasClass("active")) ? 0 : 1);
 
+            if (sidebar_activa == 1){
+                $('#sidebar').toggleClass('active');
+            }
 
             $('#modal-global').load('./Vistas/modal_platillo.php', { platillo_elegido, id_local: id_local });
             setTimeout(() => {
@@ -103,6 +108,14 @@
     setTimeout(() => {
         $("div.clik-mostrar-local").click(function(e) {
             e.preventDefault();
+
+            // 0 = Oculta; 1 = Visual
+            let sidebar_activa =  ( ($('#sidebar').hasClass("active")) ? 0 : 1);
+
+            if (sidebar_activa == 1){
+                $('#sidebar').toggleClass('active');
+            }
+            
             let id_local = $(this).attr('id');
             // let nombre_local = $('#nombre-local-' + id_local).text()
             cargarPlatillos(id_local);

@@ -1,76 +1,4 @@
-(function() {
-
-    
-    function agregarDetalleIngrediente(id_detalle_pedido, id_ingredientes) {
-        let ids_ingredientes = id_ingredientes;
-        let url = './Modelos/m_modal_platillo.php';
-        for (let i = 0; i < ids_ingredientes.length; i++) {
-            datos = {
-                id_ingrediente: ids_ingredientes[i],
-                id_detalle_pedido: id_detalle_pedido,
-                funcion: 'agregar_detalle_ingrediente'
-            }
-            $.post(url, datos, function(data, status) {
-                data = JSON.parse(data);
-
-                if (status) {
-                    if (data.respuesta == 0) {
-
-                    } else {
-
-                    }
-                }
-            });
-        }
-        Swal.fire({
-            position: 'top-end',
-            type: 'success',
-            title: 'Se ha agregado a tu pedido',
-            showConfirmButton: false,
-            timer: 1500
-        });
-    }
-
-    function agregarDetallePedido(id_platillo, id_pedido, precio_platillo, comentario_platillo, id_ingredientes) {
-        datos_platillo = {
-            id_platillo: id_platillo,
-            id_pedido: id_pedido,
-            precio_platillo: precio_platillo,
-            comentario_platillo: comentario_platillo,
-            funcion: 'registrar_detalle_pedido'
-        };
-        // console.log(datos_platillo);
-        let url = './Modelos/m_modal_platillo.php';
-        $.post(url, datos_platillo, function(data, status) {
-            data = JSON.parse(data);
-            if (status) {
-                if (data.respuesta == 0) {
-
-                } else {
-                    let id_detalle_pedido = data.id_detalle_pedido;
-                    agregarDetalleIngrediente(id_detalle_pedido, id_ingredientes);
-                }
-            }
-        });
-    }
-
-    function obtenerDatosPedidos(id_platillo, precio_platillo, comentario_platillo, id_ingredientes) {
-        let id_local = $('#id-local').val();
-        let url = './Modelos/m_modal_platillo.php';
-        $.post(url, { funcion: 'get_datos_pedido', id_local: id_local }, function(data, status) {
-            data = JSON.parse(data);
-            if (status) {
-                if (data.respuesta == 0) {
-                    alert("Lo sentimos, algo ha salido mal");
-                } else {
-                    let id_pedido = data.id_pedido;
-                    let precio_existente = data.precio_existente;
-                    console.log(precio_existente);
-                    agregarDetallePedido(id_platillo, id_pedido, precio_platillo, comentario_platillo, id_ingredientes);
-                }
-            }
-        });
-    }
+(function() {    
 
     setTimeout(() => {
         $('#boton-agregar-platillo').click(function(e) {
@@ -106,12 +34,28 @@
 
     function agregarDetalleBarra(lista_detalle_pedido) {
         $('#contenedor-detalle-pedido').append(lista_detalle_pedido);
-        $('#lista-detalle-pedido').show();
+        $('#lista-detalle-pedido').show();        
         $('#sidebar').toggleClass('active');
         $('#ordenar_comida').modal('hide');
     }
 
-    function crearComponentePedido(nombre_local, min, id_estado) {
+    function agregarDetalleTotal(componente_precio_total){
+        $('#contenedor-total-pedido').empty();
+        $('#contenedor-total-pedido').append(componente_precio_total);
+        $('#contenedor-total-pedido').show();
+    }
+
+    function crearComponenteTotal(precio) {
+        let contenedor_precio_total = $("<div>");                    
+            contenedor_precio_total.addClass('mt-3 mb-3 d-flex');
+            contenedor_precio_total.html(
+                '<span class="precio-total-pedidos text-white mr-1">Total</span>'+
+                '<span class="precio-total-pedidos text-white font-weight-bold ml-auto mr-2">$' + precio + '</span>'
+        );
+        return contenedor_precio_total;
+    }
+
+    function crearComponentePedido(id_pedido, nombre_local, min, id_estado) {
         let lista_mis_pedidos = $("<li>"), bg_badge_estado, estado_del_pedido;
         if (id_estado == 5) {
             bg_badge_estado = 'badge-danger';
@@ -136,7 +80,8 @@
             '</span>' +
             '<span title="Eliminar pedido" class="ml-2 badge badge-danger badge-pill">' +
             '<i class="fas fa-backspace"></i>' +
-            '</span>'
+            '</span>'+
+            '<input id="id-pedido-pendiente" type="text" value=" ' + id_pedido + ' " hidden></input>'
         );
         return lista_mis_pedidos;
     }
@@ -160,20 +105,98 @@
 
     }
 
+    function agregarDetalleIngrediente(id_detalle_pedido, id_ingredientes) {
+        let ids_ingredientes = id_ingredientes;
+        let url = './Modelos/m_modal_platillo.php';
+        for (let i = 0; i < ids_ingredientes.length; i++) {
+            datos = {
+                id_ingrediente: ids_ingredientes[i],
+                id_detalle_pedido: id_detalle_pedido,
+                funcion: 'agregar_detalle_ingrediente'
+            }
+            $.post(url, datos, function(data, status) {
+                data = JSON.parse(data);
+
+                if (status) {
+                    if (data.respuesta == 0) {
+                        alert('Algo ha salido mal');
+                    } else {
+                        Swal.fire({
+                            position: 'top-end',
+                            type: 'success',
+                            title: 'Se ha agregado a tu pedido',
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                    }
+                }
+            });
+        }
+    
+    }
+
+    function agregarDetallePedido(id_platillo, id_pedido, precio_platillo, comentario_platillo, id_ingredientes) {
+        datos_platillo = {
+            id_platillo: id_platillo,
+            id_pedido: id_pedido,
+            precio_platillo: precio_platillo,
+            comentario_platillo: comentario_platillo,
+            funcion: 'registrar_detalle_pedido'
+        };
+        // console.log(datos_platillo);
+        let url = './Modelos/m_modal_platillo.php';
+        $.post(url, datos_platillo, function(data, status) {
+            data = JSON.parse(data);
+            if (status) {
+                if (data.respuesta == 0) {
+
+                } else {
+                    let id_detalle_pedido = data.id_detalle_pedido;
+                    agregarDetalleIngrediente(id_detalle_pedido, id_ingredientes);
+                }
+            }
+        });
+    }
+
+    function obtenerDatosPedidos(id_platillo, precio_platillo, comentario_platillo, id_ingredientes) {
+        let id_local = $('#id-local').val();
+        let nombre_local = $('#nombre-local-' + id_local).text();    
+        let tiempo_preparacion = $('#tiempo-preparacion').val();
+
+        let ubicacion_imagen = $('#ubicacion-imagen').val();
+        let nombre_platillo = $('#nombre-platillo').val();
+        let ingredientes = $('.multiselect-selected-text').text(); 
+        
+        let url = './Modelos/m_modal_platillo.php';
+
+        $.post(url, { funcion: 'get_datos_pedido', id_local: id_local, precio: precio_platillo }, function(data, status) {
+            data = JSON.parse(data);
+            if (status) {
+                if (data.respuesta == 0) {
+                    alert("Lo sentimos, algo ha salido mal");
+                } else {
+                    let id_pedido = data.id_pedido;
+                    let precio_existente = data.precio_existente;
+                    let estado_del_pedido = data.nuevo_pedido;
+                    // console.log(estado_del_pedido);  
+                    if (estado_del_pedido == 1){
+                        agregarPedidoBarra(crearComponentePedido(id_pedido, nombre_local, tiempo_preparacion, 10));            
+                    }
+
+                    agregarDetalleTotal(crearComponenteTotal(precio_existente));
+                    agregarDetalleBarra(crearComponenteDetalle(ubicacion_imagen, nombre_platillo, ingredientes, precio_platillo));                
+                    agregarDetallePedido(id_platillo, id_pedido, precio_platillo, comentario_platillo, id_ingredientes);
+                }
+            }
+        });
+    }
+
     setTimeout(() => {
         $("#boton-add-platillo").click(function() {                        
             let id_platillo = $('#id-platillo').val();
             let precio_platillo = $('#precio-subtotal').val();            
             let comentario_platillo = $('#comentario-platillo').val();
-            let id_ingredientes = $('#select-multiple-ingredientes').val();
-            
-            let id_local = $('#id-local').val();
-            let nombre_local = $('#nombre-local-' + id_local).text();    
-            let tiempo_preparacion = $('#tiempo-preparacion').val();
-
-            let ubicacion_imagen = $('#ubicacion-imagen').val();
-            let nombre_platillo = $('#nombre-platillo').val();
-            let ingredientes = $('.multiselect-selected-text').text();            
+            let id_ingredientes = $('#select-multiple-ingredientes').val();                                   
 
             if (id_ingredientes.length == 0 || id_ingredientes.length > 3) {
                 Swal.fire(
@@ -182,9 +205,7 @@
                     'warning'
                 );
             } else {                
-                // obtenerDatosPedidos(id_platillo, precio_platillo, comentario_platillo, id_ingredientes);
-                agregarPedidoBarra(crearComponentePedido(nombre_local, tiempo_preparacion, 10));            
-                agregarDetalleBarra(crearComponenteDetalle(ubicacion_imagen, nombre_platillo, ingredientes, precio_platillo));                
+                obtenerDatosPedidos(id_platillo, precio_platillo, comentario_platillo, id_ingredientes);                
             }
                 
 
@@ -198,9 +219,11 @@
             data = JSON.parse(data);
             // console.log(data);
             if (status) {
-                let total_ingredientes = data.info.length;
-                for (let i = 0; i < total_ingredientes; i++) {
-                    $('#select-multiple-ingredientes').append('<option value="' + data.info[i].id_ingrediente + '">' + data.info[i].nombre + '</option>');
+                if (data.info != 0){
+                    let total_ingredientes = data.info.length;
+                    for (let i = 0; i < total_ingredientes; i++) {
+                        $('#select-multiple-ingredientes').append('<option value="' + data.info[i].id_ingrediente + '">' + data.info[i].nombre + '</option>');
+                    }
                 }
             }            
         });

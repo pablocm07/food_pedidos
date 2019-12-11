@@ -37,6 +37,48 @@
         $('#sidebar').toggleClass('active');
     });
 
+    $("#boton-cancelar-pedido").click(function() {
+        let id_pedido = $('#id-pedido-pendiente').val();
+        Swal.fire({
+            title: 'Cancelar',
+            text: "¿Quieres anular tu pedido?",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Aceptar',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.value) {
+                let url = './Modelos/m_contenedor_detalles_pedido.php';
+                datos = {
+                    funcion: 'eliminar_pedido',
+                    id_pedido: id_pedido
+                };
+                $.post(url, datos, function(data, status) {
+                    data = JSON.parse(data);
+                    
+                    if (status){
+                        console.log(data.respuesta);
+                        if (data.respuesta == 1){
+                            Swal.fire({
+                                position: 'top-end',
+                                type: 'success',
+                                title: 'Pedido cancelado',
+                                showConfirmButton: false,
+                                timer: 1500
+                            });
+                        }else{
+                            alert('Algo ha salido mal en la BD');
+                        }
+                    }
+                });                
+            }
+        })        
+        // $("#contenedor-todas-vistas").load('./Vistas/v_comidas.html');
+        // $('#sidebar').toggleClass('active');
+    });
+
     getDetallePedido();
 
 }());

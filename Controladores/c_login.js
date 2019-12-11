@@ -15,6 +15,18 @@
         contrasena,
         registro_en_proceso = false;
 
+    
+    /**
+     * Función para mostrar el loading. Incluido en el index
+     */
+    function ejecutarLoading() {        
+        $(".loadingpage").fadeIn("fast");
+    
+        setTimeout(function() {        
+            $(".loadingpage").fadeOut("slow");
+        },2500);
+    }
+
     /** () para validar que un campo no este vacio
      * 
      * >> elemento: recibe el valor de un elemento - [String]
@@ -76,12 +88,14 @@
             let usuario = data.usuario;
             if (status == 'success') { // Si la peticion es exitosa  
                 // console.log(data.correo[0].nombre);
-                if (data.valido == 1) { // Si los datos son correctos                                         
-                    // Se cargan las barras de navegacion y contenido
-                    setTimeout(() => {                        
-                        $('#container').load('./Vistas/fondo.html');
-                        $('#barras-navegacion').load('./Vistas/barras_navegacion.html');
-                    }, 1500);
+                if (data.valido == 1) { // Si los datos son correctos
+                    ejecutarLoading();
+                    
+                    // Se cargan las barras de navegacion y contenido                                        
+                    $('#container').load('./Vistas/fondo.html');
+                    $('#barras-navegacion').load('./Vistas/barras_navegacion.html');                    
+
+                    ejecutarLoading();
 
                 } else {
 

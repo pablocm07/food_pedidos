@@ -17,9 +17,10 @@ switch ($funcion) {
     case 'get_datos_pedido':
         // Parametros recibidos
         $id_local = $_POST['id_local'];        
+        $precio = $_POST['precio'];
         $id_usuario = $_SESSION['usuario']['id_usuario'];
-
-        $datos = [$id_local, $id_usuario];
+        
+        $datos = [$id_local, $id_usuario, $precio];
 
         if ($datos = $querys->ejecutarProcedure('agregar_pedido', $datos)) {
             
@@ -46,11 +47,12 @@ switch ($funcion) {
         WHERE dp.id_platillo = ?";
         
         if ($datos = $querys->ejecutarConsulta($consulta,$datos) ) {
-            if( isset($datos[0]) ){ // Ese usuario no esta registrado
+            if( isset($datos[0]) ){ // El platillo aun no tiene ningun ingrediente asignado
                 $mensaje["info"] = $datos;
             }
         }else{
             $mensaje["sin_registros"] = 'No hay ingredientes para este alimento';
+            $mensaje["info"] = 0;
         }
     break;        
 

@@ -406,9 +406,9 @@
             maxHeight: 200,
             includeSelectAllOption: false,
             includeSelectAllIfMoreThan: 1,
-            selectAllText: ' Seleccionar t',
+            selectAllText: ' Seleccionar todo',
             selectAllValue: 'multiselect-all',
-            selectAllName: false,
+            selectAllName: true,
             selectAllNumber: true,
             selectAllJustVisible: true,
             enableFiltering: true,
@@ -941,7 +941,7 @@
             }
 
             if (this.options.enableClickableOptGroups && this.options.multiple) {
-                $('a label', $li).prepend('<input class="d-none" type="checkbox" value="' + value + '" hidden/>');
+                $('a label', $li).prepend('<input type="checkbox" value="' + value + 'kas"/>');
             }
 
             if ($(group).is(':disabled')) {
@@ -1013,9 +1013,9 @@
                 }
 
                 if (this.options.selectAllName) {
-                    $('label', $li).prepend('<input class="d-none" type="checkbox" name="' + this.options.selectAllName + '" hidden/>');
+                    $('label', $li).prepend('<input type="checkbox" name="' + this.options.selectAllName + '"/>');
                 } else {
-                    $('label', $li).prepend('<input class="d-none" type="checkbox" hidden/>');
+                    $('label', $li).prepend('<input type="checkbox"/>');
                 }
 
                 var $checkbox = $('input', $li);
