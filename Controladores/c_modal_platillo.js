@@ -1,5 +1,6 @@
 (function() {
 
+    
     function agregarDetalleIngrediente(id_detalle_pedido, id_ingredientes) {
         let ids_ingredientes = id_ingredientes;
         let url = './Modelos/m_modal_platillo.php';
@@ -54,31 +55,31 @@
     }
 
     function obtenerDatosPedidos(id_platillo, precio_platillo, comentario_platillo, id_ingredientes) {
-        let id_local = $('#id-local').text();
+        let id_local = $('#id-local').val();
         let url = './Modelos/m_modal_platillo.php';
         $.post(url, { funcion: 'get_datos_pedido', id_local: id_local }, function(data, status) {
             data = JSON.parse(data);
             if (status) {
                 if (data.respuesta == 0) {
-
+                    alert("Lo sentimos, algo ha salido mal");
                 } else {
                     let id_pedido = data.id_pedido;
+                    let precio_existente = data.precio_existente;
+                    console.log(precio_existente);
                     agregarDetallePedido(id_platillo, id_pedido, precio_platillo, comentario_platillo, id_ingredientes);
                 }
             }
         });
-        // return info[0];
     }
-    // console.log(pedido);
 
     setTimeout(() => {
         $('#boton-agregar-platillo').click(function(e) {
             // Datos del platillo
-            let id_platillo = $('#id-platillo').text();
-            let precio_platillo = $('#precio-subtotal').text();
+            let id_platillo = $('#id-platillo').val();
+            let precio_platillo = $('#precio-subtotal').val();
             let comentario_platillo = $('#comentario-platillo').val();
-            // Obtener el TOTAL y su ID de checkbox de ingredientes que estan SELECCIONADOS
-            let ingredientes = $('ul li > a > label > input:checkbox:checked');
+            // Obtener el TOTAL y su ID de checkbox de ingredientes que estan SELECCIONADOS            
+            let ingredientes = $('#select-multiple-ingredientes').val();
 
             if (ingredientes.length == 0 || ingredientes.length > 3) {
                 Swal.fire(
@@ -87,12 +88,8 @@
                     'warning'
                 );
             } else {
-                let id_ingredientes = [];
-                for (let i = 0; i < ingredientes.length; i++) {
-                    id_ingredientes.push(ingredientes[i].value);
-                }
-                // console.log(id_ingredientes);
-                obtenerDatosPedidos(id_platillo, precio_platillo, comentario_platillo, id_ingredientes);
+                console.log(ingredientes);
+                // obtenerDatosPedidos(id_platillo, precio_platillo, comentario_platillo, id_ingredientes);
             }
 
         });
@@ -115,20 +112,26 @@
     }
 
     function crearComponentePedido(nombre_local, min, id_estado) {
-        let lista_mis_pedidos = $("<li>");
+        let lista_mis_pedidos = $("<li>"), bg_badge_estado, estado_del_pedido;
         if (id_estado == 5) {
             bg_badge_estado = 'badge-danger';
+            estado_del_pedido = 'En espera';
         } else if (id_estado == 6) {
             bg_badge_estado = 'bg-food-orange';
+            estado_del_pedido = 'En proceso';
         } else if (id_estado == 7) {
             bg_badge_estado = 'badge-success';
+            estado_del_pedido = 'Terminado';
+        } else if (id_estado == 10) {
+            bg_badge_estado = 'badge-default';
+            estado_del_pedido = 'Sin pagar';
         }
         lista_mis_pedidos.addClass('item_pedido text-white list-group-item d-flex justify-content-between align-items-center');
         lista_mis_pedidos.html(nombre_local +
             '<span title="Tiempo estimado" class="ml-auto badge badge-primary badge-pill">' +
             '<i class="fas fa-clock"></i> ' + min + ' min.' +
             '</span>' +
-            '<span title="Estado del pedido" class="ml-2 badge ' + bg_badge_estado + ' badge-pill">' +
+            '<span title="' + estado_del_pedido + '" class="ml-2 badge ' + bg_badge_estado + ' badge-pill">' +
             '<i class="fas fa-concierge-bell"></i>' +
             '</span>' +
             '<span title="Eliminar pedido" class="ml-2 badge badge-danger badge-pill">' +
@@ -138,50 +141,60 @@
         return lista_mis_pedidos;
     }
 
-    function crearComponenteDetalle() {
+    function crearComponenteDetalle(ubicacion_imagen, nombre_platillo, ingredientes, precio_platillo) {
         let lista_detalle_pedido = $('<div>');
         lista_detalle_pedido.addClass('item-detalle-pedido');
         lista_detalle_pedido.html('<div class="p-2 img-detalle-pedido">' +
-            '<img width="70px" height="70px" src="./Assets/img/comida_5.jpg" alt="">' +
+            '<img width="70px" height="70px" src=" ' + ubicacion_imagen + ' " alt="">' +
             '</div>' +
             '<p class="producto-detalle-pedido m-0 p-2 text-center">' +
-            '<span>Guajolote</span>' +
-            '<br> c/n' +
+            '<span> ' + nombre_platillo + ' </span>' +
+            '<br>'+ ingredientes +
             '<span>' +
             '</span>' +
             '</p>' +
             '<span class="font-weight-bold precio-detalle-pedido p-2 text-center">' +
-            '$ 45.00' +
+            '$'+ precio_platillo +
             '</span>');
         return lista_detalle_pedido;
 
     }
 
     setTimeout(() => {
-        $("#boton-add-platillo").click(function() {
-            // let ids_locales = obtenerDatosPedidos();
-            let nuevo_pedido = 1;
-            let id_platillo = $('#id-platillo').text();
-            let precio_platillo = $('#precio-subtotal').text();
+        $("#boton-add-platillo").click(function() {                        
+            let id_platillo = $('#id-platillo').val();
+            let precio_platillo = $('#precio-subtotal').val();            
             let comentario_platillo = $('#comentario-platillo').val();
-            // let nombre_local = $('#nombre-local-' + id_local).text();
-            console.log(id_local);
-            console.log(id_platillo);
-            console.log(precio_platillo);
-            console.log(comentario_platillo);
-            if (nuevo_pedido == 1) {
-                // agregarPedidoBarra(crearComponentePedido('Cafeteria UTEC', 8, 7));
+            let id_ingredientes = $('#select-multiple-ingredientes').val();
+            
+            let id_local = $('#id-local').val();
+            let nombre_local = $('#nombre-local-' + id_local).text();    
+            let tiempo_preparacion = $('#tiempo-preparacion').val();
+
+            let ubicacion_imagen = $('#ubicacion-imagen').val();
+            let nombre_platillo = $('#nombre-platillo').val();
+            let ingredientes = $('.multiselect-selected-text').text();            
+
+            if (id_ingredientes.length == 0 || id_ingredientes.length > 3) {
+                Swal.fire(
+                    'Hey!',
+                    'Debes elegir entre 1 y 3 ingredientes',
+                    'warning'
+                );
+            } else {                
+                // obtenerDatosPedidos(id_platillo, precio_platillo, comentario_platillo, id_ingredientes);
+                agregarPedidoBarra(crearComponentePedido(nombre_local, tiempo_preparacion, 10));            
+                agregarDetalleBarra(crearComponenteDetalle(ubicacion_imagen, nombre_platillo, ingredientes, precio_platillo));                
             }
-            // agregarDetalleBarra(crearComponenteDetalle());
+                
 
         });
     }, 500);
 
     function llenarComboIngredientes() {
-        let id_platillo = $('#id-platillo').text();
-        let id_local = $('#id-local').text();
+        let id_platillo = $('#id-platillo').val();
         let url = './Modelos/m_modal_platillo.php';
-        $.post(url, { funcion: 'get_detalle_platillo', id_platillo: id_platillo, id_local: id_local }, function(data, status) {
+        $.post(url, { funcion: 'get_detalle_platillo', id_platillo: id_platillo}, function(data, status) {
             data = JSON.parse(data);
             if (status) {
                 let total_ingredientes = data.info.length;

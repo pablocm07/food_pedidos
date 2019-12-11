@@ -34,7 +34,9 @@ switch ($funcion) {
 
         $datos = [$id_local];
 
-        $consulta = "SELECT * FROM platillos WHERE id_local = ?;";
+        $consulta = "SELECT p.*, ip.ubicacion_imagen  FROM platillos p
+            INNER JOIN imagen_platillo ip ON ip.id_platillo = p.id_platillo
+            WHERE p.id_local = ? GROUP BY p.id_platillo;";
         
         if ($datos = $querys->ejecutarConsulta($consulta,$datos) ) {
             if( isset($datos[0]) ){ // Ese usuario no esta registrado            

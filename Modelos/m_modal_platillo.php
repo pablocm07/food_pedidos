@@ -16,7 +16,7 @@ include('../BD/Querys.php');
 switch ($funcion) {    
     case 'get_datos_pedido':
         // Parametros recibidos
-        $id_local = $_POST['id_local'];
+        $id_local = $_POST['id_local'];        
         $id_usuario = $_SESSION['usuario']['id_usuario'];
 
         $datos = [$id_local, $id_usuario];
@@ -26,6 +26,7 @@ switch ($funcion) {
             if (isset($datos[0]['id_pedido'])) { //                 
                 $mensaje['id_pedido'] = $datos[0]['id_pedido'];
                 $mensaje['nuevo_pedido'] = $datos[0]['nuevo_pedido'];
+                $mensaje['precio_existente'] = $datos[0]['precio_existente'];
             }
         } else {
             $mensaje['respuesta'] = 0;
@@ -34,14 +35,15 @@ switch ($funcion) {
     break;
 
     case 'get_detalle_platillo':
-        // Parametros recibidos
-        $id_local = $_POST['id_local'];
+        // Parametros recibidosregistrar_detalle_pedido
         $id_platillo = $_POST['id_platillo'];
 
         // Pasar todos los parametros recibidos en un arreglo        
-        $datos = [$id_local, $id_platillo];
+        $datos = [$id_platillo];
 
-        $consulta = "SELECT * FROM ingredientes WHERE id_local = ? AND id_platillo = ?";
+        $consulta = "SELECT dp.*, i.nombre FROM detalle_platillo dp
+        INNER JOIN ingredientes i ON i.id_ingrediente = dp.id_ingrediente
+        WHERE dp.id_platillo = ?";
         
         if ($datos = $querys->ejecutarConsulta($consulta,$datos) ) {
             if( isset($datos[0]) ){ // Ese usuario no esta registrado
@@ -59,7 +61,7 @@ switch ($funcion) {
         $precio_platillo = $_POST['precio_platillo'];        
         $comentario_platillo = $_POST['comentario_platillo'];          
 
-        $datos = [$id_platillo, $id_pedido, $precio_platillo, $comentario_platillo, 8];
+        $datos = [$id_platillo, $id_pedido, $precio_platillo, $comentario_platillo, 10];
 
         if ($datos = $querys->ejecutarProcedure('registrar_detalle_pedido', $datos)) {
             

@@ -35,7 +35,7 @@
 
         <div class="loadingpage">
             <div class="contenido-loading text-center">
-                <img src="./Assets/img/logos/Logo_chef.png" alt="Logo chef" style="width: 200px;">
+                <img id="img-chef-loading" src="./Assets/img/logos/Logo_chef.png" alt="Logo chef" style="width: 200px;" class="">
                 <p><b>C A R G A N D O. . .</b></p>
                 <img src="./Assets/img/logos/30.gif" alt="Loading" style="width: 200px;">
             </div>

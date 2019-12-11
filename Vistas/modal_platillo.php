@@ -42,9 +42,12 @@
 
             <!-- CUERPO DEL MODAL -->
             <div class="modal-body pt-0 pb-0">
-            <div id="id-local" hidden><?php echo $id_local; ?></div>
-            <div id="id-platillo" hidden><?php echo $id_platillo; ?></div>
-            <div id="precio-subtotal" hidden><?php echo $precio; ?></div>
+            <input id="id-local" hidden value="<?php echo $id_local; ?>">
+            <input id="id-platillo" hidden value="<?php echo $id_platillo; ?>">
+            <input id='nombre-platillo' hidden value="<?php echo $nombre_platillo; ?>">
+            <input id="precio-subtotal" hidden value="<?php echo $precio; ?>">
+            <input id="tiempo-preparacion" hidden value="<?php echo $tiempo_preparacion; ?>">        
+            <input id="ubicacion-imagen" hidden value="<?php echo $ubicacion_imagen; ?>">        
 
                 <div class="row">
 
@@ -127,7 +130,7 @@
                         <!-- NOMBRE DEL PLATILLO -->
                         <div class="text-center">
                             <h1 class="h1-responsive product-name cyan-lighter-hover">
-                                <strong id='nombre-platillo'><?php echo $nombre_platillo;?></strong><strong> x <?php echo $cantidad;?></strong>
+                                <strong><?php echo $nombre_platillo;?></strong><strong> x <?php echo $cantidad;?></strong>
                             </h1>
                         </div>                        
                         <hr>
@@ -138,7 +141,7 @@
                         <h4 class="h4-responsive clearfix">                        
                                                 
                             <span class="border-success green-text bordeado p-1 float-left">
-                                <strong id='precio-platillo'>$ <?php echo $precio;?></span></strong>
+                                <strong>$ <?php echo $precio;?></span></strong>
                             </span>
 
                             <!-- TIEMPO -->
@@ -160,7 +163,7 @@
                             <!-- INPUT CON BOTONES PARA AGREGAR O ELIMINAR SELECTS PARA DETALLES DEL PEDIDDO -->
                             <div class="text-center">
 
-                                <label for="select-multiple-ingredientes">Descripción:</label>
+                                <label>Descripción:</label>
                                 <p class="h6-responsive"> <?php echo $descripcion; ?> </p>
 
                             </div>
@@ -172,7 +175,7 @@
                             <!-- CONTENEDOR DEL BOTON PARA AGREGAR AL PEDIDO -->
                             <div class="text-center">                                
 
-                                <label for="select-multiple-ingredientes">Ingredientes:</label>
+                                <label>Ingredientes:</label>
                                 <select id="select-multiple-ingredientes" class="custom-select" multiple="multiple">                                    
                                     
                                 </select> 

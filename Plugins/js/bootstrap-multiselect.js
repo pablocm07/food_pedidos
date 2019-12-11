@@ -437,7 +437,7 @@
                 ul: '<ul class="multiselect-container dropdown-menu"></ul>',
                 filter: '<li class="multiselect-item multiselect-filter"><div class="input-group" style="width:93%;"><span class="input-group-addon"></span><input class="form-control multiselect-search" type="text" /></div></li>',
                 filterClearBtn: '<span class="input-group-btn"><button class="btn btn-info multiselect-clear-filter" type="button"><i class="far fa-backspace"></i></button></span>',
-                li: '<li class="pt-3"><a tabindex="0"><label></label></a></li>',
+                li: '<li class="py-2"><a tabindex="0"><label></label></a></li>',
                 divider: '<li class="multiselect-item divider"></li>',
                 liGroup: '<li class="multiselect-item multiselect-group"><label></label></li>',
                 resetButton: '<li class="multiselect-reset"><div class="input-group"><a class="btn btn-info btn-block"></a></div></li>'
@@ -941,7 +941,7 @@
             }
 
             if (this.options.enableClickableOptGroups && this.options.multiple) {
-                $('a label', $li).prepend('<input type="checkbox" value="' + value + '"/>');
+                $('a label', $li).prepend('<input class="d-none" type="checkbox" value="' + value + '" hidden/>');
             }
 
             if ($(group).is(':disabled')) {
@@ -1013,9 +1013,9 @@
                 }
 
                 if (this.options.selectAllName) {
-                    $('label', $li).prepend('<input type="checkbox" name="' + this.options.selectAllName + '" />');
+                    $('label', $li).prepend('<input class="d-none" type="checkbox" name="' + this.options.selectAllName + '" hidden/>');
                 } else {
-                    $('label', $li).prepend('<input type="checkbox" />');
+                    $('label', $li).prepend('<input class="d-none" type="checkbox" hidden/>');
                 }
 
                 var $checkbox = $('input', $li);
