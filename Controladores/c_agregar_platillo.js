@@ -80,6 +80,59 @@
         }
     }
 
+    /** () FUNCION QUE REALIZARÁ LA CONSULTA DE LOS PLATILLOS DISPONIBLES DE CADA LOCAL E INSERTARA LOS DIVS EN EL ACCORDEON
+     *      
+     */
+    const consultar_platillos = function () {        
+        let url = './Modelos/m_platillos.php';
+        $.post(url, { funcion: 'consultar_platillos' }, function (data, status) {
+            
+            let datos = JSON.parse(data);                        
+            
+            if (status == 'success') { // SI SE OBTUVO RESULTADO DE LA PETICION
+                
+                if (datos.estado == 'Tiene platillos') {
+
+                    let total_platillos = datos.platillos.length; // Total de registros
+                    let platillos = datos.platillos;                    
+
+                    for (let index = 0; index < total_platillos; index++) { // Por cada registro se crea una tarjeta nueva para el accordeon
+
+                        let platillo = datos.platillos[index]; // Informacion de cada registro
+                        let datos_platillos = {
+                            id_platillo: platillo.id_platillo,
+                            nombre_platillo: platillo.nombre_platillo,
+                            precio: platillo.precio,
+                            precio_ing_extra: platillo.precio_ing_extra,
+                            tiempo_preparacion: platillo.tiempo_preparacion,
+                            cantidad: platillo.cantidad,
+                            descripcion: platillo.descripcion,
+                            ubicacion_imagen: platillo.ubicacion_imagen
+                        }
+                        let div = $("<div>");                        
+                        div.load('./Vistas/locales_platillo.php', datos_platillos);
+                        $('#contenedor-platillos').append(div);
+                    }                    
+
+                } else {
+
+                    $('#acordeon-platillos').append(
+                        '<div class="container text-center pb-3">'+
+
+                            '<img src="./Assets/img/sin_resultados.png" class="imagen-s-resultados" alt="Sin platillos">' +
+                        
+                            '<p class="h5 color-food-fontOrange">' +
+                                'Aún no tienes platillos agregados. ' +
+                            '</p>' +
+
+                        '</div>'
+                    );                                    
+
+                }
+            }            
+        }); 
+    }
+
 
     /** () FUNCION QUE REALIZARÁ EL REGISTRO DEL NUEVO INGREDIENTE
      * 
@@ -104,7 +157,9 @@
         }).done(function (respuesta_servidor) {            
             let respuesta = JSON.parse(respuesta_servidor);
             if (respuesta.respuesta == '1') {
-                cerrar_modal();
+                $('#modal_agregar_platillo').modal('toggle');
+                $('#contenedor-platillos').empty();
+                consultar_platillos();
                 Swal.fire({
                     type: 'success',
                     title: '¡Correcto!',

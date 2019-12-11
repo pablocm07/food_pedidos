@@ -196,13 +196,13 @@
         let url = './Modelos/m_modal_platillo.php';
         $.post(url, { funcion: 'get_detalle_platillo', id_platillo: id_platillo}, function(data, status) {
             data = JSON.parse(data);
+            // console.log(data);
             if (status) {
                 let total_ingredientes = data.info.length;
                 for (let i = 0; i < total_ingredientes; i++) {
                     $('#select-multiple-ingredientes').append('<option value="' + data.info[i].id_ingrediente + '">' + data.info[i].nombre + '</option>');
                 }
-            }
-            console.log(data);
+            }            
         });
     }
 

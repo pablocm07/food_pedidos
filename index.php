@@ -33,13 +33,13 @@
 
     <body>
 
-        <div class="loadingpage">
+        <!-- <div class="loadingpage m-auto">
             <div class="contenido-loading text-center">
                 <img id="img-chef-loading" src="./Assets/img/logos/Logo_chef.png" alt="Logo chef" style="width: 200px;" class="">
                 <p><b>C A R G A N D O. . .</b></p>
                 <img src="./Assets/img/logos/30.gif" alt="Loading" style="width: 200px;">
             </div>
-        </div>
+        </div> -->
 
         <!-- Para saber el estado de la sesion -->
         <input type="hidden" id="estado-sesion" value="<?php echo $estado_sesion ?>">

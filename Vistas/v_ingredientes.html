@@ -1,50 +1,70 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-</head>
-<body>
-        <main role="main">
+<!-- <link rel="stylesheet" href="./Assets/css/platillos.css?v0.0.2"> -->
 
-                <!-- Main jumbotron for a primary marketing message or call to action -->
-                <div class="jumbotron">
-                  <div class="container">
-                    <h1 class="display-3">Ingredientes</h1>
-                    <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-                    <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
-                  </div>
-                </div>
-          
-                <div class="container">
-                  <!-- Example row of columns -->
-                  <div class="row">
-                    <div class="col-md-4">
-                      <h2>Heading</h2>
-                      <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                      <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-                    </div>
-                    <div class="col-md-4">
-                      <h2>Heading</h2>
-                      <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                      <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-                    </div>
-                    <div class="col-md-4">
-                      <h2>Heading</h2>
-                      <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-                      <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-                    </div>
-                  </div>
-          
-                  <hr>
-          
-                </div> <!-- /container -->
-          
-              </main>
-          
-              <footer class="container">
-                <p>&copy; Company 2017-2018</p>
-              </footer>
-</body>
-</html>
+<!-- CONTENEDOR PRINCIPAL DEL LAYOUT -->
+<div class="contenedor-principal p-3">
+
+    <!-- CONTENEDOR DE LA TARJETA -->
+    <div class="card z-depth-1-half">
+        
+        <!-- ICONOS QUE SE MOSTRARÁN EN EL HEADER -->
+        <ul class="list-unstyled d-flex justify-content-center pt-4">
+            <li><i class="fad fa-meat mr-3 fa-2x color-food-fontBrown" aria-hidden="true"></i></li>
+            <li><i class="fad fa-cheese-swiss mr-3 fa-2x color-food-fontOrange" aria-hidden="true"></i></li>
+            <li><i class="fad fa-bacon fa-2x color-food-fontBrown" aria-hidden="true"></i></li>
+        </ul>
+        <!-- ICONOS QUE SE MOSTRARÁN EN EL HEADER -->
+
+        <h2 class="text-center font-weight-bolder text-warning py-2 px-3">
+            <span class="color-food-fontBrown">INGRED</span><span class="color-food-fontOrange">IENTES</span>
+        </h2>
+
+        <!-- BOTON PARA AGREGAR UN NUEVO PLATILLO -->
+        <a href="#" id="nuevo_ingrediente" class="text-center text-uppercase px-3 d-block color-food-fontBrown">
+            <small class="font-weight-light">
+                <i class="fal fa-plus-circle"></i> ¿Qué ingredientes usas para tus platillos, Salchicha, Pollo, Queso? Agrégalos.
+            </small>
+        </a>
+        <!-- BOTON PARA AGREGAR UN NUEVO PLATILLO -->
+
+        <!-- <hr class="mb-0"> -->
+
+        <!-- CONTENEDOR RESPONSIVO DE LA TABLA -->
+        <div class="table-responsive p-1">
+
+          <!-- TABLA DE INGREDIENTES -->
+          <table class="table table-hover mb-0">
+
+            <!-- TITULOS DE LA TABLA O CABECERAS -->
+            <thead class="font-weight-bolder text-center">
+
+              <tr class="text-center">
+
+                <th>Ingrediente</th>
+                <!-- <th>Editar</th>
+                <th>Eliminar</th> -->
+
+              </tr>
+
+            </thead>
+            <!-- TITULOS DE LA TABLA O CABECERAS -->
+
+            <!-- CUERPO DE LA TABLA CON LOS INGREDIENTES -->
+            <tbody id="tabla-ingredientes" class="text-center font-weight-bolder color-food-fontOrange">
+            </tbody>
+            <!-- CUERPO DE LA TABLA CON LOS INGREDIENTES -->
+
+          </table>
+          <!-- TABLA DE INGREDIENTES -->
+
+        </div>
+        <!-- CONTENEDOR RESPONSIVO DE LA TABLA -->        
+
+        
+
+    </div>  
+    <!-- CONTENEDOR DE LA TARJETA -->
+
+</div>
+<!-- CONTENEDOR PRINCIPAL DEL LAYOUT -->
+
+<script rel="script" src="./Controladores/c_ingredientes.js"></script>

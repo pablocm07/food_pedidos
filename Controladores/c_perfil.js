@@ -51,7 +51,7 @@
     } 
 
     function cargarDatosUsuario(){
-        let url = './Modelos/m_login.php';        
+        let url = './Modelos/m_login.php';
         $.post(url, {funcion:'datos_sesion'}, function (data, status) {
             data = JSON.parse(data);
             // console.log(data.usuario.nombre);
